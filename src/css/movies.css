@@ -1,0 +1,94 @@
+*{
+    font-family: roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.movies {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.search-container {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    gap: 16px;
+}
+
+.movies__search {
+    width: 334px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding-left: 16px;
+    font-size: 1rem;
+}
+
+.movies__search:focus {
+}
+
+.movies__search-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+
+.movies__search-icon-img {
+    width: 20px;
+    height: 20px;
+}
+
+.movies__list {
+    border: 1px solid white;
+    width: 100%;
+    padding: 0 2rem;
+    margin-top: 3rem;
+    
+}
+
+.movies__list-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.movies__list-item{
+    background-image: url(../images/darknight.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 395px;
+    height: 574px;
+    overflow: hidden;
+    border-radius: 5px;
+    color: white;
+    position: relative;
+}
+
+.movies__list-item-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    
+}
+
+.movies__list-item-title{
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.movies__list-item-description{
+    color: #B7B7B7;
+}
+
