@@ -8,7 +8,15 @@ const options = {
     }
   };
   
-  await fetch('https://api.themoviedb.org/3/authentication', options)
+  await fetch('https://api.themoviedb.org/3/movie', options)
     .then(res => res.json())
     .then(res => console.log(res))
     .catch(err => console.error(err));
+
+
+    
+    await fetch('https://api.themoviedb.org/3/find/', options)
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .catch(err => console.error(err));
+
