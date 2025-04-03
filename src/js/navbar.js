@@ -1,11 +1,11 @@
 // @murselsen
-console.log('Navbar script loaded.');
 let theme;
 const checkTheme = () => {
   let result = localStorage.getItem('theme');
   if (result === null) {
     localStorage.setItem('theme', 'dark');
     result = 'dark';
+    return result;
   }
   return result;
 };
@@ -21,6 +21,4 @@ themeToggle.addEventListener('click', () => {
   localStorage.setItem('theme', newTheme);
   themeToggle.style.backgroundImage = `url(./img/navbar/${newTheme}-switch.png)`;
   themeToggle.style.backgroundSize = 'contain';
-  document.body.classList.toggle('dark-theme', newTheme === 'dark');
-  document.body.classList.toggle('light-theme', newTheme === 'light');
 });
