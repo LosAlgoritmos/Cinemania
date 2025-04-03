@@ -48,3 +48,9 @@
 .nav .nav__menu .nav__menu-link:where(.active) {
   color: orange;
 }
+
+.nav .nav__theme .nav__theme-toggle {
+  width: 60px;
+  height: 24px;
+  background-position: center;
+}
