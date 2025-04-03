@@ -1,3 +1,6 @@
 // @murselsen
 console.log('Navbar script loaded.');
-const themeToggle = document.querySelector('#theme-toggle');
+// #nav__theme-toggle
+const themeToggle = document.querySelector('#nav__theme-toggle');
+
+themeToggle.style.backgroundImage = 'url(../img/navbar/)';
