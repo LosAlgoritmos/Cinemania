@@ -1,0 +1,36 @@
+/* Mobil için (Telefonlar) */
+@media screen and (max-width: 576px) {
+    .library-hero {
+        background-image: url(../images/mylibrary/library-hero.jpg);
+    }
+}
+
+/* Tablet için */
+@media screen and (min-width: 577px) and (max-width: 1024px) {}
+
+
+/* Desktop için */
+@media screen and (min-width: 1025px) {
+    .library-hero {
+        background-image: url(../images/mylibrary/library-hero.jpg);
+        display: flex;
+        flex-direction: column;
+        width: 1280px;
+        height: 720px;
+        color: #FFFFFF;
+        padding-left: 117px;
+        padding-top: 229px;
+
+
+    }
+
+    .library-hero h1 {
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 100%;
+        letter-spacing: 0.0em;
+        vertical-align: middle;
+
+    }
+}
