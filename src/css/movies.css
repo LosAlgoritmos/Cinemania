@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+body{
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
 .movies {
     display: flex;
     flex-direction: column;
