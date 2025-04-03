@@ -1,4 +1,15 @@
 [data-theme="dark"] {
-  --bg : black;
-  --text : white;
+  --bg: black;
+  --text: white;
+}
+
+[data-theme="light"] {
+  --bg: white;
+  --text: black;
+}
+
+
+html {
+  background-color: var(--bg);
+  color: var(--text) !important;
 }
