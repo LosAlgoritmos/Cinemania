@@ -1,7 +1,11 @@
 {
   "name": "Cinemania",
   "private": true,
+<<<<<<< Updated upstream
   "version": "1.0.172",
+=======
+  "version": "1.0.285",
+>>>>>>> Stashed changes
   "type": "module",
   "scripts": {
     "dev": "vite",
