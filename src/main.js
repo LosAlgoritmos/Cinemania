@@ -3,3 +3,7 @@
 import './js/navbar.js';
 
 import './js/movies.js';
+
+
+// @yesimbozkurt
+import './js/mylibrary.js';

@@ -1,36 +1,152 @@
-/* Mobil için (Telefonlar) */
-@media screen and (max-width: 576px) {
-    .library-hero {
-        background-image: url(../images/mylibrary/library-hero.jpg);
-    }
+.visible {
+    display: none;
 }
 
-/* Tablet için */
-@media screen and (min-width: 577px) and (max-width: 1024px) {}
-
-
 /* Desktop için */
-@media screen and (min-width: 1025px) {
-    .library-hero {
+.library-hero {
+    background-image: url(../images/mylibrary/hero-img.png);
+    position: relative;
+    width: 100%;
+    height: 720px;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 1280px;
+    object-fit: cover;
+    object-position: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #111111;
+    background: linear-gradient(83.06deg, #111111 35.85%, #1111117e 50.85%, #11111137 60.11%, rgba(17, 17, 17, 0.2) 40.11%);
+}
+
+.library-hero .hero-content {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 117px;
+    padding-top: 169px;
+    background: linear-gradient(83.06deg,
+            #111 15%,
+            /* #1211117e 50.85%, */
+            #16161637 60.11%,
+            rgba(23, 23, 23, 0.2) 40.11%);
+    color: var(--white);
+    filter: drop-shadow(2px 4px 6px black);
+    box-shadow: 2px 2px 2px 1px black;
+
+}
+
+.library-hero .hero-content-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+}
+
+.libray-hero .hero-content-background .hero-content-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 200px;
+}
+
+.library-hero .hero-content .hero-content-title {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    width: 670px;
+    margin-bottom: 16px;
+
+}
+
+.library-hero .hero-content .hero-content-info {
+    max-width: 370px;
+}
+
+.hero .hero__content .hero__content-info .hero__content-info-text {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    margin-bottom: 36px;
+}
+
+.library-hero .hero-content .hero-content-info .hero-content-info-text {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    margin-bottom: 36px;
+}
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin-top: 24px;
+    width: 260px;
+    height: 48px;
+    border: 1px solid var(--white);
+    border-radius: 4px;
+    color: var(--white);
+    padding-inline: 15px;
+    margin-left: 32px;
+}
+
+.filters #genre {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    color: #B7B7B7;
+}
+
+.filters #genre:focus {
+    outline: none;
+}
+
+.filters #genre option {
+    background: #111111;
+    color: #B7B7B7;
+    width: 100%;
+    border: 1px solid var(--white);
+    border-radius: 4px;
+    padding: 15px;
+    width: 260px;
+    height: 48px;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+    margin-left: 32px;
+}
+
+
+
+/* Tablet için */
+@media screen and (min-width: 768px) and (max-width: 1157px) {}
+
+/* Mobil için (Telefonlar) */
+@media screen and (max-width: 767px) {
+    /* .library-hero {
         background-image: url(../images/mylibrary/library-hero.jpg);
-        display: flex;
-        flex-direction: column;
-        width: 1280px;
-        height: 720px;
-        color: #FFFFFF;
-        padding-left: 117px;
-        padding-top: 229px;
-
-
-    }
-
-    .library-hero h1 {
-        color: #FFFFFF;
-        font-weight: 700;
-        font-size: 64px;
-        line-height: 100%;
-        letter-spacing: 0.0em;
-        vertical-align: middle;
-
-    }
+    } */
 }
