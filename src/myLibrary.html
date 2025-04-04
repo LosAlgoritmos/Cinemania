@@ -1,60 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
         integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="./css/mylibrary.css">
-    <title>My Library</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>My Library | Cinemania</title>
 </head>
 
 <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
-
-    <section class="library-hero">
-        <h1>Create Your <br> Dream Cinema</h1>
-        <p>Is a guide to designing a personalized movie theater experience with the right equipment, customized decor,
-            and favorite
-            films. This guide helps you bring the cinema experience into your own home with cozy seating, dim lighting,
-            and movie
-            theater snacks.</p>
-    </section>
-
-    <section class="filters">
-        <label for="genre">Genre:</label>
-        <select id="genre">
-            <option value="all">All</option>
-            <option value="action">Action</option>
-            <option value="romance">Adventure</option>
-            <option value="thriller">Animation</option>
-            <option value="horror">Comedy</option>
-            <option value="documentary">Crime</option>
-            <option value="all">Documentary</option>
-            <option value="all">Drama</option>
-            <option value="all">Family</option>
-            <option value="all">History</option>
-            <option value="all">Horror</option>
-            <option value="all">Music</option>
-            <option value="all">Romance</option>
-            <option value="all">Science Fiction</option>
-            <option value="all">Thriller</option>
-            <option value="all">War</option>
-        </select>
-    </section>
-
-    <section class="movie-grid" id="movie-grid">
-        <ul class="library-content"></ul>
-    </section>
-
-    <button id="load-more">Load More</button>
+    <load src="./partials/header.html" />
+    <load src="./partials/hero.html" />
 
     <load src="./partials/footer.html" />
-
-    <script type="module" src="./js/mylibrary.js"></script>
+    <script type="module" src="./main.js"></script>
+    <script src="script.js"></script>
 
 </body>
 

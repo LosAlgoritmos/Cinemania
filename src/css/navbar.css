@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: var(--text)
 }
 
 .nav .nav__logo {
@@ -39,14 +40,16 @@
   text-align: center;
   vertical-align: middle;
   text-transform: uppercase;
+  color: var(--nav-menu-text);
 }
 
 .nav .nav__menu .nav__menu-link:hover {
-  color: orange;
+  color: var(--nav-menu-text-hover);
+
 }
 
 .nav .nav__menu .nav__menu-link:where(.active) {
-  color: orange;
+  color: var(--nav-menu-text-hover);
 }
 
 .nav .nav__theme .nav__theme-toggle {
