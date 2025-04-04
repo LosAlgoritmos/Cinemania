@@ -36,6 +36,7 @@ const getDayTrends = async () => {
 const getMovieVideos = async movieId => {
   return new Promise((resolve, reject) => {
     try {
+      showLoader();
       // url: 'https://api.themoviedb.org/3/movie/movie_id/videos
       const options = {
         method: 'GET',
@@ -59,6 +60,10 @@ const getMovieVideos = async movieId => {
     } catch (error) {
       console.error('Error in getMovieVideos:', error);
     }
+    finally {
+      hideLoader();
+    }
+    
   });
 };
 
@@ -121,25 +126,25 @@ const heroRender = async () => {
 heroRender();
 
 // getMovieVideos fonksiyonu için de loader kullanımı
-const getMovieVideos = async (movieId) => {
-  try {
-    showLoader();
-    const options = {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMTU5ZDczMTAzOWRjYWNhYzc1ZjBkNmEyZDUzNzFjYSIsIm5iZiI6MTc0MzIwMzMwOC4zMTQsInN1YiI6IjY3ZTcyYmVjMGU4ZWU2NzgxNTY3YTQ4NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.H1VcIsy5PEjzy4uHm47ss9XozIyh5LIka9hEmPAOO3k',
-      },
-    };
+// const getMovieVideos = async (movieId) => {
+//   try {
+//     showLoader();
+//     const options = {
+//       method: 'GET',
+//       headers: {
+//         accept: 'application/json',
+//         Authorization:
+//           'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMTU5ZDczMTAzOWRjYWNhYzc1ZjBkNmEyZDUzNzFjYSIsIm5iZiI6MTc0MzIwMzMwOC4zMTQsInN1YiI6IjY3ZTcyYmVjMGU4ZWU2NzgxNTY3YTQ4NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.H1VcIsy5PEjzy4uHm47ss9XozIyh5LIka9hEmPAOO3k',
+//       },
+//     };
     
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`, options);
-    const data = await response.json();
-    console.log('Movie Videos:', data);
-    // Video işleme kodları buraya
-  } catch (error) {
-    console.error('Error fetching movie videos:', error);
-  } finally {
-    hideLoader();
-  }
-};
+//     const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`, options);
+//     const data = await response.json();
+//     console.log('Movie Videos:', data);
+//     // Video işleme kodları buraya
+//   } catch (error) {
+//     console.error('Error fetching movie videos:', error);
+//   } finally {
+//     hideLoader();
+//   }
+// };
