@@ -27,41 +27,27 @@ const getMovieVideos = async movieId => {
   return new Promise((resolve, reject) => {
     try {
       // url: 'https://api.themoviedb.org/3/movie/movie_id/videos
-       const options = {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMTU5ZDczMTAzOWRjYWNhYzc1ZjBkNmEyZDUzNzFjYSIsIm5iZiI6MTc0MzIwMzMwOC4zMTQsInN1YiI6IjY3ZTcyYmVjMGU4ZWU2NzgxNTY3YTQ4NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.H1VcIsy5PEjzy4uHm47ss9XozIyh5LIka9hEmPAOO3k',
-      },
-    };
+      const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization:
+            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMTU5ZDczMTAzOWRjYWNhYzc1ZjBkNmEyZDUzNzFjYSIsIm5iZiI6MTc0MzIwMzMwOC4zMTQsInN1YiI6IjY3ZTcyYmVjMGU4ZWU2NzgxNTY3YTQ4NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.H1VcIsy5PEjzy4uHm47ss9XozIyh5LIka9hEmPAOO3k',
+        },
+      };
 
-    fetch(
-      '`https://api.themoviedb.org/3/movie/${movieId}/videos`?language=en-US',
-      options
-    )
-      .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        resolve(res);
-      })
-      .catch(err => console.error(err));
-  });
-      axios
-        .get(`https://api.themoviedb.org/3/movie/${movieId}/videos`, {
-          params: { language: 'en-US' },
-        })
+      fetch(
+        `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
+        options
+      )
+        .then(res => res.json())
         .then(res => {
-          resolve(res.data);
+          console.log(res);
+          resolve(res);
         })
-        .catch(err => {
-          console.error(err);
-        });
-    } catch (error) {
-      console.error('getMovieVideos Error:', error);
-      reject(err);
-    }
-  });
+        .catch(err => console.error(err))
+  })
+ 
 };
 const heroRender = async () => {
   try {
