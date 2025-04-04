@@ -50,7 +50,7 @@ const heroRender = async () => {
         const randomMovie = res.results[randomNumber];
 
         // vote_average
-        const voteAverage = Math.ceil(randomMovie.vote_average / 2);
+        const voteAverage = Math.ceil(randomMovie.vote_average.toFixed(2) / 2);
 
         heroPoster.src = `https://image.tmdb.org/t/p/original/${randomMovie.backdrop_path}`;
         heroTitle.textContent =
