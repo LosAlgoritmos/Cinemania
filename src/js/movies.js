@@ -6,7 +6,6 @@ const options = {
     }
 };
 
-
 const moviesList = document.querySelector('.movies__list-items');
 
 
