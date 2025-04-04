@@ -25,4 +25,10 @@ themeToggle.addEventListener('click', event => {
 });
 
 const pageURL = document.URL.split('/').pop();
-document.querySelectorAll("")
+document.querySelectorAll('.nav__menu-link').forEach(link => {
+  if (link.getAttribute('href') === pageURL) {
+    link.classList.add('active');
+  } else {
+    link.classList.remove('active');
+  }
+});
