@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: white;
+}
+.weekly-trends {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  /* padding-left: 32px;
+  padding-right: 32px; */
+  margin: 0 auto;
+}
+.wtrends {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.wtrends {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+.wtrends-title {
+  text-transform: uppercase;
+}
+.see-all {
+  color: #f87719;
+  list-style: none;
+}
+.trend-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 16px;
+  margin: 0;
+}
+.cards {
+  background-image: url('../imagess/Çilek_Kız.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 395px;
+  height: 574px;
+  position: relative;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+  box-shadow: inset 0 -10px 15px rgba(0, 0, 0, 0.5);
+}
+.cards:hover {
+  transform: scale(1.03);
+}
+.about {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+.filmm-content {
+  /* color: #b7b7b7; yazılar görünsün aşağıdaki renk yaptım  */
+  color: black;
+}
+.filmm-name {
+  text-transform: uppercase;
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    width: 224px;
+    height: 325px;
+  }
+  .wtrends {
+    font-size: 24px;
+  }
+  .about {
+    font-size: 12px;
+    line-height: 18px;
+    padding-left: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .trend-cards {
+    width: 100%;
+  }
+  .cards {
+    width: 280px;
+    height: 406px;
+  }
+  .about {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .wtrends {
+    font-size: 16px;
+  }
+}
