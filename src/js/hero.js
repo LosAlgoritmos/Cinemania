@@ -46,9 +46,12 @@ const getMovieVideos = async movieId => {
           resolve(res);
         })
         .catch(err => console.error(err))
-  })
- 
-};
+    }
+ catch (error) {
+    console.error('Error in getMovieVideos:', error);
+  }
+  });
+
 const heroRender = async () => {
   try {
     const stars = [
