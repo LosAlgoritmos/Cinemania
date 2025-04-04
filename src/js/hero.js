@@ -1,5 +1,3 @@
-console.log('Hero.js loaded!');
-
 const getDayTrends = async () => {
   return new Promise((resolve, reject) => {
     const options = {
@@ -45,12 +43,12 @@ const getMovieVideos = async movieId => {
           console.log(res);
           resolve(res);
         })
-        .catch(err => console.error(err))
+        .catch(err => console.error(err));
+    } catch (error) {
+      console.error('Error in getMovieVideos:', error);
     }
- catch (error) {
-    console.error('Error in getMovieVideos:', error);
-  }
   });
+};
 
 const heroRender = async () => {
   try {
@@ -78,17 +76,16 @@ const heroRender = async () => {
         const randomMovie = res.results[randomNumber];
 
         // vote_average
-        const voteAverage = Math.ceil(randomMovie.vote_average.toFixed(2) / 2);
+        const voteAverage = Math.round(randomMovie.vote_average / 2);
         console.log('Vote Average:', voteAverage);
-        console.log('Random Number:', randomNumber);
-        console.log('Random Movie:', randomMovie);
         heroPoster.src = `https://image.tmdb.org/t/p/original/${randomMovie.backdrop_path}`;
         heroTitle.textContent =
           randomMovie.original_name || randomMovie.original_title;
         heroInfoText.textContent = randomMovie.overview;
-        for (let i = 0; i < voteAverage; i++) {
+        for (let i = 0; i <= voteAverage; i++) {
           stars[i] = `<span class="star star"></span>`;
         }
+        console.log('Stars:', stars);
         heroStars.innerHTML = stars.join('');
 
         console.log('Hero Movie:', randomMovie, randomMovie.id);
