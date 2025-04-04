@@ -1,15 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>My Library</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+        integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>My Library | Cinemania</title>
 </head>
+
 <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+
+    <!-- Loader Component -->
+    <div class="loader-container" id="loader-container">
+      <span class="loader"></span>
+    </div>
+  <load src="./partials/header.html" />
+
+
+    <section class="library-hero">
+        <div class="hero-content">
+            <h1 class="hero-content-title">
+                Create Your <br> Dream Cinema
+            </h1>
+
+            <div class="hero-content-info">
+                <p class="hero-content-info-text">
+                    Is a guide to designing a personalized movie theater experience with the right equipment, customized
+                    decor,
+                    and favorite
+                    films. This guide helps you bring the cinema experience into your own home with cozy seating, dim
+                    lighting,
+                    and movie
+                    theater snacks.
+                </p>
+
+            </div>
+        </div>
+        <div class="hero-content-background">
+            <img class="hero-content-background-image" src="./images/mylibrary/library-hero.jpg" alt="movie-theater" />
+        </div>
+    </section>
+
+    <section class="filters">
+        <select id="genre">
+            <option value="all">All Genres</option>
+            <option value="28">Action</option>
+            <option value="12">Adventure</option>
+            <option value="16">Animation</option>
+            <option value="35">Comedy</option>
+            <option value="80">Crime</option>
+            <option value="99">Documentary</option>
+            <option value="18">Drama</option>
+            <option value="10751">Family</option>
+            <option value="14">Fantasy</option>
+            <option value="36">History</option>
+            <option value="27">Horror</option>
+            <option value="10402">Music</option>
+            <option value="9648">Mystery</option>
+            <option value="10749">Romance</option>
+            <option value="878">Science Fiction</option>
+            <option value="10770">TV Movie</option>
+            <option value="53">Thriller</option>
+            <option value="10752">War</option>
+            <option value="37">Western</option>
+        </select>
+    </section>
+
+    <section class="movie-grid" id="movie-grid">
+        <ul class="library-content"></ul>
+    </section>
+
     <load src="./partials/footer.html" />
-    <script src="script.js"></script>
-   
+    <script type="module" src="./main.js"></script>
 </body>
+
 </html>
