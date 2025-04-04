@@ -1,3 +1,64 @@
+
+import { showLoader, hideLoader, fetchWithLoader } from './loader.js';
+
+const options = {method: 'GET', headers: {accept: 'application/json'}};
+
+const moviesList = document.querySelector('.movies__list-items');
+
+// fetchWithLoader fonksiyonunu kullanarak veri çekiyoruz
+async function getMovies() {
+  try {
+    const data = await fetchWithLoader(
+      'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', 
+      options
+    );
+    //console.log(data);
+    data.forEach(movie => {
+
+            const genres = []
+              const li = document.createElement('li');
+              li.className = 'movies__list-item';
+              li.style.background = 'linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))';
+              li.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${movie.poster_path})`;
+              li.style.backgroundSize = 'cover';
+              li.style.backgroundRepeat = 'no-repeat';
+              li.style.width = '395px';
+              li.style.height = '574px';
+              li.style.overflow = 'hidden';
+              li.style.borderRadius = '5px';
+              li.style.color = 'white';
+              li.style.position = 'relative';
+              li.style.cursor = 'pointer';
+
+
+              li.innerHTML = `
+                  <div class="movies__list-item-info">
+                      <div class="movies__list-item-info-container">
+                      <h3 class="movies__list-item-title">${movie.title || movie.name}</h3>
+                      <p class="movies__list-item-description">${movie.release_date}</p>
+                      </div>
+                      <div class="movies__list-item-rating">
+                       ${Array.from({length: 5}, (_, index) => 
+                          index < Math.round(movie.vote_average) 
+                              ? '<img src="./images/star.png" alt="star">'
+                              : '<img src="./images/star-outline.png" alt="empty star">'
+                       ).join('')}
+                      </div>
+                  </div>
+              `;
+
+              moviesList.appendChild(li);
+          });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+// Sayfanın yüklenmesi durumunda çalıştırılacak
+document.addEventListener('DOMContentLoaded', () => {
+  getMovies();
+});
+
 const options = {
     method: 'GET',
     headers: {
@@ -6,59 +67,57 @@ const options = {
     }
 };
 
-const moviesList = document.querySelector('.movies__list-items');
 
 
-await fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
-    .then(res => res.json())
-    .then(res => console.log(res))
-    .catch(err => console.error(err));
 
-await fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
-    .then(res => res.json())
-    .then(data => {
-        data.results.forEach(movie => {
+// await fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
+//     .then(res => res.json())
+//     .then(res => console.log(res))
+//     .catch(err => console.error(err));
 
-          const genres = []
-            const li = document.createElement('li');
-            li.className = 'movies__list-item';
-            li.style.background = 'linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))';
-            li.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${movie.poster_path})`;
-            li.style.backgroundSize = 'cover';
-            li.style.backgroundRepeat = 'no-repeat';
-            li.style.width = '395px';
-            li.style.height = '574px';
-            li.style.overflow = 'hidden';
-            li.style.borderRadius = '5px';
-            li.style.color = 'white';
-            li.style.position = 'relative';
-            li.style.cursor = 'pointer';
-            
-            
-            li.innerHTML = `
-                <div class="movies__list-item-info">
-                    <div class="movies__list-item-info-container">
-                    <h3 class="movies__list-item-title">${movie.title || movie.name}</h3>
-                    <p class="movies__list-item-description">${movie.release_date}</p>
-                    </div>
-                    <div class="movies__list-item-rating">
-                     ${Array.from({length: 5}, (_, index) => 
-                        index < Math.round(movie.vote_average) 
-                            ? '<img src="./images/star.png" alt="star">'
-                            : '<img src="./images/star-outline.png" alt="empty star">'
-                     ).join('')}
-                    </div>
-                </div>
-            `;
-            
-            moviesList.appendChild(li);
-        });
-    })
-    .catch(err => console.error(err));
+// await fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
+//     .then(res => res.json())
+//     .then(data => {
+//         data.results.forEach(movie => {
 
-  
+//           const genres = []
+//             const li = document.createElement('li');
+//             li.className = 'movies__list-item';
+//             li.style.background = 'linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))';
+//             li.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${movie.poster_path})`;
+//             li.style.backgroundSize = 'cover';
+//             li.style.backgroundRepeat = 'no-repeat';
+//             li.style.width = '395px';
+//             li.style.height = '574px';
+//             li.style.overflow = 'hidden';
+//             li.style.borderRadius = '5px';
+//             li.style.color = 'white';
+//             li.style.position = 'relative';
+//             li.style.cursor = 'pointer';
 
-function getGenresForMovie(movie) {
-  
 
-}
+//             li.innerHTML = `
+//                 <div class="movies__list-item-info">
+//                     <div class="movies__list-item-info-container">
+//                     <h3 class="movies__list-item-title">${movie.title || movie.name}</h3>
+//                     <p class="movies__list-item-description">${movie.release_date}</p>
+//                     </div>
+//                     <div class="movies__list-item-rating">
+//                      ${Array.from({length: 5}, (_, index) => 
+//                         index < Math.round(movie.vote_average) 
+//                             ? '<img src="./images/star.png" alt="star">'
+//                             : '<img src="./images/star-outline.png" alt="empty star">'
+//                      ).join('')}
+//                     </div>
+//                 </div>
+//             `;
+
+//             moviesList.appendChild(li);
+//         });
+//     })
+//     .catch(err => console.error(err));
+
+
+
+
+
