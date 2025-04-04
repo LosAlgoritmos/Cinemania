@@ -1,0 +1,80 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 720px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.hero .hero__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-block: 118px;
+  padding-left: 135px;
+  background: linear-gradient(83.06deg,
+      #111111 35.85%,
+      #1111117e 50.85%,
+      #11111137 60.11%,
+      rgba(17, 17, 17, 0.2) 40.11%);
+
+  filter: drop-shadow(2px 4px 6px black);
+  box-shadow: 2px 2px 2px 1px black;
+}
+
+.hero .hero__content-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+}
+
+.hero .hero__content-background .hero__content-background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 200px;
+}
+
+/* Hero Title */
+.hero .hero__content .hero__content-title {
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  width: 670px;
+  margin-bottom: 16px;
+}
+
+/* Hero Stars */
+.hero .hero__content .hero__content-stars {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 28px;
+}
+
+/*  Hero Information */
+.hero .hero__content .hero__content-info {
+  max-width: 370px;
+}
+
+.hero .hero__content .hero__content-info .hero__content-info-text {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  margin-bottom: 36px;
+}
+
+.hero .hero__content .hero__content-info .hero__content-info-buttons {
+  display: flex;
+  gap: 14px;
+}
