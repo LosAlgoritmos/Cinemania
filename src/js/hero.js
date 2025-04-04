@@ -1,3 +1,5 @@
+console.log('Hero.js loaded!');
+
 const getDayTrends = async () => {
   return new Promise((resolve, reject) => {
     const options = {
