@@ -25,3 +25,5 @@ dist-ssr
 *.sln
 *.sw?
 Pull Request Mesajı.txt
+.gitignore
+./package-lock.json
