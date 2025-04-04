@@ -71,13 +71,18 @@ body{
 }
 
 .movies__list-item{
-    
     width: 395px;
     height: 574px;
     overflow: hidden;
     border-radius: 5px;
     color: white;
     position: relative;
+}
+
+.movies__list-item:hover {
+    transform: translateY(-30px);
+    box-shadow: 0 0 20px rgba(248, 65, 25, 0.7);
+    transition: all 0.3s ease;
 }
 
 .movies__list-item-info {
