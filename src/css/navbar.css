@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: var(--text)
 }
 
 .nav .nav__logo {
@@ -39,23 +40,39 @@
   text-align: center;
   vertical-align: middle;
   text-transform: uppercase;
+  color: var(--nav-menu-text);
 }
 
 .nav .nav__menu .nav__menu-link:hover {
-  color: orange;
+  color: var(--nav-menu-text-hover);
+
 }
 
 .nav .nav__menu .nav__menu-link:where(.active) {
-  color: orange;
+  color: var(--nav-menu-text-hover);
 }
 
 .nav .nav__theme .nav__theme-toggle {
   width: 60px;
   height: 24px;
   border: 0px;
-
   background-color: transparent;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .nav {
+    padding: 6px 32px;
+  }
+}
+
+/* Styles for Tablet devices */
+@media only screen and (min-width: 375) {
+  .nav {
+    padding: 8px 20px;
+  }
 }
