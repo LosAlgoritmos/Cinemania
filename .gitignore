@@ -12,9 +12,6 @@ dist
 dist-ssr
 *.local
 
-src/index.html
-src/catalog.html
-src/myLibrary.html
 
 
 # Editor directories and files
@@ -27,3 +24,6 @@ src/myLibrary.html
 *.njsproj
 *.sln
 *.sw?
+Pull Request Mesajı.txt
+.gitignore
+./package-lock.json
