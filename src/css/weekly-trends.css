@@ -38,7 +38,6 @@ body {
   gap: 16px;
 }
 .cards {
-  background-image: url('../imagess/Çilek_Kız.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -68,12 +67,11 @@ body {
   letter-spacing: 0%;
 }
 .filmm-content {
-  /* color: #b7b7b7; yazılar görünsün aşağıdaki renk yaptım  */
-  color: black;
+  color: #b7b7b7;
 }
 .filmm-name {
   text-transform: uppercase;
-  color: black;
+  color: #b7b7b7;
 }
 
 @media (max-width: 768px) {
