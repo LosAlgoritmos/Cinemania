@@ -7,11 +7,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.85);
   z-index: 9999;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.3s, visibility 0.3s;
+  transition: opacity 0.5s, visibility 0.5s;
 }
 
 .loader-container.active {
@@ -19,22 +19,99 @@
   opacity: 1;
 }
 
+/* Film rulosu animasyonu */
 .loader {
-  width: 48px;
-  height: 48px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-  border-bottom-color: #FF3D00;
-  display: inline-block;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-@keyframes rotation {
+.film-reel {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top: 4px solid #ff3d00;
+  border-bottom: 4px solid #ff3d00;
+  animation: rotate 1.5s linear infinite;
+  position: relative;
+}
+
+.film-reel::before,
+.film-reel::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #ff3d00;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.film-reel::before {
+  left: -10px;
+}
+
+.film-reel::after {
+  right: -10px;
+}
+
+.film-strip {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  background: repeating-linear-gradient(
+    90deg,
+    #333,
+    #333 5px,
+    #555 5px,
+    #555 10px,
+    #333 10px,
+    #333 15px
+  );
+  border-top: 3px solid #666;
+  border-bottom: 3px solid #666;
+  transform-origin: center;
+  animation: filmStrip 3s linear infinite;
+}
+
+.film-strip-top {
+  top: 5px;
+}
+
+.film-strip-bottom {
+  bottom: 5px;
+}
+
+.loader-text {
+  color: #fff;
+  font-size: 14px;
+  margin-top: 15px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+@keyframes rotate {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
   }
-} 
+}
+
+@keyframes filmStrip {
+  0% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+}
