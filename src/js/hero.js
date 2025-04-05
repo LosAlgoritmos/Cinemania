@@ -15,12 +15,11 @@ const getDayTrends = async () => {
     showLoader();
 
     fetch(
-      'https://api.themoviedb.org/3/trending/all/day?language=en-US',
+      'https://api.themoviedb.org/3/trending/all/week?language=en-US',
       options
     )
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         resolve(res);
       })
       .catch(err => {
@@ -51,20 +50,36 @@ const getMovieVideos = async movieId => {
             'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMTU5ZDczMTAzOWRjYWNhYzc1ZjBkNmEyZDUzNzFjYSIsIm5iZiI6MTc0MzIwMzMwOC4zMTQsInN1YiI6IjY3ZTcyYmVjMGU4ZWU2NzgxNTY3YTQ4NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.H1VcIsy5PEjzy4uHm47ss9XozIyh5LIka9hEmPAOO3k',
         },
       };
-
+      console.log('Movie ID:', movieId);
       fetch(
         `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
         options
       )
         .then(res => res.json())
-        .then(res => {
-          console.log('GetMovieVideos:', res);
+        .then(videoData => {
+          if (!videoData || !videoData.results) {
+            console.error('No video data found');
+            moreDetailsButton.style.display = 'none';
+            return;
+          }
+          watchTrailerButton.textContent = 'Watch Trailer';
+          const officialTrailer = videoData.results.find(
+            video => video.site === 'YouTube' && video.type === 'Trailer'
+          );
+          console.log('Official Trailer Data:', officialTrailer);
+          resolve(officialTrailer);
+          /*  console.log('GetMovieVideos:', res);
           if (res.results.length > 0) {
             res.results.forEach(videoItem => {
-              if
+              if (videoItem.type === 'Trailer') {
+                watchTrailerButton.textContent = 'Watch Trailer';
+                watchTrailerButton.addEventListener('click', () => {
+                  const trailerUrl = `https://www.youtube.com/watch?v=${videoItem.key}`;
+                  window.open(trailerUrl, '_blank');
+                });
+              }
             });
-          }
-          resolve(res);
+          } */
         })
         .catch(err => console.error(err));
     } catch (error) {
@@ -99,12 +114,9 @@ const heroRender = async () => {
 
     getDayTrends()
       .then(async res => {
-        console.log('Hero Movie:', res);
         const randomMovie = res.results[randomNumber];
-
         // vote_average
         const voteAverage = Math.round(randomMovie.vote_average / 2);
-        console.log('Vote Average:', voteAverage);
         heroPoster.src = `https://image.tmdb.org/t/p/original/${randomMovie.backdrop_path}`;
         heroTitle.textContent =
           randomMovie.original_name || randomMovie.original_title;
@@ -112,10 +124,7 @@ const heroRender = async () => {
         for (let i = 0; i <= voteAverage; i++) {
           stars[i] = `<span class="star star"></span>`;
         }
-        console.log('Stars:', stars);
         heroStars.innerHTML = stars.join('');
-
-        console.log('Hero Movie:', randomMovie, randomMovie.id);
 
         getMovieVideos(randomMovie.id);
       })
