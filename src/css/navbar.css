@@ -52,13 +52,13 @@
   color: var(--nav-menu-text-hover);
 }
 
-.nav .nav__menu .nav__menu-toggle{
+.nav .nav__menu-toggle{
   background-color: transparent;
   border: none;
   color: var(--nav-menu-text);
   display: none;
 }
-.nav .nav__menu .nav__menu-toggle:hover{
+.nav  .nav__menu-toggle:hover{
   color: var(--nav-menu-text-hover);
 }
 
@@ -72,19 +72,37 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+ 
 
-/* Styles for Tablet devices */
-@media (min-width: 376px) and (max-width: 768px) {
+/* Mobil (genelde 0 - 600px) */
+@media (max-width: 600px) {
+  .nav {
+    padding: 8px 20px;
+  }
+  .nav .nav__logo .nav__logo-text {
+    display: none;
+  }
+  .nav .nav__menu .nav__menu-list{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top:0px;
+    left:0px;
+    width: 65%;
+    background-color: var(--bg);
+    z-index: 99;
+    border:1px solid white;
+
+  }
+  .nav   .nav__menu-toggle{
+    display: block;
+  }
+}
+
+/* Tablet (601px - 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
   .nav {
     padding: 12px 32px;
   }
 }
-/* Styles for Mobile devices */
-@media (max-width: 375px) {
-  .nav {
-    padding: 8px 20px;
-  }
-  .nav .nav__menu .nav__menu-list{
-    display: none;
-  }
-}
+ 
