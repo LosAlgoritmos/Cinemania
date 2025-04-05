@@ -52,6 +52,17 @@
   color: var(--nav-menu-text-hover);
 }
 
+.nav .nav__menu .nav__menu-toggle{
+  background-color: transparent;
+  border: none;
+  color: var(--nav-menu-text);
+  display: none;
+}
+.nav .nav__menu .nav__menu-toggle:hover{
+  color: var(--nav-menu-text-hover);
+}
+
+
 .nav .nav__theme .nav__theme-toggle {
   width: 60px;
   height: 24px;
@@ -62,13 +73,18 @@
   background-size: cover;
 }
 
-
- 
-
 /* Styles for Tablet devices */
-@media (min-width: 375px) and (max-width: 768px) {
+@media (min-width: 376px) and (max-width: 768px) {
   .nav {
-    padding: 6px 32px;
+    padding: 12px 32px;
   }
 }
-/* Styles for Tablet devices */
+/* Styles for Mobile devices */
+@media (max-width: 375px) {
+  .nav {
+    padding: 8px 20px;
+  }
+  .nav .nav__menu .nav__menu-list{
+    display: none;
+  }
+}
