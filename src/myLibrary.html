@@ -20,15 +20,11 @@
 <body>
     <!-- Loader Component -->
     <div class="loader-container" id="loader-container">
-      <div class="loader">
-        <div class="film-strip film-strip-top"></div>
-        <div class="film-reel"></div>
-        <div class="film-strip film-strip-bottom"></div>
-        <div class="loader-text">Loading...</div>
-      </div>
-    </div>
 
+        <span class="loader"></span>
+    </div>
     <load src="./partials/header.html" />
+
 
 
     <section class="library-hero">
@@ -50,7 +46,7 @@
             </div>
         </div>
         <div class="hero-content-background">
-            <img class="hero-content-background-image" src="./images/mylibrary/library-hero.jpg" alt="movie-theater" />
+            <img class="hero-content-background-image" src="./images/mylibrary/hero-img.png" alt="movie-theater" />
         </div>
     </section>
 
@@ -80,8 +76,29 @@
     </section>
 
     <section class="movie-grid" id="movie-grid">
-        <ul class="library-content"></ul>
+        <div id="movie-list">
+            <ul class="library-content">
+                <li>
+                    <h1>card</h1>
+                </li>
+                <li>
+                    <h1>card1</h1>
+                </li>
+                <li>
+                    <h1>card2</h1>
+                </li>
+                <li>
+                    <h1>card4</h1>
+                </li>
+            </ul>
+        </div>
+        <div class="load-more">
+            <button class="load-more-btn">Load More</button>
+        </div>
+
+
     </section>
+    <load src="./partials/library.html" />
 
     <load src="./partials/footer.html" />
     <script type="module" src="./main.js"></script>
