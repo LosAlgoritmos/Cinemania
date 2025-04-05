@@ -2,6 +2,10 @@ const modal = document.getElementById('errorModal');
 const btn = document.getElementsByClassName('btn-orange-black');
 const span = document.querySelector('.closeBtn');
 
+if (movieId.video) {
+  showModal();
+}
+
 btn.onclick = function () {
   modal.style.display = 'block';
 };
