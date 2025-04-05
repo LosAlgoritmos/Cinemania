@@ -4,14 +4,15 @@
 
 /* Desktop için */
 .library-hero {
-    background-image: url(../images/mylibrary/hero-img.png);
+
     position: relative;
     width: 100%;
     height: 720px;
     box-sizing: border-box;
     overflow: hidden;
     margin: 0 auto;
-    max-width: 1280px;
+    max-width: 1440px;
+    min-width: 1157px;
     object-fit: cover;
     object-position: 200px;
     background-size: cover;
@@ -38,7 +39,7 @@
     color: var(--white);
     filter: drop-shadow(2px 4px 6px black);
     box-shadow: 2px 2px 2px 1px black;
-
+    margin: 0 auto;
 }
 
 .library-hero .hero-content-background {
@@ -58,7 +59,7 @@
 }
 
 .library-hero .hero-content .hero-content-title {
-    font-family: Roboto;
+
     font-weight: 700;
     font-size: 64px;
     line-height: 100%;
@@ -132,21 +133,95 @@
 }
 
 .movie-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    display: flex;
+    flex-direction: column;
+    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
     gap: 20px;
     margin-top: 24px;
     margin-left: 32px;
 }
 
+.library-content {
+    display: flex;
+    flex-direction: wrap;
+    margin-top: 24px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--white);
+    gap: 20px;
+}
+
+.library-content li {
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    width: 200px;
+    height: 300px;
+    border: 1px solid var(--white);
+    border-radius: 4px;
+    background: red;
+}
+
+.load-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    width: 100%;
+    height: 52px;
+}
 
 
 /* Tablet için */
-@media screen and (min-width: 768px) and (max-width: 1157px) {}
+@media screen and (min-width: 768px) and (max-width: 1157px) {
+    .library-hero {
+        width: 100%;
+        max-width: 1157px;
+        min-width: 768px;
+        height: 500px;
+    }
+
+    .library-hero .hero-content {
+        padding-left: 32px;
+        padding-top: 62px;
+    }
+
+    .filters {
+        width: 144px;
+        height: 44px;
+    }
+
+    .load-more {
+        height: 40px;
+    }
+}
 
 /* Mobil için (Telefonlar) */
 @media screen and (max-width: 767px) {
-    /* .library-hero {
-        background-image: url(../images/mylibrary/library-hero.jpg);
-    } */
+    .library-hero {
+        width: 100%;
+        height: 380px;
+        padding: 40px 20px;
+        margin: 0 auto;
+    }
+
+    .library-hero .hero-content {
+        padding-left: 20px;
+        padding-top: 40px;
+    }
+
+    .filters {
+        width: 173px;
+        height: 40px;
+    }
+
+    .load-more {
+        width: 100%;
+        height: 38px;
+    }
+
+    .hero-content {
+        margin-top: 40px;
+        margin-left: 20px;
+    }
 }
