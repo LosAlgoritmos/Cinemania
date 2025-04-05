@@ -2,10 +2,29 @@
  * Loader işlevselliği için yardımcı fonksiyonlar
  */
 
+// Film/sinema ile ilgili yükleme mesajları
+const loadingMessages = [
+  "Filminiz yükleniyor...",
+  "Sinema perdesi hazırlanıyor...",
+  "Filminiz başlamak üzere...",
+  "Koltuklar hazırlanıyor...",
+  "Patlamış mısırlar hazır...",
+  "Film makarası takılıyor...",
+  "Işıklar kapanıyor...",
+  "Film başlamak üzere..."
+];
+
 // Loader'ı gösterme fonksiyonu
 export function showLoader() {
   const loader = document.getElementById('loader-container');
   if (loader) {
+    // Rastgele bir film mesajı seç
+    const randomMessage = loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
+    const messageElement = loader.querySelector('.loader-text');
+    if (messageElement) {
+      messageElement.textContent = randomMessage;
+    }
+    
     loader.classList.add('active');
   }
 }
@@ -29,6 +48,9 @@ export async function fetchWithLoader(url, options) {
     console.error('Fetch error:', error);
     throw error;
   } finally {
-    hideLoader();
+    // Animasyonun en az 1 saniye görünmesini sağla
+    setTimeout(() => {
+      hideLoader();
+    }, 1000);
   }
 } 
