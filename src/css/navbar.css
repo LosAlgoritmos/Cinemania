@@ -76,6 +76,7 @@
 
 @media (max-width: 767px) {
   .nav {
+
     padding: 8px 20px;
   }
   .nav .nav__logo .nav__logo-text {
@@ -95,6 +96,7 @@
   }
   .nav   .nav__menu-toggle{
     display: block;
+
   }
 }
 
