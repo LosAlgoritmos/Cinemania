@@ -4,6 +4,8 @@
   height: 720px;
   box-sizing: border-box;
   overflow: hidden;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .hero .hero__content {

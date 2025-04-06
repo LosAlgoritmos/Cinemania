@@ -106,3 +106,9 @@
   }
 }
  
+
+.header {
+  padding:0px;
+  max-width: 1280px;
+  margin: 0 auto;
+}

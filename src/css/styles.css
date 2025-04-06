@@ -2,7 +2,7 @@
 
 @import url('./movies.css');
 /* Sections style */
-@import url('./header.css');
+/* @import url('./header.css'); */ /* @murselsen : Boş */
 
 @import url('./vite-promo.css');
 @import url('./badges.css');
