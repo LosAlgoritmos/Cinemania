@@ -1,0 +1,36 @@
+#go-to-catalog-btn,
+.load-more-btn {
+    background: var(--linear-o-y);
+    color: var(--black);
+    font-size: 18px;
+    line-height: 24px;
+    border: 1px solid var(--linear-y-o);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+#go-to-catalog-btn:hover,
+.load-more-btn:hover {
+    background-color: #ff6347;
+    background: var(--linear-y-o);
+    color: var(--white);
+}
+
+.empty-library {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-library p {
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    margin-bottom: 36px;
+}
