@@ -8,7 +8,10 @@ import './js/movies.js';
 import './js/mylibrary.js';
 import './js/loader.js';
 
+// @sumeyyeterzi
+import './js/errorModal.js';
+import './js/infoPopup.js';
+
+// @negin
 import './js/weeklyTrends.js';
-
 import './js/scroll-up.js';
-
