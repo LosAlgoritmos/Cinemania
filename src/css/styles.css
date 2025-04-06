@@ -14,6 +14,9 @@
 @import url('./container.css');
 
 @import url('./animations.css');
+
+@import url('./upcoming.css');
+
 @import url('./team_modal.css');
 
 
@@ -33,3 +36,4 @@
 
 @import url('./scroll-up.css');
 @import url('./mylibrary.css');
+
