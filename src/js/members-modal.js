@@ -1,31 +1,56 @@
-const footerBtn = document.querySelector('.footer-btn');
-const backdropModal = document.querySelector('.backdrop-team-modal');
-const closeBtn = document.querySelector('.close-btn');
+const teamLink = document.getElementById('our-team-btn');
+const teamBackdrop = document.querySelector('.team__backdrop');
+const teamCloseBtn = document.querySelector('.team__modal-close-btn');
+const bodyElement = document.querySelector('body')
 
-function openModal() {
-  backdropModal.classList.remove('is-hidden');
-  document.addEventListener('keydown', closeModalOnEscape);
-  backdropModal.addEventListener('click', closeModalOnClickOutside);
-  console.log('test');
-}
-function closeModal() {
-  backdropModal.classList.add('is-hidden');
-  document.removeEventListener('keydown', closeModalOnEscape);
-  backdropModal.removeEventListener('click', closeModalOnClickOutside);
+teamLink.addEventListener('click', onLinkClick);
+
+function onLinkClick(event) {
+  event.preventDefault();
+
+  teamBackdrop.classList.remove('is-hidden');
+  document.body.classList.add('modal-open');
+
+  addAllEventListeners();
 }
 
-function closeModalOnEscape(event) {
-  if (event.key === 'Escape') {
-    closeModal();
+function onEscClick(event) {
+  event.preventDefault();
+
+  if (event.code !== 'Escape') {
+    return;
   }
+
+  closingModalStaff();
 }
-function closeModalOnClickOutside(event) {
-  if (event.target === backdropModal) {
-    closeModal();
+
+function onBackdropClick(event) {
+  if (event.target.closest('.team__wrapper')) {
+    return;
   }
+
+  closingModalStaff();
 }
 
-footerBtn.addEventListener('click', openModal);
-closeBtn.addEventListener('click', closeModal);
+function onCloseBtnClick(event) {
+  event.preventDefault();
 
+  closingModalStaff();
+}
 
+function addAllEventListeners() {
+  document.addEventListener('keydown', onEscClick);
+  teamBackdrop.addEventListener('click', onBackdropClick);
+  teamCloseBtn.addEventListener('click', onCloseBtnClick);
+  bodyElement.style.overflow = 'hidden';
+}
+
+function closingModalStaff() {
+  document.removeEventListener('keydown', onEscClick);
+  teamBackdrop.removeEventListener('click', onBackdropClick);
+  teamCloseBtn.removeEventListener('click', onCloseBtnClick);
+
+  teamBackdrop.classList.add('is-hidden');
+  document.body.classList.remove('modal-open');
+  bodyElement.style.overflow = 'auto';
+}

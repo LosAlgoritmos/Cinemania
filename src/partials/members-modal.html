@@ -1,55 +1,287 @@
-<div class="backdrop-team-modal is-hidden" id="backdrop-team">
-    <div class="modal-team">
-      <h1 class="team-name">Developers</h1>
-      <button type="button" class="close-btn">
-        <svg class="modal-close-btn" width="15" height="15">
-          <use class="close-icon" href="./images/sprite.svg#icon-close"></use>
-        </svg>
-      </button>
-      <div class="modal-container">
-        <ul class="team-card">
-          <li class="card">
-            <img src="../images/02-Yeşim Bozkurt.jpg" alt="Team-Lead" />
-            <p class="full-name">Yeşim Bozkurt</p>
-            <p class="team-position">Team-Lead</p>
-          </li>
-          <li class="card">
-            <img src="../images/01-Kaan Erenmemisoglu.jpeg" alt="Scrum-Master" />
-            <p class="full-name">Kaan Erenmemisoglu</p>
-            <p class="team-position">Scrum-Master</p>
-          </li>
-          <li class="card">
-            <img src="../images/06-Erdem Demircioglu.jpeg" alt="Developer" />
-            <p class="full-name">Erdem Demircioglu</p>
-            <p class="team-position">Developer</p>
-          </li>
-          <li class="card">
-            <img src="../images/03-Dilara Aydemir.jpg" alt="Developer" />
-            <p class="full-name">Dilara Aydemir</p>
-            <p class="team-position">Developer</p>
-          </li>
-          <li class="card">
-            <img src="../images/04-Sümeyye Terzi.jpg" alt="Developer" />
-            <p class="full-name">Sümeyye Terzi</p>
-            <p class="team-position">Developer</p>
-          </li>
-          <li class="card">
-            <img src="../images/05-Negin Kerimli.jpeg" alt="Developer" />
-            <p class="full-name">Negin Kerimli</p>
-            <p class="team-position">Developer</p>
-          </li>
-          <li class="card">
-            <img src="../images/07-Alper Kale.jpeg" alt="Developer" />
-            <p class="full-name">Anastasia Grigoreva</p>
-            <p class="team-position">Developer</p>
-          </li>
-          <li class="card">
-            <img src="../images/08-Mürsel Şen.jpeg" alt="Developer" />
-            <p class="full-name">Mürsel Şen</p>
-            <p class="team-position">Developer</p>
-          </li>
-        </ul>
-      </div>
-    </div>
+<div class="team team__backdrop is-hidden">
+  <div class="team__wrapper container">
+    <button class="team__modal-close-btn" type="button">
+      <svg class="team__modal-close-icon" width="20" height="20">
+        <use href="../img/symbols.svg#icon-close"></use>
+      </svg>
+    </button>
+    <h2 class="team__title">Our cool team</h2>
+    <ul class="team__list">
+      <li class="team__item">
+        <div class="team__wrap">
+          <div class="team-img-wrap">
+            <img
+              class="team__img"
+              loading="lazy"
+              src="../images/02-Yeşim Bozkurt.jpg"
+              alt="02-Yeşim Bozkurt"
+              width="240"
+            />
+          </div>
+        </div>
+        <div class="team__box">
+          <h2 class="team__member">02-Yeşim Bozkurt</h2>
+          <p class="team__role">Team Lead | Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://www.linkedin.com/"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com/"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team__item">
+        <div class="team__wrap">
+          <img
+            class="team__img"
+            loading="lazy"
+            src="../images/01-Kaan Erenmemisoglu.jpeg"
+            alt="Ruslana Onyshchuk"
+          />
+        </div>
+        <div class="team__box">
+          <p class="team__member">01-Kaan Erenmemisoglu</p>
+          <p class="team__role">Scrum Master | Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://www.linkedin.com/"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com/"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team__item">
+        <div class="team__wrap">
+          <img
+            class="team__img"
+            loading="lazy"
+            src="../images/03-Dilara Aydemir.jpg"
+            alt="Dilara Aydemir"
+          />
+        </div>
+        <div class="team__box">
+          <p class="team__member">Daryna Tarasenko</p>
+          <p class="team__role">Front End Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://www.linkedin.com/"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team__item">
+        <div class="team__wrap">
+          <img
+            class="team__img"
+            loading="lazy"
+            src="../images/04-Sümeyye Terzi.jpg"
+            alt="Sümeyye Terzi"
+          />
+        </div>
+        <div class="team__box">
+          <p class="team__member">Sümeyye Terzi</p>
+          <p class="team__role">Front End Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="http://linkedin.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team__item">
+        <div class="team__wrap">
+          <img
+            class="team__img"
+            loading="lazy"
+            src="../images/05-Negin Kerimli.jpeg"
+            alt="Kateryna Kharkova"
+          />
+        </div>
+        <div class="team__box">
+          <p class="team__member">05-Negin Kerimli</p>
+          <p class="team__role">Front End Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://www.linkedin.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team__item">
+        <div class="team__wrap">
+          <img
+            class="team__img"
+            loading="lazy"
+            src="../images/06-Erdem Demircioglu.jpeg"
+            alt="Erdem Demircioglu"
+          />
+        </div>
+        <div class="team__box">
+          <p class="team__member">Erdem Demircioglu</p>
+          <p class="team__role">Front End Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://www.linkedin.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team__item">
+        <div class="team__wrap">
+          <img
+            class="team__img"
+            loading="lazy"
+            src="../images/07-Alper Kale.jpeg"
+            alt="Alper Kale"
+          />
+        </div>
+        <div class="team__box">
+          <p class="team__member">Alper Kale</p>
+          <p class="team__role">Front End Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://www.linkedin.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team__item">
+        <div class="team__wrap">
+          <img
+            class="team__img"
+            loading="lazy"
+            src="../images/08-Mürsel Şen.jpeg"
+            alt="Mürsel Şen"
+          />
+        </div>
+        <div class="team__box">
+          <p class="team__member">Mürsel Şen</p>
+          <p class="team__role">Front End Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://www.linkedin.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+    </ul>
   </div>
-  
+</div>
