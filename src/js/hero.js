@@ -78,7 +78,7 @@ const getMovieVideos = async movieId => {
                   window.open(trailerUrl, '_blank');
                 });
               }
-            });
+            });   
           } */
         })
         .catch(err => console.error(err));
