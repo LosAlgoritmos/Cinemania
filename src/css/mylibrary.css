@@ -1,7 +1,3 @@
-.visible {
-    display: none;
-}
-
 /* Desktop için */
 .library-hero {
 
@@ -200,6 +196,10 @@
         padding-top: 62px;
     }
 
+    .library-hero .hero-content .hero-content-title {
+        font-size: 44px;
+    }
+
     .filters {
         width: 144px;
         height: 44px;
@@ -226,18 +226,12 @@
     }
 
     .library-hero .hero-content-background {
-        /* width: 320px;
-        height: 380px; */
-
-        /* mürsel lazım  !!!!*/
-
-        /* width: max-content; */
-        /* height: 100%; */
         object-fit: cover;
         object-position: center;
     }
 
     #library-hero-image {
+        /* mürsel buraya bakacaksın !!!!!!! */
         width: 100%;
         height: 100%;
         object-fit: cover;

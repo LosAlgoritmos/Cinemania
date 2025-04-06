@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const movieList = document.getElementById('movie-grid');
     const loadMoreBtn = document.getElementById('.load-more-btn');
 
-    const pageSize = 9; // Her seferinde gösterilecek film sayısı
+    const numberOfMovies = 9; // Her seferinde gösterilecek film sayısı
     let currentPage = 1; // Başlangıç sayfası
 
     // library html sayfası (film yoksa görünecek sayfa)
@@ -50,12 +50,17 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = 'index.html'; // Katalog sayfasına yönlendir
         });
         return;
+    } else {
+        // Film varsa, varsayılan ekranı gizle ve dropdown/load more'u göster
+        emptyLibrary.style.display = 'none';
+        genres.style.display = 'block';
+        movieList.style.display = 'block';
+        loadMoreBtn.style.display = 'block';
+        searchMovieBtn.style.display = 'none'; // "Go to Catalog" butonunu gizle
     }
-    // Film varsa, varsayılan ekranı gizle ve dropdown/load more'u göster
-    emptyLibrary.style.display = 'none';
-    movieList.style.display = 'block';
-    renderLibrary(myLibrary.slice(0, pageSize));
-    if (myLibrary.length > pageSize) {
+
+    renderLibrary(myLibrary.slice(0, numberOfMovies)); // İlk sayfayı göster
+    if (myLibrary.length > numberOfMovies) {
         loadMoreBtn.style.display = 'block';
     } else {
         loadMoreBtn.style.display = 'none';
@@ -115,14 +120,35 @@ function renderLibrary(movies) {
     movieList.innerHTML = ''; // Önceki filmleri temizle
 
     movies.forEach((movie, index) => {
-        const movieItem = document.createElement('div');
-        movieItem.className = 'movie-item';
-        movieItem.innerHTML = `
-            <img src="${movie.poster}" alt="${movie.title}">
-            <h3>${movie.title}</h3>
-            <p>${getGenreNames(movie.genres)}</p>
-            <button class="delete-btn" data-index="${index}">Delete</button>
-        `;
+        const li = document.createElement('li');
+        li.className = 'movies__list-item';
+        li.style.background = 'linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))';
+        li.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${movie.poster_path})`;
+        li.style.backgroundSize = 'cover';
+        li.style.backgroundRepeat = 'no-repeat';
+        li.style.width = '395px';
+        li.style.height = '574px';
+        li.style.overflow = 'hidden';
+        li.style.borderRadius = '5px';
+        li.style.color = 'white';
+        li.style.position = 'relative';
+        li.style.cursor = 'pointer';
+
+        li.innerHTML = `
+                        <div class="movies__list-item-info">
+                            <div class="movies__list-item-info-container">
+                            <h3 class="movies__list-item-title">${movie.title || movie.name}</h3>
+                            <p class="movies__list-item-description">${movie.release_date}</p>
+                            </div>
+                            <div class="movies__list-item-rating">
+                             ${Array.from({ length: 5 }, (_, index) =>
+            index < Math.round(movie.vote_average)
+                ? '<img src="./images/star.png" alt="star">'
+                : '<img src="./images/star-outline.png" alt="empty star">'
+        ).join('')}
+                            </div>
+                        </div>
+                    `;
         movieList.appendChild(movieItem);
     });
 }
