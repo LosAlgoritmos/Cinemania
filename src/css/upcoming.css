@@ -1,10 +1,10 @@
 .upcoming-container {
     background-color: #111;
     color: white;
-    padding: 20px;
+    padding: 10px 20px;
     border-radius: 10px;
     max-width: 1280px;
-    margin: 20px auto;
+  
 }
 
 .upcoming-header {
@@ -27,13 +27,17 @@
     border-radius: 5px;
     object-fit: cover;
     flex-shrink: 0;
+     margin-left: 0;
+    padding-left: 0;
 }
 
 .details {
     width: 390px;
     display: flex;
     flex-direction: column;
+    gap: 12px;
 }
+
 
 .details .title {
     font-size: 28px;
@@ -45,10 +49,37 @@
     font-size: 16px;
     margin-bottom: 5px;
     color: #B7B7B7;
+    justify-content: space-between;
+    display: flex;
+    width: 250px;
+    
+}
+.span {
+   text-align: right;
+}
+.details-date {
+    color: orange;
+    
+    
 }
 
-.details .info span {
-    color: orange;
+.info-span {
+    border-radius: 1px;
+    background-color: #FFFFFF;
+    color: black;
+}
+
+.details .info-span {
+  
+    justify-content: space-between;
+    margin-left: 62px;
+}
+.span-info {
+    background-color:#FFFFFF;
+    border-radius: 5px;
+    border: 1px #FFFFFF;
+    padding: 1px 8px;
+    color: black;
 }
 
 .about {
@@ -95,10 +126,11 @@
   line-height: 24px;
   border: 1px solid var(--white);
 }
-.info-span {
-    background-color:#FFFFFF;
-    border-radius: 5px;
-    border: 1px #FFFFFF;
-    padding: 1px 8px;
-    color: white;
+
+.upcoming-about {
+    color: #B7B7B7;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+
 }
