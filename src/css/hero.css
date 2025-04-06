@@ -81,6 +81,31 @@
 }
 
 
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero .hero__content {
+    padding-block: 40px;
+    padding-left: 20px;
+  }
+
+  .hero .hero__content .hero__content-title {
+    font-size: 44px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .hero .hero__content {
+    padding-block: 36px;
+    padding-left: 32px;
+  }
+  .hero .hero__content .hero__content-title {
+    font-size: 32px;
+  }
+}
+
+
+
 
 
 .star {

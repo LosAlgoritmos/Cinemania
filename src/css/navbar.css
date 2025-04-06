@@ -74,8 +74,7 @@
 }
  
 
-/* Mobil (genelde 0 - 600px) */
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .nav {
     padding: 8px 20px;
   }
@@ -99,8 +98,7 @@
   }
 }
 
-/* Tablet (601px - 900px) */
-@media (min-width: 601px) and (max-width: 900px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .nav {
     padding: 12px 32px;
   }

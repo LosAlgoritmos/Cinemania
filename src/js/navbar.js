@@ -32,3 +32,8 @@ document.querySelectorAll('.nav__menu-link').forEach(link => {
     link.classList.remove('active');
   }
 });
+
+
+document.querySelector("#nav__menu-toggle").addEventListener("click", () => {
+  
+});
