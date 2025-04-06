@@ -14,10 +14,19 @@ const loadingMessages = [
   "Film başlamak üzere..."
 ];
 
+// Minimum gösterim süresi (milisaniye)
+const MINIMUM_LOADING_TIME = 2500; // 2.5 saniye
+
+// Loader'ı gösterme zamanını takip etmek için değişken
+let loaderStartTime;
+
 // Loader'ı gösterme fonksiyonu
 export function showLoader() {
   const loader = document.getElementById('loader-container');
   if (loader) {
+    // Gösterme zamanını kaydet
+    loaderStartTime = new Date().getTime();
+    
     // Rastgele bir film mesajı seç
     const randomMessage = loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
     const messageElement = loader.querySelector('.loader-text');
@@ -33,7 +42,19 @@ export function showLoader() {
 export function hideLoader() {
   const loader = document.getElementById('loader-container');
   if (loader) {
-    loader.classList.remove('active');
+    // Geçen süreyi hesapla
+    const currentTime = new Date().getTime();
+    const elapsedTime = currentTime - loaderStartTime;
+    
+    // Minimum gösterim süresinden az süre geçtiyse, kalan süreyi bekle
+    if (elapsedTime < MINIMUM_LOADING_TIME) {
+      setTimeout(() => {
+        loader.classList.remove('active');
+      }, MINIMUM_LOADING_TIME - elapsedTime);
+    } else {
+      // Minimum süre geçtiyse, hemen kapat
+      loader.classList.remove('active');
+    }
   }
 }
 
@@ -48,9 +69,7 @@ export async function fetchWithLoader(url, options) {
     console.error('Fetch error:', error);
     throw error;
   } finally {
-    // Animasyonun en az 1 saniye görünmesini sağla
-    setTimeout(() => {
-      hideLoader();
-    }, 1000);
+    // Loader'ı gizle (minimum gösterim süresi uygulanacak)
+    hideLoader();
   }
 } 
