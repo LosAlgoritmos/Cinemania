@@ -1,6 +1,6 @@
 .infoPopup {
   font-family: 'Roboto';
-  display: flex;
+  /* display: flex; */
   position: absolute;
   top: 0;
   left: 0;
@@ -10,6 +10,7 @@
   z-index: 999;
   justify-content: center;
   align-items: center;
+  display: none;
 }
 
 .infoPopup.active {

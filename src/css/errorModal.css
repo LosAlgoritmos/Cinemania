@@ -1,5 +1,5 @@
 .error-modal {
-  /* display: none; */
+  display: none;
   position: fixed;
   z-index: 999;
   left: 0;
@@ -23,7 +23,7 @@
   height: 400px;
   box-shadow: 1px 1px 14px 4px #ff6b086b;
   border-radius: 20px;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   color: var(--white);
