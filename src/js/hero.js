@@ -15,12 +15,11 @@ const getDayTrends = async () => {
     showLoader();
 
     fetch(
-      'https://api.themoviedb.org/3/trending/all/day?language=en-US',
+      'https://api.themoviedb.org/3/trending/all/week?language=en-US',
       options
     )
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         resolve(res);
       })
       .catch(err => {
@@ -115,12 +114,9 @@ const heroRender = async () => {
 
     getDayTrends()
       .then(async res => {
-        console.log('Hero Movie:', res);
         const randomMovie = res.results[randomNumber];
-
         // vote_average
         const voteAverage = Math.round(randomMovie.vote_average / 2);
-        console.log('Vote Average:', voteAverage);
         heroPoster.src = `https://image.tmdb.org/t/p/original/${randomMovie.backdrop_path}`;
         heroTitle.textContent =
           randomMovie.original_name || randomMovie.original_title;
@@ -128,10 +124,7 @@ const heroRender = async () => {
         for (let i = 0; i <= voteAverage; i++) {
           stars[i] = `<span class="star star"></span>`;
         }
-        console.log('Stars:', stars);
         heroStars.innerHTML = stars.join('');
-
-        console.log('Hero Movie:', randomMovie, randomMovie.id);
 
         getMovieVideos(randomMovie.id);
       })
