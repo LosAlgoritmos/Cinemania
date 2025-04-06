@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
-      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+        integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/styles.css" />
     <title>My Library | Cinemania</title>
-  </head>
+</head>
 
 
 
@@ -46,11 +43,24 @@
             </div>
         </div>
         <div class="hero-content-background">
-            <img class="hero-content-background-image" src="./images/mylibrary/hero-img.png" alt="movie-theater" />
+            <!-- <img class="hero-content-background-image" src="./images/mylibrary/libraryhero@3x.png" srcset="images/mylibrary/libraryhero.png 1x,
+            images/mylibrary/libraryhero@2x.png 2x,
+            images/mylibrary/libraryhero@3x 3x" alt="movie-theater" /> -->
+            <picture>
+                <!-- Mobil için görsel -->
+                <source media="(max-width: 767px)" srcset="./images/mylibrary/libraryhero.png">
+                <!-- Tablet için görsel -->
+                <source media="(min-width:768px) and (max-width:1157px)" srcset="./images/mylibrary/libraryhero@2x.png">
+                <!-- Masaüstü için görsel -->
+                <source media="(min-width: 1025px)" srcset="images/mylibrary/libraryhero@3x.png">
+
+                <!-- Diğer cihazlar (tablet, masaüstü) için görsel -->
+                <img src="masaustu-gorsel.jpg" alt="Açıklama metni" style="width: 100%;">
+            </picture>
         </div>
     </section>
 
-    <section class="filters">
+    <section class="filters" id="filters">
         <select id="genre">
             <option value="all">All Genres</option>
             <option value="28">Action</option>
@@ -78,7 +88,7 @@
     <section class="movie-grid" id="movie-grid">
         <div id="movie-list">
             <ul class="library-content">
-                <li>
+                <!-- <li>
                     <h1>card</h1>
                 </li>
                 <li>
@@ -89,7 +99,7 @@
                 </li>
                 <li>
                     <h1>card4</h1>
-                </li>
+                </li> -->
             </ul>
         </div>
         <div class="load-more">
@@ -103,5 +113,6 @@
     <load src="./partials/footer.html" />
     <script type="module" src="./main.js"></script>
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>
