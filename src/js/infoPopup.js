@@ -1,4 +1,5 @@
 /* // const filmContainer = document.getElementById('filmContainer');
+
 const modal = document.getElementById('infoModal');
 const modalTitle = document.getElementById('modalTitle');
 const modalDescription = document.getElementById('modalDescription');
