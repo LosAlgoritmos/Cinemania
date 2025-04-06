@@ -3,6 +3,10 @@
 @import url('./movies.css');
 /* Sections style */
 @import url('./header.css');
+
+@import url('./vite-promo.css');
+@import url('./badges.css');
+
 @import url('./back-link.css');
 @import url('./footer.css');
 @import url('./reset.css');
@@ -13,9 +17,13 @@
 @import url('./navbar.css');
 /* @yesimbozkurt */
 @import url('./mylibrary.css');
+@import url('./library.css');
+
 @import url('./hero.css');
 @import url('./loader.css');
 
 /*@sumeyyeterzi*/
 @import url('./errorModal.css');
 @import url('./infoPopup.css');
+@import url('./scroll-up.css');
+@import url('./mylibrary.css');

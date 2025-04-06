@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
-        integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
     <title>My Library | Cinemania</title>
-</head>
+  </head>
+
+
 
 <body>
-
     <!-- Loader Component -->
     <div class="loader-container" id="loader-container">
-      <span class="loader"></span>
+
+        <span class="loader"></span>
     </div>
-  <load src="./partials/header.html" />
+    <load src="./partials/header.html" />
+
 
 
     <section class="library-hero">
@@ -37,11 +43,10 @@
                     and movie
                     theater snacks.
                 </p>
-
             </div>
         </div>
         <div class="hero-content-background">
-            <img class="hero-content-background-image" src="./images/mylibrary/library-hero.jpg" alt="movie-theater" />
+            <img class="hero-content-background-image" src="./images/mylibrary/hero-img.png" alt="movie-theater" />
         </div>
     </section>
 
@@ -71,11 +76,32 @@
     </section>
 
     <section class="movie-grid" id="movie-grid">
-        <ul class="library-content"></ul>
+        <div id="movie-list">
+            <ul class="library-content">
+                <li>
+                    <h1>card</h1>
+                </li>
+                <li>
+                    <h1>card1</h1>
+                </li>
+                <li>
+                    <h1>card2</h1>
+                </li>
+                <li>
+                    <h1>card4</h1>
+                </li>
+            </ul>
+        </div>
+        <div class="load-more">
+            <button class="load-more-btn">Load More</button>
+        </div>
+
+
     </section>
+    <load src="./partials/library.html" />
 
     <load src="./partials/footer.html" />
     <script type="module" src="./main.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
