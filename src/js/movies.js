@@ -1,4 +1,5 @@
 
+
 import { showLoader, hideLoader, fetchWithLoader } from './loader.js';
 const options = {method: 'GET', headers: {accept: 'application/json'}};
 
@@ -129,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //     })
 //     .catch(err => console.error(err));
 //#endregion
+
 
 
 

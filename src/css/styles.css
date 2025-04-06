@@ -13,6 +13,11 @@
 @import url('./base.css');
 @import url('./container.css');
 
+@import url('./animations.css');
+@import url('./team_modal.css');
+
+
+
 /* @murselsen */
 @import url('./navbar.css');
 /* @yesimbozkurt */
