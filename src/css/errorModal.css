@@ -9,7 +9,7 @@
   overflow: auto;
   background-color: rgb(40, 40, 40, 0.3);
   backdrop-filter: blur(10px);
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
 }
