@@ -1,0 +1,296 @@
+.visible {
+    display: none;
+}
+
+/* Desktop için */
+.library-hero {
+
+    position: relative;
+    width: 100%;
+    height: 720px;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 1440px;
+    min-width: 1157px;
+    object-fit: cover;
+    object-position: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #111111;
+    background: linear-gradient(83.06deg, #111111 35.85%, #1111117e 50.85%, #11111137 60.11%, rgba(17, 17, 17, 0.2) 40.11%);
+}
+
+.library-hero .hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 117px;
+    padding-top: 169px;
+    /* background: linear-gradient(83.06deg,
+            #111 15%,
+            #1211117e 50.85%,
+            #16161637 60.11%,
+            rgba(23, 23, 23, 0.2) 40.11%); */
+    color: var(--white);
+    /* filter: drop-shadow(2px 4px 6px black);
+    box-shadow: 2px 2px 2px 1px black; */
+    margin: 0 auto;
+}
+
+.library-hero .hero-content-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+}
+
+.libray-hero .hero-content-background .hero-content-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 200px;
+}
+
+.library-hero .hero-content .hero-content-title {
+
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    width: 670px;
+    margin-bottom: 16px;
+
+}
+
+.library-hero .hero-content .hero-content-info {
+    max-width: 370px;
+}
+
+.hero .hero__content .hero__content-info .hero__content-info-text {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    margin-bottom: 36px;
+}
+
+.library-hero .hero-content .hero-content-info .hero-content-info-text {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    margin-bottom: 36px;
+}
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin-top: 24px;
+    width: 260px;
+    height: 48px;
+    border: 1px solid var(--white);
+    border-radius: 4px;
+    color: var(--white);
+    padding-inline: 15px;
+    margin-left: 32px;
+}
+
+.filters #genre {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    color: #B7B7B7;
+}
+
+.filters #genre:focus {
+    outline: none;
+}
+
+.filters #genre option {
+    background: #111111;
+    color: #B7B7B7;
+    width: 100%;
+    border: 1px solid var(--white);
+    border-radius: 4px;
+    padding: 15px;
+    width: 260px;
+    height: 48px;
+}
+
+.movie-grid {
+    display: flex;
+    flex-direction: column;
+    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+    gap: 20px;
+    margin-top: 24px;
+    margin-left: 32px;
+}
+
+.movie-grid .movie-list {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+}
+
+.library-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+    list-style: none;
+    padding: 24px;
+    margin: 0 auto;
+    max-width: 1200px;
+    justify-items: center;
+}
+
+.library-content li {
+    width: 200px;
+    height: 300px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.library-content li:hover {
+    transform: scale(1.05);
+}
+
+
+.load-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    width: 100%;
+    height: 52px;
+}
+
+
+/* Tablet için */
+@media screen and (min-width: 768px) and (max-width: 1157px) {
+    .library-hero {
+        max-width: 1157px;
+        min-width: 768px;
+        height: 500px;
+    }
+
+    .library-hero .hero-content {
+        padding-left: 32px;
+        padding-top: 62px;
+    }
+
+    .filters {
+        width: 144px;
+        height: 44px;
+    }
+
+    .load-more {
+        height: 40px;
+    }
+
+    .library-content li {
+        width: 224px;
+        height: 325px;
+        gap: 16px;
+    }
+}
+
+/* Mobil için (Telefonlar) */
+@media screen and (max-width: 767px) {
+    .library-hero {
+        width: 320px;
+        height: 380px;
+        padding: 40px 20px;
+        margin: 0 auto;
+    }
+
+    .library-hero .hero-content-background {
+        /* width: 320px;
+        height: 380px; */
+
+        /* mürsel lazım  !!!!*/
+
+        /* width: max-content; */
+        /* height: 100%; */
+        object-fit: cover;
+        object-position: center;
+    }
+
+    #library-hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .library-hero .hero-content {
+        padding-left: 20px;
+        padding-top: 40px;
+    }
+
+    .library-hero .hero-content .hero-content-title {
+        font-size: 32px;
+    }
+
+    .library-hero .hero-content .hero-content-info-text {
+        font-size: 14px;
+    }
+
+    .filters {
+        width: 173px;
+        height: 40px;
+    }
+
+    .load-more {
+        width: 100%;
+        height: 38px;
+    }
+
+    .hero-content {
+        margin-top: 40px;
+        margin-left: 20px;
+    }
+
+    .movie-list .library-content {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .library-content li {
+        width: 280px;
+        height: 406px;
+    }
+
+    .load-more .load-more-btn {
+        width: 106px;
+        height: 38px;
+        font-size: 12px;
+        font-weight: 500;
+        justify-content: center;
+        align-items: center;
+    }
+}
