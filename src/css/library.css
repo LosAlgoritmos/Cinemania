@@ -1,0 +1,67 @@
+#go-to-catalog-btn,
+.load-more-btn {
+    background: var(--linear-o-y);
+    color: var(--black);
+    font-size: 18px;
+    line-height: 24px;
+    border: 1px solid var(--linear-y-o);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 74px;
+    transition: background 0.3s ease;
+}
+
+#go-to-catalog-btn:hover,
+.load-more-btn:hover {
+    background-color: #ff6347;
+    background: var(--linear-y-o);
+    color: var(--white);
+}
+
+.empty-library {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 160px;
+
+}
+
+.empty-library p {
+    color: white;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: 0.01em;
+    vertical-align: middle;
+    margin-bottom: 36px;
+}
+
+/* 
+.empty-library {
+    display: none;
+} */
+
+/* Tablet için */
+@media screen and (min-width: 768px) and (max-width: 1157px) {
+    .empty-library {
+        margin-top: 80px;
+    }
+
+    .empty-library p {
+        font-size: 24px;
+        line-height: 32px;
+    }
+}
+
+/* Mobil için (Telefonlar) */
+@media screen and (max-width: 767px) {
+    .empty-library {
+        margin-top: 44px;
+    }
+
+    .empty-library p {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
