@@ -112,3 +112,14 @@ body{
     display: flex;
 }
 
+.movie-year-filters{
+    background-color: transparent;
+    color: white;
+    height: 100%;
+    border-radius: 8px;
+}
+
+
+.movie-year-filters option{
+    color: #1111;
+}

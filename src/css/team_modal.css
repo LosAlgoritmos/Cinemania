@@ -1,0 +1,293 @@
+:root {
+  --orange: #f87719;
+  --black: #111111;
+  --dark-gray: #282828;
+  --gray: #595959;
+  --light-gray: #b7b7b7;
+  --white-smoke: #f8f8f8;
+  --white: #ffffff;
+  --basic-gradient: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  --other-gradient: linear-gradient(
+    141.22deg,
+    #f84119 9.4%,
+    rgba(248, 159, 25, 0.68) 91.91%
+  );
+  --transition: 250ms linear;
+  --gradient320HomeStub: linear-gradient(
+    86.77deg,
+    #111111 30.38%,
+    rgba(17, 17, 17, 0) 65.61%
+  );
+  --gradient768HomeStub: linear-gradient(
+    82.55deg,
+    #111111 39.6%,
+    rgba(17, 17, 17, 0) 72.95%
+  );
+  --gradient1280HomeStub: linear-gradient(
+    83.16deg,
+    #111111 36.85%,
+    rgba(17, 17, 17, 0) 60.05%
+  );
+  --gradient320LibStub: linear-gradient(
+    79.49deg,
+    #111111 34.1%,
+    rgba(17, 17, 17, 0) 64.67%
+  );
+  --gradient768LibStub: linear-gradient(
+    77.77deg,
+    #111111 33.58%,
+    rgba(17, 17, 17, 0) 71.57%
+  );
+  --gradient1280LibStub: linear-gradient(
+    79.39deg,
+    #111111 32.37%,
+    rgba(17, 17, 17, 0) 72.02%
+  );
+}
+
+
+
+
+.team__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 998;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  visibility: visible;
+  opacity: 1;
+
+}
+
+.light .team__backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.is-hidden .team__wrapper {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0.3;
+  transform: translate(-75%, -90%) scale(3);
+}
+
+
+.team__wrapper {
+  position: relative;
+  z-index: 999;
+  width: 320px;
+  padding: 25px 15px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 1px 1px 25px 4px rgba(255, 108, 8, 0.3)
+}
+
+.light .team__wrapper {
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: background-color var(--transition);
+}
+
+@media screen and (min-width: 321px) {
+  .team__wrapper {
+    top: 0px;
+
+    width: 320px;
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .team__wrapper {
+    width: 704px;
+    padding: 30px 90px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .team__wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    max-height: 99vh;
+    overflow-y: scroll;
+
+    width: 100%;
+    padding: 50px 140px;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .team__wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .team__wrapper {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+}
+
+.light .team__wrapper {
+  box-shadow: 1px 1px 25px 4px rgba(0, 0, 0, 0.3)
+}
+
+.team__modal-close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0px;
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 321px) {
+  .team__modal-close-btn {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .team__modal-close-btn {
+    top: 40px;
+    right: 40px;
+  }
+}
+
+.team__modal-close-icon {
+  fill: var(--white);
+  transition: var(--transition);
+}
+
+.light .team__modal-close-icon {
+  fill: var(--black);
+}
+
+.team__modal-close-icon:hover {
+  fill: var(--orange);
+}
+
+.team__title {
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--white);
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+
+.light .team__title {
+  color: var(--black);
+}
+
+.team__list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.team__item {
+  box-shadow: none;
+  border-radius: 5px;
+  background: white;
+  position: relative;
+  border-radius: 10px;
+  padding-bottom: 5px;
+  overflow: hidden;
+  transform: scale(1.0);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.team__item:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+.team__wrap {
+  overflow: hidden;
+}
+
+.team__img {
+  overflow: hidden;
+  object-fit: cover;
+  margin-bottom: 5px;
+  width: 240px;
+  height: 240px;
+}
+
+.team__box {
+  font-family: 'Roboto-medium', sans-serif;
+  font-size: 16px;
+  line-height: 1.18;
+  font-weight: 500;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 3px;
+}
+
+.team__member {
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.team__role {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+
+.team__link-linkedin {
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 10%;
+  margin-right: 10px;
+  background-color: transparent;
+  fill: var(--black);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition);
+
+}
+
+.team__link-github {
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: transparent;
+  fill: var(--black);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition);
+
+}
+
+.team__link-github:hover,
+.team__link-linkedin:hover {
+
+  fill: var(--orange);
+}
