@@ -1,13 +1,59 @@
-<footer class="section footer-section">
-  <div class="container text-footer">
-    <p>© 2023 | All Rights Reserved |</p>
-    <div class="footer-mobile text">
-      <p class="footer-part">Developed with</p>
-      <svg class="icon-heart">
-        <use width="14" height="13" href="/images/icon.svg#icon-heart"></use>
+<footer class="footer container">
+  <div class="footer-container">
+    <p class="footer-text">
+      <span class="footer-copyright"> &copy;</span> 2024 | All Rights Reserved |
+    </p>
+    <p class="footer-text">
+      Developed
+
+      <svg class="heart" width="14px" height="13px">
+        <use href="./img/icons.svg#icon-heart"></use>
       </svg>
-      <span class="footer-span">by</span>
-      <button class="footer-btn text-footer text">GoIT Students</button>
-    </div>
+      by
+      <button class="footer-btn" id="developed-btn">Marta Paszkowska</button>
+    </p>
   </div>
 </footer>
+
+<!----------- FOOTER - MODAL ----------->
+
+<div class="developed is-closed">
+  <div class="developed-window container">
+    <button class="developed-close-btn" type="button">
+      <svg class="developed-close-icon" width="16" height="16">
+        <use href="./img/icons.svg#close"></use>
+      </svg>
+    </button>
+
+
+    <ul class="developed-list">
+      <li class="developed-card">
+        <div class="developed-wrap">
+          <img class="developed-img" loading="lazy" src="./img/zdjecie.jpg" alt="Marta Paszkowska" width="200" />
+        </div>
+        <div class="developed-description">
+          <h2 class="developed-member">Marta Paszkowska</h2>
+          <p class="developed-function">Developer</p>
+          <ul class="developed-socials-list">
+            <li class="developed-socials-icon">
+              <a class="developed-link" target="_blank" rel="noopener noreferrer"
+                href="https://www.linkedin.com/in/marta-paszkowska-282504263/">
+                <svg class="developed-icon" width="25" height="25">
+                  <use href="../images/icons.svg#icon-linkedin-icon"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="developed-link" target="_blank" rel="noopener noreferrer"
+                href="https://github.com/MartaPaszkowska/">
+                <svg class="developed-icon" width="25" height="25">
+                  <use href="../imgages/icons.svg#icon-github-mark"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+  </div>
+</div>
