@@ -30,7 +30,7 @@
   transform: scale(1.05);
 } */
 
-.modal {
+/* .modal {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -62,3 +62,4 @@
 .closeBtn:hover {
   color: red;
 }
+ */

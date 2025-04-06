@@ -38,9 +38,11 @@ const getMovieVideos = async movieId => {
     try {
       // # watch-trailer
       // # more-details
-      const watchTrailerButton = document.querySelector('#watch-trailer');
+      const getStartedButton = document.querySelector('#hero-get-started');
+      const watchTrailerButton = document.querySelector('#hero-watch-trailer');
       const moreDetailsButton = document.querySelector('#more-details');
-
+      watchTrailerButton.style.display = 'none';
+      moreDetailsButton.style.display = 'none';
       showLoader();
       // url: 'https://api.themoviedb.org/3/movie/movie_id/videos
       const options = {
@@ -59,19 +61,23 @@ const getMovieVideos = async movieId => {
         .then(res => res.json())
         .then(videoData => {
           if (!videoData || !videoData.results) {
-            console.error('No video data found');
             moreDetailsButton.style.display = 'none';
+            getStartedButton.addEventListener('click', () => {
+              document.querySelector('.error-modal').style.display = 'flex';
+            });
             return;
           }
+          getStartedButton.style.display = 'none';
+          watchTrailerButton.style.display = 'block';
+          moreDetailsButton.style.display = 'block';
           watchTrailerButton.textContent = 'Watch Trailer';
           const officialTrailer = videoData.results.find(
             video => video.site === 'YouTube' && video.type === 'Trailer'
           );
           console.log('Official Trailer Data:', officialTrailer);
           resolve(officialTrailer);
-          /*  console.log('GetMovieVideos:', res);
-          if (res.results.length > 0) {
-            res.results.forEach(videoItem => {
+          if (videoData.results.length > 0) {
+            videoData.results.forEach(videoItem => {
               if (videoItem.type === 'Trailer') {
                 watchTrailerButton.textContent = 'Watch Trailer';
                 watchTrailerButton.addEventListener('click', () => {
@@ -79,8 +85,8 @@ const getMovieVideos = async movieId => {
                   window.open(trailerUrl, '_blank');
                 });
               }
-            });   
-          } */
+            });
+          }
         })
         .catch(err => console.error(err));
     } catch (error) {
@@ -120,8 +126,9 @@ const heroRender = async () => {
 
         // vote_average
         const voteAverage = Math.round(randomMovie.vote_average / 2);
-        console.log('Vote Average:', voteAverage);
+
         heroPoster.src = `https://image.tmdb.org/t/p/original/${randomMovie.backdrop_path}`;
+
         heroTitle.textContent =
           randomMovie.original_name || randomMovie.original_title;
         heroInfoText.textContent = randomMovie.overview;
