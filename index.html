@@ -1,128 +1,526 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/Cinemania/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
-    <script type="module" crossorigin src="/Cinemania/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/Cinemania/assets/styles-DvPDDfy5.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Home | Cinemania</title>
+    <script type="module" crossorigin src="/Cinemania/assets/main-BOmM0nrr.js"></script>
+    <link rel="stylesheet" crossorigin href="/Cinemania/assets/main-Bu_lLTmw.css">
   </head>
-  <body>
-    <header class="header">
-  <div class="container">
-    <nav class="nav">
-      <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        <svg class="nav-logo-icon" width="100" height="30">
-          <use href="/Cinemania/assets/sprite-E8vg0sBb.svg#logo"></use>
-        </svg>
-      </a>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-act}" href="./page-2.html">Page 2</a>
+
+<body">
+  <!-- Loader Component -->
+ <div class="loader-container" id="loader-container">
+
+      <div class="loader">
+        <div class="film-strip film-strip-top"></div>
+        <div class="film-reel"></div>
+        <div class="film-strip film-strip-bottom"></div>
+        <div class="loader-text">Loading...</div>
+      </div>
+    </div>
+
+    <header class="header ">
+
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">
+      <img src="data:image/png;base64,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" class="nav__logo-img" alt="Logo" />
+      <span class="nav__logo-text">Cinemania</span>
+    </a>
+    <button id="nav__menu-toggle" class="nav__menu-toggle">MENU</button>
+    <div class="nav__menu">
+      <ul class="nav__menu-list">
+        <li class="nav__menu-item">
+          <a href="index.html" class="nav__menu-link active">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html">Page 3</a>
+        <li class="nav__menu-item">
+          <a href="catalog.html" class="nav__menu-link">Catalog</a>
+        </li>
+        <li class="nav__menu-item">
+          <a href="myLibrary.html" class="nav__menu-link">My Library</a>
         </li>
       </ul>
-    </nav>
-  </div>
-</header>
-
-
-    <main>
-      <!-- Loads the specified .html file -->
-      <section class="vite-promo">
-  <div class="container">
-    <div class="vite-promo-thumb">
-      <a
-        class="vite-promo-link"
-        href="https://vitejs.dev/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Link to Vite official website"
-        title="Vite.js  build tool"
-      >
-        <!-- Path to images as from index.html file -->
-        <img
-          class="pic"
-          src="/Cinemania/assets/vite-logo-9o_aqrTe.png"
-          alt="Vite logo"
-          width="640"
-          height="640"
-        />
-      </a>
     </div>
-    <h1 class="main-title">
-      <span class="main-title-gradient">Vite</span>
-      Template by
-      <a
-        class="main-title-link"
-        href="https://github.com/goitacademy/vanilla-app-template"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GoIT
-      </a>
+    <div class="nav__theme">
+      <button class="nav__theme-toggle" id="nav__theme-toggle" type="button"></button>
+    </div>
+  </nav>
+
+</header>
+    <section class="hero">
+  <div class="hero__content">
+    <h1 class="hero__content-title" id="hero__content-title">
+      Let’s Make Your Own Cinema
     </h1>
+    <div class="hero__content-stars" id="hero__content-stars">
+      <!--       <span class="star star"></span>
+          <span class="star star-half"></span>
+          <span class="star star-outline"></span>
+     -->
+    </div>
+    <div class="hero__content-info">
+      <p class="hero__content-info-text" id="hero__content-info-text">
+        Is a guide to creating a personalized movie theater experience. You'll
+        need a projector, screen, and speakers. Decorate your space, choose your
+        films, and stock up on snacks for the full experience.
+      </p>
+      <div
+        class="hero__content-info-buttons"
+        id="hero__content-info-button-area"
+      >
+        <button
+          type="button"
+          class="btn btn-orange-black"
+          id="hero-get-started"
+        >
+          Get Started
+        </button>
+        <button
+          type="button"
+          class="btn btn-orange-black"
+          id="hero-watch-trailer"
+        >
+          Watch Trailer
+        </button>
+        <button type="button" class="btn btn-black-white" id="more-details">
+          More Details
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="hero__content-background">
+    <img
+      class="hero__content-background-image"
+      id="hero__content-background-image"
+      src="/Cinemania/assets/1ca8b347be4119a1ea6cf45750a2bc51-Bf1HH9Rl.png"
+      alt="Dungeons & Dragons: Honor Among Thieves"
+    />
   </div>
 </section>
 
-      <article class="badges">
-  <div class="container">
-    <ul class="badges-list">
-      <li class="badges-item">
-        <a
-          class="badges-link"
-          href="https://www.npmjs.com/package/vite-plugin-html-inject"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          HTML Inject
-        </a>
-      </li>
-      <li class="badges-item">
-        <a
-          class="badges-link"
-          href="https://www.npmjs.com/package/vite-plugin-full-reload"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Full Reload
-        </a>
-      </li>
-      <li class="badges-item">
-        <a
-          class="badges-link"
-          href="https://www.npmjs.com/package/postcss-sort-media-queries"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Sort Media Queries
-        </a>
-      </li>
-    </ul>
+
+    <section class="weekly-trends container">
+  <link rel="stylesheet" href="../css/weekly-trends.css" />
+
+  <div class="wtrends">
+    <h2 class="wtrends-title">Weekly Trends</h2>
+    <a href="" class="see-all" onclick="window.location.href='../catalog.html'"
+      >See All</a
+    >
   </div>
-</article>
+  <ul class="trend-cards">
+    <!-- <li class="cards">
+      <div class="about">
+        <h3 class="filmm-name">Çilek Kız</h3>
+        <p class="filmm-content">Animasyon - 2003</p>
+      </div>
+    </li>
+    <li class="cards">
+      <div class="about">
+        <h3 class="filmm-name">Çilek Kız</h3>
+        <p class="filmm-content">Animasyon - 2003</p>
+      </div>
+    </li>
+    <li class="cards">
+      <div class="about">
+        <h3 class="filmm-name">Çilek Kız</h3>
+        <p class="filmm-content">Animasyon - 2003</p>
+      </div>
+    </li> -->
+  </ul>
+</section>
 
-    </main>
+    <section class="upcoming-container container ">
+    <div class="upcoming-header">UPCOMING THIS MONTH</div>
+    <div class="content-upcoming">
+        <img src="../images/upcoming.png" alt="The Lost City">
+        <div class="details ">
+            <h1 class="title">THE LOST CITY</h1>
+            <p class="info">Release date <span class="details-date span">03.03.2023</span></p>
+            <p class="info">Vote / Votes <span class="info-span span">7.3 </span> / <span class="span-info span">1260
+                </span>
+            </p>
+            <p class="info"> <b>Popularity</b> <span class="info-s span">99.9</span></p>
+            <p class="info">Genre <span class="span">Comedy, action</span></p>
+            <div class="about"> <span class="upcoming-about">ABOUT</span>
+                <p>Reclusive author Loretta Sage writes about exotic places in her popular adventure novels that feature
+                    a handsome cover model named Alan. While on tour promoting her new book with Alan, Loretta gets
+                    kidnapped by an eccentric billionaire who hopes she can lead him to an ancient city’s lost treasure
+                    from her latest story. Determined to prove he can be a hero in real life and not just on the pages
+                    of her books, Alan sets off to rescue her.</p>
+            </div>
+ <button class="btn btn-orange-black">Add to my library</button>
+        </div>
 
+
+    </div>
+</section>
     <footer class="footer">
-  <div class="container">
-    <p class="footer-desc">
-      Made with ✨ by
-      <a
-        class="footer-link"
-        href="https://goit.global/ua/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GoIT team
-      </a>
+  <div class="footer-container container">
+    <p class="footer-text">
+      <span class="footer-copyright"> &copy;</span> 2023 | All Rights Reserved |
+    </p>
+    <p class="footer-text">
+      Developed with
+      <svg class="orange_heart" width="14px" height="12.88px">
+        <use href="../img/symbols.svg#orange-heart"></use>
+      </svg>
+      by
+      <button class="footer-btn" id="our-team-btn">GoIT Students</button>
     </p>
   </div>
 </footer>
 
+    <!-- Error Modules -->
+    <section class="error-modal" id="errorModal">
+  <div class="modal-container">
+    <div class="modal">
+      <span class="closeBtn" id="errorModalClose">&times;</span>
+      <div class="modal-content">
+        <h2>OOPS...</h2>
+        <p>We are very sorry!</p>
+        <p>But we couldn’t find the trailer.</p>
+      </div>
+      <div class="modal-errorImg"></div>    
+  </div>
+</section>
 
+    <!-- Movie Info Popup -->
+    <link rel="stylesheet" href="./practice_board.css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+<script src="/practice_board.js" defer></script>
+<section class="infoPopup">
+  <span class="closeBtn">&times;</span>
+  <div class="infoModal">
+    <img class="moviePoster" src="/johnwick-pc.png" alt="Movie Details" />
+    <div class="infoModalContent">
+      <h2 class="movieTitle">John Wick: Chapter 4</h2>
+      <div class="movieInfo">
+        <p class="vote">
+          Vote / Votes<span class="voteSpanLeft">7.3</span>&#47;<span
+            class="voteSpanRight"
+            >1260</span
+          >
+        </p>
+        <p class="popularity">
+          Popularity<span class="popularitySpan">100.2</span>
+        </p>
+        <p class="genre">
+          Genre <span class="genreSpan">Action Thriller Crime</span>
+        </p>
+      </div>
+      <div class="about">
+        <p>ABOUT</p>
+        <p>
+          John Wick (Keanu Reeves) takes on his most lethal adversaries yet in
+          the upcoming fourth instalment of the series. With the price on his
+          head ever increasing, John Wick uncovers a path to defeating The High
+          Table. But before he can earn his freedom, Wick must face off against
+          a new enemy with powerful alliances across the globe and forces that
+          turn old friends into foes.
+        </p>
+      </div>
+      <button class="addLibrary">Add to my library</button>
+    </div>
+  </div>
+</section>
+
+    <div class="team team__backdrop is-hidden">
+  <div class="team__wrapper container">
+    <button class="team__modal-close-btn" type="button">
+      <svg class="team__modal-close-icon" width="20" height="20">
+        <use href="../img/symbols.svg#icon-close"></use>
+      </svg>
+    </button>
+    <h2 class="team__title">Our cool team</h2>
+    <ul class="team__list">
+      <li class="team__item">
+        <div class="team__wrap">
+          <div class="team-img-wrap">
+            <img
+              class="team__img"
+              loading="lazy"
+              src="../images/02-Yeşim Bozkurt.jpg"
+              alt="02-Yeşim Bozkurt"
+              width="240"
+            />
+          </div>
+        </div>
+        <div class="team__box">
+          <h2 class="team__member">Yeşim Bozkurt</h2>
+          <p class="team__role">Team Lead | Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://www.linkedin.com/"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com/"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team__item">
+        <div class="team__wrap">
+          <img
+            class="team__img"
+            loading="lazy"
+            src="../images/01-Kaan Erenmemisoglu.jpeg"
+            alt="Ruslana Onyshchuk"
+          />
+        </div>
+        <div class="team__box">
+          <p class="team__member">Kaan Erenmemisoglu</p>
+          <p class="team__role">Scrum Master | Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://www.linkedin.com/"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com/"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team__item">
+        <div class="team__wrap">
+          <img
+            class="team__img"
+            loading="lazy"
+            src="../images/03-Dilara Aydemir.jpg"
+            alt="Dilara Aydemir"
+          />
+        </div>
+        <div class="team__box">
+          <p class="team__member">Dilara Aydemir</p>
+          <p class="team__role">Front End Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://www.linkedin.com/"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team__item">
+        <div class="team__wrap">
+          <img
+            class="team__img"
+            loading="lazy"
+            src="../images/04-Sümeyye Terzi.jpg"
+            alt="Sümeyye Terzi"
+          />
+        </div>
+        <div class="team__box">
+          <p class="team__member">Sümeyye Terzi</p>
+          <p class="team__role">Front End Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="http://linkedin.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team__item">
+        <div class="team__wrap">
+          <img
+            class="team__img"
+            loading="lazy"
+            src="../images/05-Negin Kerimli.jpeg"
+            alt="Negin Kerimli"
+          />
+        </div>
+        <div class="team__box">
+          <p class="team__member">Negin Kerimli</p>
+          <p class="team__role">Front End Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://www.linkedin.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team__item">
+        <div class="team__wrap">
+          <img
+            class="team__img"
+            loading="lazy"
+            src="../images/06-Erdem Demircioglu.jpeg"
+            alt="Erdem Demircioglu"
+          />
+        </div>
+        <div class="team__box">
+          <p class="team__member">Erdem Demircioglu</p>
+          <p class="team__role">Front End Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://www.linkedin.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team__item">
+        <div class="team__wrap">
+          <img
+            class="team__img"
+            loading="lazy"
+            src="../images/07-Alper Kale.jpeg"
+            alt="Alper Kale"
+          />
+        </div>
+        <div class="team__box">
+          <p class="team__member">Alper Kale</p>
+          <p class="team__role">Front End Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://www.linkedin.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team__item">
+        <div class="team__wrap">
+          <img
+            class="team__img"
+            loading="lazy"
+            src="../images/08-Mürsel Şen.jpeg"
+            alt="Mürsel Şen"
+          />
+        </div>
+        <div class="team__box">
+          <p class="team__member">Mürsel Şen</p>
+          <p class="team__role">Front End Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://www.linkedin.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="../img/symbols.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
   </body>
 </html>
