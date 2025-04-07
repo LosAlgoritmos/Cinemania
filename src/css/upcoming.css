@@ -15,40 +15,34 @@
 }
 
 .content-upcoming {
+    height: 458px;
     display: flex;
     gap: 20px;
     align-items: flex-start;
+    border: 1px solid orange;
    
 }
 
 .content-upcoming img {
-   width: 760px;
-    height: 458px;
-   height: auto;
-    border-radius: 5px;
-    object-fit: cover;
-    flex-shrink: 0;
-     margin-left: 0;
-    padding-left: 0;
+   height: 100%;
 }
 
 .details {
-    width: 390px;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    
 }
 
 
 .details .title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 36px;
+    margin-bottom: 18px;
 }
 
 .details .info {
     font-size: 16px;
-    margin-bottom: 5px;
+    margin-bottom: 12px;
     color: #B7B7B7;
     justify-content: space-between;
     display: flex;
@@ -83,11 +77,11 @@
     color: black;
 }
 
-.about {
-    margin-top: 10px;
+.upabout {
     font-size: 14px;
     color: #ccc;
-    line-height: 1.5;
+    line-height: 20px;
+    margin-bottom: 20px;
 }
 
 .btn {
@@ -132,6 +126,7 @@
     color: #B7B7B7;
     font-weight: 500;
     font-size: 16px;
-    line-height: 100%;
-
+    margin-bottom: 16px;
 }
+
+
