@@ -127,3 +127,37 @@
     font-size: 16px;
     margin-bottom: 16px;
 }
+
+/**MOBILE İÇİN */
+@media screen and (max-width: 767px) {
+    .content-upcoming img {
+        width: 280px;
+        height: 402px;
+        top: 992px;
+        left: 20px;
+        border-radius: 5px;
+          max-width: 400px;  
+    }
+    .content-upcoming {
+    flex-direction: column; 
+    align-items: center;    
+    text-align: center;     
+  }
+   .details {
+    padding: 0 1rem;       
+  }
+
+  .details .title {
+    font-size: 1.8rem;
+  }
+
+  .btn-orange-black {
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+/**TABLET**/
+@media screen {
+    
+}

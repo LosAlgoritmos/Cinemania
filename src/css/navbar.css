@@ -101,14 +101,5 @@
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .nav {
-    padding: 12px 32px;
-  }
 }
- 
 
-.header {
-  padding:0px;
-  max-width: 1280px;
-  margin: 0 auto;
-}
