@@ -11,51 +11,173 @@
 //     .then(res => console.log(res))
 //     .catch(err => console.error(err));
 
-// localStorage'da veriler JSON formatında string olarak saklanır.
-// Örnek film dizisi:
-// const filmListesi = [
-//     { title: "Inception", director: "Christopher Nolan" },
-//     { title: "Interstellar", director: "Christopher Nolan" }
-// ];
 
-// // Bunu localStorage'a kaydet:
-// localStorage.setItem("filmler", JSON.stringify(filmListesi));
+// function filmiSil(index) {
+//     const filmVerisi = localStorage.getItem("filmler");
+//     if (!filmVerisi) return;
 
-function showMovies() {
-    const filmContainer = document.getElementById("movie-list");
-    filmContainer.innerHTML = ""; // Önce temizle
+//     const filmler = JSON.parse(filmVerisi);
+//     filmler.splice(index, 1); // Seçilen filmi sil
+//     localStorage.setItem("filmler", JSON.stringify(filmler));
 
-    // localStorage'dan veriyi al
-    const filmVerisi = localStorage.getItem("filmler");
+//     showMovies(); // Listeyi güncelle
+// }
+document.addEventListener('DOMContentLoaded', function () {
 
-    // Eğer veri varsa, işle
-    if (filmVerisi) {
-        const filmler = JSON.parse(filmVerisi);
+    const myLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [];
 
-        filmler.forEach((film, index) => {
-            const filmDiv = document.createElement("div");
-            filmDiv.classList.add("film");
+    // mylibrary.html sayfasındaki elementler
+    const genres = document.getElementById('filters');
+    const movieList = document.getElementById('movie-grid');
+    const loadMoreBtn = document.getElementById('.load-more-btn');
 
-            filmDiv.innerHTML = `
-        <h3>${film.title}</h3>
-        <p>Yönetmen: ${film.director}</p>
-        <button onclick="filmiSil(${index})">Sil</button>
-      `;
+    const numberOfMovies = 9; // Her seferinde gösterilecek film sayısı
+    let currentPage = 1; // Başlangıç sayfası
 
-            filmContainer.appendChild(filmDiv);
+    // library html sayfası (film yoksa görünecek sayfa)
+    const emptyLibrary = document.getElementById('empty-library');
+    const searchMovieBtn = document.getElementById('go-to-catalog-btn');
+
+
+    if (myLibrary.length === 0) {
+        // Film yoksa, sadece varsayılan ekranı göster
+        emptyLibrary.style.display = 'block';
+        genres.style.display = 'none';
+        movieList.style.display = 'none';
+        loadMoreBtn.style.display = 'none';
+        searchMovieBtn.style.display = 'block'; // "Go to Catalog" butonunu göster
+        searchMovieBtn.addEventListener('click', function () {
+            window.location.href = 'index.html'; // Katalog sayfasına yönlendir
         });
+        return;
     } else {
-        filmContainer.innerHTML = "<p>Hiç film bulunamadı.</p>";
+        // Film varsa, varsayılan ekranı gizle ve dropdown/load more'u göster
+        emptyLibrary.style.display = 'none';
+        genres.style.display = 'block';
+        movieList.style.display = 'block';
+        loadMoreBtn.style.display = 'block';
+        searchMovieBtn.style.display = 'none'; // "Go to Catalog" butonunu gizle
     }
+
+    renderLibrary(myLibrary.slice(0, numberOfMovies)); // İlk sayfayı göster
+    if (myLibrary.length > numberOfMovies) {
+        loadMoreBtn.style.display = 'block';
+    } else {
+        loadMoreBtn.style.display = 'none';
+    }
+    // Dropdown menüsünü oluştur
+    const uniqueGenres = [...new Set(myLibrary.flatMap(movie => movie.genres))];
+    uniqueGenres.forEach(genre => {
+        const option = document.createElement('option');
+        option.value = genre;
+        option.textContent = genre;
+        genres.appendChild(option);
+    });
+    // Dropdown menüsüne tıklama olayı ekle
+    genres.addEventListener('change', function () {
+        const selectedGenre = this.value;
+        const filteredMovies = myLibrary.filter(movie => movie.genres.includes(selectedGenre));
+        renderLibrary(filteredMovies);
+    });
+
+    // // Load more butonuna tıklandığında
+    // loadMoreBtn.addEventListener('click', function () {
+    //     currentPage++;
+    //     renderLibrary(myLibrary.slice(0, pageSize * currentPage));
+
+    //     // Eğer daha fazla film yoksa butonu gizle
+    //     if (myLibrary.length <= pageSize * currentPage) {
+    //         loadMoreBtn.style.display = 'none';
+    //     }
+    // });
+    // Load more butonuna tıklama olayı ekle
+    loadMoreBtn.addEventListener('click', function () {
+        currentPage++;
+        const start = (currentPage - 1) * pageSize;
+        const end = start + pageSize;
+        const moviesToShow = myLibrary.slice(start, end);
+        renderLibrary(moviesToShow);
+
+        // Eğer daha fazla film yoksa butonu gizle
+        if (end >= myLibrary.length) {
+            loadMoreBtn.style.display = 'none';
+        }
+    });
+    // Film silme butonuna tıklama olayı ekle
+    movieList.addEventListener('click', function (event) {
+        if (event.target.classList.contains('delete-btn')) {
+            const index = event.target.dataset.index;
+            myLibrary.splice(index, 1); // Seçilen filmi sil
+            localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+            renderLibrary(myLibrary.slice(0, pageSize)); // Listeyi güncelle
+        }
+    });
+
+}
+);
+function renderLibrary(movies) {
+    const movieList = document.getElementById('movie-grid');
+    movieList.innerHTML = ''; // Önceki filmleri temizle
+
+    movies.forEach((movie, index) => {
+        const li = document.createElement('li');
+        li.className = 'movies__list-item';
+        li.style.background = 'linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))';
+        li.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${movie.poster_path})`;
+        li.style.backgroundSize = 'cover';
+        li.style.backgroundRepeat = 'no-repeat';
+        li.style.width = '395px';
+        li.style.height = '574px';
+        li.style.overflow = 'hidden';
+        li.style.borderRadius = '5px';
+        li.style.color = 'white';
+        li.style.position = 'relative';
+        li.style.cursor = 'pointer';
+
+        li.innerHTML = `
+                        <div class="movies__list-item-info">
+                            <div class="movies__list-item-info-container">
+                            <h3 class="movies__list-item-title">${movie.title || movie.name}</h3>
+                            <p class="movies__list-item-description">${movie.release_date}</p>
+                            </div>
+                            <div class="movies__list-item-rating">
+                             ${Array.from({ length: 5 }, (_, index) =>
+            index < Math.round(movie.vote_average)
+                ? '<img src="./images/star.png" alt="star">'
+                : '<img src="./images/star-outline.png" alt="empty star">'
+        ).join('')}
+                            </div>
+                        </div>
+                    `;
+        movieList.appendChild(movieItem);
+    });
 }
 
-function filmiSil(index) {
-    const filmVerisi = localStorage.getItem("filmler");
-    if (!filmVerisi) return;
+// Film türlerini isimlendiren fonksiyon
 
-    const filmler = JSON.parse(filmVerisi);
-    filmler.splice(index, 1); // Seçilen filmi sil
-    localStorage.setItem("filmler", JSON.stringify(filmler));
-
-    showMovies(); // Listeyi güncelle
+function getGenreNames(genreIds) {
+    const genreMap = {
+        28: 'Action',
+        12: 'Adventure',
+        16: 'Animation',
+        35: 'Comedy',
+        80: 'Crime',
+        99: 'Documentary',
+        18: 'Drama',
+        10751: 'Family',
+        14: 'Fantasy',
+        36: 'History',
+        27: 'Horror',
+        10402: 'Music',
+        9648: 'Mystery',
+        10749: 'Romance',
+        878: 'Science Fiction',
+        10770: 'TV Movie',
+        53: 'Thriller',
+        10752: 'War',
+        37: 'Western',
+    };
+    if (!genreIds || !Array.isArray(genreIds)) return '';
+    const mappedGenres = genreIds.map(id => genreMap[id] || 'Unknown');
+    return mappedGenres.slice(0, 2).join(', '); // Maksimum 2 genre döndür
 }
