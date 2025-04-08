@@ -18,3 +18,6 @@ import './js/infoPopup.js';
 // @negin
 import './js/weeklyTrends.js';
 import './js/scroll-up.js';
+
+// @Dilaraydmr
+import './js/upcoming.js';
