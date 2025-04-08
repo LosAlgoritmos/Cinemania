@@ -34,6 +34,20 @@ document.querySelectorAll('.nav__menu-link').forEach(link => {
 });
 
 
-document.querySelector("#nav__menu-toggle").addEventListener("click", () => {
-  
+document.querySelector("#nav__menu-toggle").addEventListener("click",e => {
+   
+  console.log(e.target);
+  const nav = document.querySelector(".nav");
+  const nav__menu = document.querySelector(".nav__menu");
+  nav__menu.classList.toggle("active");
+
+
+  if (nav__menu.classList.contains("active")) {
+    nav.style.paddingInlineStart = "40px";
+  } else {
+    nav.style.paddingInlineStart = "20px";
+
+  }
+
+
 });
