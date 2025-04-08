@@ -2,7 +2,7 @@
 
 @import url('./movies.css');
 /* Sections style */
-@import url('./header.css');
+/* @import url('./header.css'); */ /* @murselsen : Boş */
 
 @import url('./vite-promo.css');
 @import url('./badges.css');
@@ -14,9 +14,26 @@
 @import url('./container.css');
 
 @import url('./animations.css');
-/* @murselsen */
+
+@import url('./upcoming.css');
+
+@import url('./team_modal.css');
+
+
+
 @import url('./navbar.css');
+/* @murselsen */
+/* @yesimbozkurt */
+@import url('./mylibrary.css');
+@import url('./library.css');
+
 @import url('./hero.css');
 @import url('./loader.css');
+
+/*@sumeyyeterzi*/
+@import url('./errorModal.css');
+@import url('./infoPopup.css');
+
 @import url('./scroll-up.css');
+@import url('./mylibrary.css');
 
