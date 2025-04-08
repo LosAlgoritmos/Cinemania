@@ -21,7 +21,7 @@ themeToggle.addEventListener('click', event => {
   let newTheme = checkThemeResult === 'dark' ? 'light' : 'dark';
   localStorage.setItem('theme', newTheme);
   themeToggle.style.backgroundImage = `url(./img/navbar/${newTheme}-switch.png)`;
-  document.querySelector('html').setAttribute('data-theme', newTheme);
+  document.querySelector('html').setAttribute('data-theme', newTheme); 
 });
 
 const pageURL = document.URL.split('/').pop();
@@ -48,7 +48,6 @@ navMenuToggle.addEventListener("click",e => {
   } else {
     nav.style.paddingInlineStart = "20px";
     navMenuToggle.textContent = "MENU";
-
   }
 
 
