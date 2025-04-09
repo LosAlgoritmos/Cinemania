@@ -1,4 +1,7 @@
 // import './js/header';
+
+import './js/footer.js';
+import './js/members-modal.js';
 // @murselsen
 import './js/navbar.js';
 import './js/hero.js';
