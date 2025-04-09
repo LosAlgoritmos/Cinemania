@@ -1,318 +1,319 @@
 * {
-    font-family: roboto, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    overflow-x: hidden;
-    overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .movies {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin-top: 5rem;
+  cursor: pointer;
 }
 
 .search-container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    width: 100%;
-    padding: 0 16px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 0 16px;
 }
 
 .movies__search {
-    width: 224px;
-    max-width: 300px;
-    height: 48px;
-    border-radius: 8px;
-    background-color: transparent;
-    color: var(--text);
-    border: 1px solid var(--grey);
-    padding-left: 16px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+  width: 224px;
+  max-width: 300px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid var(--grey);
+  padding-left: 16px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
 .movies__search:focus {
-    outline: none;
-    border-color: var(--orange);
-    box-shadow: 0 0 0 2px rgba(248, 65, 25, 0.2);
+  outline: none;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 2px rgba(248, 65, 25, 0.2);
 }
 
 .movie-year-filters {
-    border: 1px solid white;
-    background-color: transparent;
-    color: white;
-    height: 48px;
-    width: 100%;
-    max-width: 300px;
-    border-radius: 8px;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  height: 48px;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
 }
 
 .movies__search-icon {
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .movies__search-icon-img {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .movies__list {
-    width: 100%;
-    margin-top: 3rem;
-    position: relative;
+  width: 100%;
+  margin-top: 3rem;
+  position: relative;
 }
 
 .movies__list-items {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    width: 100%;
-    padding: 0 16px;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+  padding: 0 16px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .movies__list-item {
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-    border-radius: 5px;
-    color: white;
-    position: relative;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 5px;
+  color: white;
+  position: relative;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .movies__list-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 20px rgba(248, 65, 25, 0.7);
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(248, 65, 25, 0.7);
 }
 
 .movies__list-item-info {
-    position: absolute;
-    bottom: 0;
-    padding: 16px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-    width: 100%;
-    font-size: 18px;
+  position: absolute;
+  bottom: 0;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  width: 100%;
+  font-size: 18px;
 }
 
 .movies__list-item-title {
-    text-transform: uppercase;
-    color: #FFFFFF;
-    font-size: 18px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 18px;
 }
 
 .movies__list-item-description {
-    color: #B7B7B7;
-    font-size: 14px;
+  color: #b7b7b7;
+  font-size: 14px;
 }
 
 .movies__list-item-rating {
-    position: absolute;
-    bottom: 16px;
-    right: 16px;
-    display: flex;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
 }
 
 .movies__list-item-rating img {
-    width: 18px;
-    height: 18px;
+  width: 18px;
+  height: 18px;
 }
 
 .pagination-container {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
 }
 
 .pagination-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .pagination-pages {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .pagination-button {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: none;
-    background-color: transparent;
-    color: var(--text);
-    font-size: 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    border: 1px solid var(--grey);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  color: var(--text);
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 1px solid var(--grey);
 }
 
 .pagination-button:hover:not(:disabled):not(.active) {
-    background-color: rgba(248, 65, 25, 0.2);
+  background-color: rgba(248, 65, 25, 0.2);
 }
 
 .pagination-button.active {
-    background-color: #F84119;
-    color: white;
+  background-color: #f84119;
+  color: white;
 }
 
 .pagination-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .pagination-ellipsis {
-    color: white;
-    padding: 0 5px;
+  color: white;
+  padding: 0 5px;
 }
 
 @media screen and (min-width: 768px) {
-    .search-container {
-        flex-direction: row;
-        justify-content: center;
-    }
-    
-    .movies__search {
-        width: 300px;
-    }
-    
-    .movie-year-filters {
-        width: auto;
-    }
-    
-    .movies__list-items {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 800px;
-    }
-    
-    .movies__list-item {
-        height: 500px;
-    }
-    
-    .movies__list-item-info {
-        padding: 18px;
-        font-size: 18px;
-    }
-    
-    .pagination-button {
-        width: 36px;
-        height: 36px;
-        font-size: 13px;
-    }
-    
-    .pagination-wrapper {
-        gap: 8px;
-    }
-    
-    .pagination-pages {
-        gap: 8px;
-    }
+  .search-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .movies__search {
+    width: 300px;
+  }
+
+  .movie-year-filters {
+    width: auto;
+  }
+
+  .movies__list-items {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+  }
+
+  .movies__list-item {
+    height: 500px;
+  }
+
+  .movies__list-item-info {
+    padding: 18px;
+    font-size: 18px;
+  }
+
+  .pagination-button {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .pagination-wrapper {
+    gap: 8px;
+  }
+
+  .pagination-pages {
+    gap: 8px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
-    .movies__list-items {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1240px;
-        width: min-content;
-        gap: 1rem;
-    }
-    
-    .movies__list-item {
-        width: 395px;
-        height: 574px;
-    }
-    
-    .movies__list-item-info {
-        padding: 20px;
-        font-size: 20px;
-    }
-    
-    .movies__list-item-title {
-        font-size: 20px;
-    }
-    
-    .movies__list-item-description {
-        font-size: 16px;
-    }
-    
-    .movies__list-item-rating {
-        bottom: 21px;
-        right: 21px;
-    }
-    
-    .movies__list-item-rating img {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .movies__list-item:hover {
-        transform: translateY(-30px);
-    }
-    
-    .pagination-button {
-        width: 40px;
-        height: 40px;
-        font-size: 14px;
-    }
-    
-    .pagination-wrapper {
-        gap: 10px;
-    }
-    
-    .pagination-pages {
-        gap: 10px;
-    }
+  .movies__list-items {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1240px;
+    width: min-content;
+    gap: 1rem;
+  }
+
+  .movies__list-item {
+    width: 395px;
+    height: 574px;
+  }
+
+  .movies__list-item-info {
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  .movies__list-item-title {
+    font-size: 20px;
+  }
+
+  .movies__list-item-description {
+    font-size: 16px;
+  }
+
+  .movies__list-item-rating {
+    bottom: 21px;
+    right: 21px;
+  }
+
+  .movies__list-item-rating img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .movies__list-item:hover {
+    transform: translateY(-30px);
+  }
+
+  .pagination-button {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .pagination-wrapper {
+    gap: 10px;
+  }
+
+  .pagination-pages {
+    gap: 10px;
+  }
 }
 
 section #year option {
-    background: #1C1C1C;
-    color: #F8F8F8;
-    border: 1px solid red;
-    text-align: center;
+  background: #1c1c1c;
+  color: #f8f8f8;
+  border: 1px solid red;
+  text-align: center;
 }
 
 .no-results,
 .error-message {
-    width: 100vh;
-    text-align: center;
-    padding: 2rem;
-    color: var(--text);
-    font-size: 2rem;
-    grid-column: 1 / -1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+  width: 100vh;
+  text-align: center;
+  padding: 2rem;
+  color: var(--text);
+  font-size: 2rem;
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .no-results p {
-    font-size: 2rem;
-    color: var(--text);
+  font-size: 2rem;
+  color: var(--text);
 }
