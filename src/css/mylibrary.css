@@ -1,6 +1,7 @@
 /* edited by @yesimbozkurt */
 /* Desktop için */
 .library-hero {
+    background-image: url(../images/mylibrary/libraryhero@3x.png);
 
     position: relative;
     width: 100%;
@@ -15,8 +16,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: #111111;
-    background: linear-gradient(83.06deg, #111111 35.85%, #1111117e 50.85%, #11111137 60.11%, rgba(17, 17, 17, 0.2) 40.11%);
+    /* background: linear-gradient(83.06deg, #111111 35.85%, #1111117e 50.85%, #11111137 60.11%, rgba(17, 17, 17, 0.2) 40.11%); */
 }
 
 .library-hero .hero-content {
@@ -187,6 +187,7 @@
 /* Tablet için */
 @media screen and (min-width: 768px) and (max-width: 1157px) {
     .library-hero {
+        background-image: url(../images/mylibrary/libraryhero@2x.png);
         max-width: 1157px;
         min-width: 768px;
         height: 500px;
@@ -220,10 +221,15 @@
 /* Mobil için (Telefonlar) */
 @media screen and (max-width: 767px) {
     .library-hero {
+        background-image: url(../images/mylibrary/libraryhero.png);
         width: 320px;
         height: 380px;
         padding: 40px 20px;
         margin: 0 auto;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        /* background: linear-gradient(83.06deg, #111111 35.85%, #1111117e 50.85%, #11111137 60.11%, rgba(17, 17, 17, 0.2) 40.11%); */
     }
 
     .library-hero .hero-content-background {

@@ -27,8 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 500); // Sayfanın tam yüklenmesinden sonra 0.5 saniye daha bekle
     });
 
-    const myLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [
-        { "backdrop_path": "/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg", "id": 950387, "title": "A Minecraft Movie", "original_title": "A Minecraft Movie", "overview": "Four misfits find themselves struggling with ordinary problems when they are suddenly pulled through a mysterious portal into the Overworld: a bizarre, cubic wonderland that thrives on imagination. To get back home, they'll have to master this world while embarking on a magical quest with an unexpected, expert crafter, Steve.", "poster_path": "/yFHHfHcUgGAxziP1C3lLt0q2T4s.jpg", "media_type": "movie", "adult": false, "original_language": "en", "genre_ids": [10751, 35, 12, 14], "popularity": 992.0749, "release_date": "2025-03-31", "video": false, "vote_average": 6.086, "vote_count": 273 }
+    // { "backdrop_path": "/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg", "id": 950387, "title": "A Minecraft Movie", "original_title": "A Minecraft Movie", "overview": "Four misfits find themselves struggling with ordinary problems when they are suddenly pulled through a mysterious portal into the Overworld: a bizarre, cubic wonderland that thrives on imagination. To get back home, they'll have to master this world while embarking on a magical quest with an unexpected, expert crafter, Steve.", "poster_path": "/yFHHfHcUgGAxziP1C3lLt0q2T4s.jpg", "media_type": "movie", "adult": false, "original_language": "en", "genre_ids": [10751, 35, 12, 14], "popularity": 992.0749, "release_date": "2025-03-31", "video": false, "vote_average": 6.086, "vote_count": 273 }
+
+    const myLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [{ "backdrop_path": "/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg", "id": 950387, "title": "A Minecraft Movie", "original_title": "A Minecraft Movie", "overview": "Four misfits find themselves struggling with ordinary problems when they are suddenly pulled through a mysterious portal into the Overworld: a bizarre, cubic wonderland that thrives on imagination. To get back home, they'll have to master this world while embarking on a magical quest with an unexpected, expert crafter, Steve.", "poster_path": "/yFHHfHcUgGAxziP1C3lLt0q2T4s.jpg", "media_type": "movie", "adult": false, "original_language": "en", "genre_ids": [10751, 35, 12, 14], "popularity": 992.0749, "release_date": "2025-03-31", "video": false, "vote_average": 6.086, "vote_count": 273 }
     ];
 
     // mylibrary.html sayfasındaki elementler
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (myLibrary.length === 0) {
         // Film yoksa, sadece varsayılan ekranı göster
-        emptyLibrary.style.display = 'block';
+        emptyLibrary.style.display = 'flex';
         genres.style.display = 'none';
         movieList.style.display = 'none';
         loadMoreBtn.style.display = 'none';
@@ -58,10 +59,10 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         // Film varsa, varsayılan ekranı gizle ve dropdown/load more'u göster
         emptyLibrary.style.display = 'none';
+        searchMovieBtn.style.display = 'none'; // "Go to Catalog" butonunu gizle
         genres.style.display = 'block';
         movieList.style.display = 'block';
         loadMoreBtn.style.display = 'block';
-        searchMovieBtn.style.display = 'none'; // "Go to Catalog" butonunu gizle
     }
 
     renderLibrary(myLibrary.slice(0, numberOfMovies)); // İlk sayfayı göster
@@ -178,5 +179,13 @@ function getGenreNames(genreIds) {
     const mappedGenres = genreIds.map(id => genreMap[id] || 'Unknown');
     return mappedGenres.slice(0, 2).join(', '); // Maksimum 2 genre döndür
 }
+
+window.addEventListener('load', () => {
+    // Loader'ı gizle
+    // hideLoader fonksiyonu zaten minimum gösterim süresini dikkate alacak
+    setTimeout(() => {
+        hideLoader();
+    }, 500); // Sayfanın tam yüklenmesinden sonra 0.5 saniye daha bekle
+});
 
 // edited by @yesimbozkurt
