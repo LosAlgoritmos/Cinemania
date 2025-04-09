@@ -4,7 +4,21 @@
 <section class="infoPopup">
   <span class="closeBtn">&times;</span>
   <div class="infoModal">
-    <img class="moviePoster" src="/johnwick-pc.png" alt="Movie Details" />
+    <picture>
+      <source
+        media="(max-width: 768px)"
+        srcset="/src/images/johnwick-mobile.png"
+      />
+      <source
+        media="(max-width: 1024px)"
+        srcset="/src/images/johnwick-tablet.png"
+      />
+      <img
+        class="moviePoster"
+        src="/src/images/johnwick-pc.png"
+        alt="Movie Poster"
+      />
+    </picture>
     <div class="infoModalContent">
       <h2 class="movieTitle">John Wick: Chapter 4</h2>
       <div class="movieInfo">
