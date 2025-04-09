@@ -11,6 +11,37 @@ let searchTimeout;
 
 
 const searchInput = document.querySelector('.movies__search');
+const searchbtn = document.querySelector('#catalog-search-btn');
+
+searchbtn.addEventListener('click', () => {
+    const alert = document.createElement('div');
+    alert.textContent = "BOSU BOSUNA O TUSA BASMA ARTIK ZATEN INPUT YERINE YAZINCA ARIYOR!";
+    alert.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0,0,0,0.8);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        font-size: 2.6rem;
+    `;
+    document.body.appendChild(alert);
+    
+    setTimeout(() => {
+        alert.style.opacity = '1';
+    }, 0);
+
+    setTimeout(() => {
+        alert.style.opacity = '0';
+        setTimeout(() => alert.remove(), 300);
+    }, 1000);
+});
+
 
 
 searchInput.addEventListener('input', (e) => {
