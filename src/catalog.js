@@ -1,19 +1,17 @@
 // @murselsen
 import './js/navbar.js';
 import './js/hero.js';
-// @Neginkrml
-import './js/weeklyTrends.js';
-// @Dilaraydmr
-import './js/upcoming.js';
 // @AlperKale
 import { showLoader, hideLoader } from './js/loader.js';
 import './js/scroll-up.js';
+// @RoyalNegative
+import './js/movies.js';
+// @sumeyyeterzi
+import './js/infoPopup.js';
+import './js/errorModal.js';
 // @erdem6161
 import './js/footer.js';
 import './js/members-modal.js';
-// @sumeyyeterzi
-import './js/errorModal.js';
-import './js/infoPopup.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {

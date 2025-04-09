@@ -93,6 +93,12 @@
   .hero .hero__content .hero__content-title {
     font-size: 44px;
   }
+  .hero .hero__content-background .hero__content-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 /* Mobile */
@@ -103,6 +109,12 @@
   }
   .hero .hero__content .hero__content-title {
     font-size: 32px;
+  }
+  .hero .hero__content-background .hero__content-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 }
 
@@ -118,15 +130,15 @@
 }
 
 .star.star {
-  background-image: url('../img/star.svg');
+  background-image: url('/img/star.svg');
 }
 
 .star.star-half {
-  background-image: url('../img/star-half.svg');
+  background-image: url('/img/star-half.svg');
 }
 
 .star.star-outline {
-  background-image: url('../img/star-outline.svg');
+  background-image: url('/img/star-outline.svg');
 }
 
 .btn {

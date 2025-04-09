@@ -105,6 +105,7 @@ const heroRender = async () => {
       `<span class="star star-outline"></span>`,
       `<span class="star star-outline"></span>`,
     ];
+
     const heroTitle = document.querySelector('#hero__content-title');
     const heroStars = document.querySelector('#hero__content-stars');
     const heroInfoText = document.querySelector('#hero__content-info-text');
