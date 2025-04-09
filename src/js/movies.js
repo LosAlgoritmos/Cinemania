@@ -1,13 +1,32 @@
 import { showLoader, hideLoader, fetchWithLoader } from './loader.js';
-
 const moviesList = document.querySelector('.movies__list-items');
 const paginationContainer = document.querySelector('.pagination-container');
 
-// State
 let currentPage = 1;
 let totalPages = 0;
 
-// Function to fetch movies for a specific page
+
+let searchQuery = '';
+let searchTimeout;
+
+
+const searchInput = document.querySelector('.movies__search');
+
+
+searchInput.addEventListener('input', (e) => {
+  searchQuery = e.target.value.trim();
+  
+ 
+  clearTimeout(searchTimeout);
+  
+  
+  searchTimeout = setTimeout(() => {
+    currentPage = 1; 
+    getMovies(currentPage);
+  }, 500); 
+});
+
+
 async function getMovies(page = 1) {
   showLoader();
   try {
@@ -19,12 +38,30 @@ async function getMovies(page = 1) {
       }
     };
     
-    const response = await fetch(`https://api.themoviedb.org/3/trending/all/day?language=en-US&page=${page}`, options);
+    // Arama sorgusu varsa search endpoint'ini kullan, yoksa trending endpoint'ini kullan
+    const endpoint = searchQuery 
+      ? `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(searchQuery)}&language=en-US&page=${page}`
+      : `https://api.themoviedb.org/3/trending/all/day?language=en-US&page=${page}`;
+    
+    const response = await fetch(endpoint, options);
     const data = await response.json();
     
     totalPages = data.total_pages;
     
     moviesList.innerHTML = '';
+    
+    // Sonuç yoksa mesaj göster
+    if (data.results.length === 0) {
+      moviesList.innerHTML = `
+        <li class="no-results">
+          <h2>OOPS...</h2>
+          <p>We are very sorry!</p>
+          <p>We don't have any results matching your search.</p>
+        </li>
+      `;
+      paginationContainer.innerHTML = '';
+      return;
+    }
     
     // Render movies
     data.results.forEach(movie => {
@@ -59,12 +96,13 @@ async function getMovies(page = 1) {
     renderPagination();
   } catch (err) {
     console.error('Error fetching movies:', err);
+    moviesList.innerHTML = '<li class="error-message">Filmler yüklenirken bir hata oluştu.</li>';
   } finally {
     hideLoader();
   }
 }
 
-// Function to render pagination controls
+
 function renderPagination() {
   paginationContainer.innerHTML = '';
   const paginationWrapper = document.createElement('div');
@@ -156,15 +194,13 @@ function createPageButton(pageNum) {
   return button;
 }
 
-// Initialize app
+
 document.addEventListener('DOMContentLoaded', () => {
-  // Add pagination container if it doesn't exist
   if (!paginationContainer) {
     const paginationDiv = document.createElement('div');
     paginationDiv.className = 'pagination-container';
     document.querySelector('.movies__list').after(paginationDiv);
   }
   
-  // Get movies for the first page
   getMovies();
 });

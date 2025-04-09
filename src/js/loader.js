@@ -15,7 +15,7 @@ const loadingMessages = [
 ];
 
 // Minimum gösterim süresi (milisaniye)
-const MINIMUM_LOADING_TIME = 2500; // 2.5 saniye
+const MINIMUM_LOADING_TIME = 750; // 2.5 saniye
 
 // Loader'ı gösterme zamanını takip etmek için değişken
 let loaderStartTime;
