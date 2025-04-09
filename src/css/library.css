@@ -1,3 +1,4 @@
+/* edited by @yesimbozkurt */
 #go-to-catalog-btn,
 .load-more-btn {
     background: var(--linear-o-y);
@@ -36,11 +37,6 @@
     vertical-align: middle;
     margin-bottom: 36px;
 }
-
-/* 
-.empty-library {
-    display: none;
-} */
 
 /* Tablet için */
 @media screen and (min-width: 768px) and (max-width: 1157px) {

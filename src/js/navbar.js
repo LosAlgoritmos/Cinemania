@@ -21,7 +21,7 @@ themeToggle.addEventListener('click', event => {
   let newTheme = checkThemeResult === 'dark' ? 'light' : 'dark';
   localStorage.setItem('theme', newTheme);
   themeToggle.style.backgroundImage = `url(./img/navbar/${newTheme}-switch.png)`;
-  document.querySelector('html').setAttribute('data-theme', newTheme);
+  document.querySelector('html').setAttribute('data-theme', newTheme); 
 });
 
 const pageURL = document.URL.split('/').pop();
@@ -33,7 +33,22 @@ document.querySelectorAll('.nav__menu-link').forEach(link => {
   }
 });
 
-
-document.querySelector("#nav__menu-toggle").addEventListener("click", () => {
+const navMenuToggle = document.querySelector('#nav__menu-toggle');
+navMenuToggle.addEventListener("click",e => {
+   
   
+  const nav = document.querySelector(".nav");
+  const nav__menu = document.querySelector(".nav__menu");
+  nav__menu.classList.toggle("active");
+
+
+  if (nav__menu.classList.contains("active")) {
+    nav.style.paddingInlineStart = "40px";
+    navMenuToggle.textContent = "CLOSE";
+  } else {
+    nav.style.paddingInlineStart = "20px";
+    navMenuToggle.textContent = "MENU";
+  }
+
+
 });
