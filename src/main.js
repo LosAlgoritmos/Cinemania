@@ -4,7 +4,6 @@ import './js/footer.js';
 import './js/members-modal.js';
 // @murselsen
 import './js/navbar.js';
-// import './js/hero.js';
 
 
 import './js/movies.js';
@@ -41,3 +40,5 @@ import './js/infoPopup.js';
 import './js/weeklyTrends.js';
 import './js/scroll-up.js';
 
+
+import './js/hero.js';
