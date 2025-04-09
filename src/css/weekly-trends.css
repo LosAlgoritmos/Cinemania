@@ -1,16 +1,12 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  color: white;
-}
+ 
 .weekly-trends {
+  background-color: var(--bg);
+  color: var(--text);
   display: flex;
   flex-direction: column;
   gap: 28px;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 .wtrends {
   display: flex;

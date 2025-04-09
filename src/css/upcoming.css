@@ -1,9 +1,10 @@
 .upcoming-container {
-  background-color: #111;
-  color: white;
+  background-color: var(--bg);
+  color: var(--text);
   padding: 10px 20px;
   border-radius: 10px;
   max-width: 1280px;
+  margin: 0 auto;
 
 }
 
@@ -27,6 +28,7 @@
   width: 805px;
 
   background-image: url('../images/upcoming/upcoming.png');
+  background-size: cover;
 }
 
 .details {
