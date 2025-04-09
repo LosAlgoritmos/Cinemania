@@ -75,6 +75,9 @@ body {
 }
 
 @media (min-width: 768px) and (max-width: 1157px) {
+  .trend-cards {
+    display: flex;
+  }
   .cards {
     width: 224px;
     height: 325px;
@@ -106,4 +109,3 @@ body {
     font-size: 16px;
   }
 }
-
