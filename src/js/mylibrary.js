@@ -18,19 +18,9 @@ import { showLoader, hideLoader, fetchWithLoader } from './loader.js';
 document.addEventListener('DOMContentLoaded', function () {
     showLoader();
 
-    // Sayfa tamamen yüklendiğinde loader'ı gizle
-    window.addEventListener('load', () => {
-        // Loader'ı gizle
-        // hideLoader fonksiyonu zaten minimum gösterim süresini dikkate alacak
-        setTimeout(() => {
-            hideLoader();
-        }, 500); // Sayfanın tam yüklenmesinden sonra 0.5 saniye daha bekle
-    });
-
     // { "backdrop_path": "/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg", "id": 950387, "title": "A Minecraft Movie", "original_title": "A Minecraft Movie", "overview": "Four misfits find themselves struggling with ordinary problems when they are suddenly pulled through a mysterious portal into the Overworld: a bizarre, cubic wonderland that thrives on imagination. To get back home, they'll have to master this world while embarking on a magical quest with an unexpected, expert crafter, Steve.", "poster_path": "/yFHHfHcUgGAxziP1C3lLt0q2T4s.jpg", "media_type": "movie", "adult": false, "original_language": "en", "genre_ids": [10751, 35, 12, 14], "popularity": 992.0749, "release_date": "2025-03-31", "video": false, "vote_average": 6.086, "vote_count": 273 }
 
-    const myLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [{ "backdrop_path": "/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg", "id": 950387, "title": "A Minecraft Movie", "original_title": "A Minecraft Movie", "overview": "Four misfits find themselves struggling with ordinary problems when they are suddenly pulled through a mysterious portal into the Overworld: a bizarre, cubic wonderland that thrives on imagination. To get back home, they'll have to master this world while embarking on a magical quest with an unexpected, expert crafter, Steve.", "poster_path": "/yFHHfHcUgGAxziP1C3lLt0q2T4s.jpg", "media_type": "movie", "adult": false, "original_language": "en", "genre_ids": [10751, 35, 12, 14], "popularity": 992.0749, "release_date": "2025-03-31", "video": false, "vote_average": 6.086, "vote_count": 273 }
-    ];
+    const myLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [];
 
     // mylibrary.html sayfasındaki elementler
     const genres = document.getElementById('filters');
