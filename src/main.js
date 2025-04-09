@@ -30,18 +30,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500); // Sayfanın tam yüklenmesinden sonra 0.5 saniye daha bekle
   });
 });
-
-import './js/loader.js';
-
-// @sumeyyeterzi
-import './js/errorModal.js';
-import './js/infoPopup.js';
-
-// @negin
-import './js/weeklyTrends.js';
-import './js/scroll-up.js';
-
-
-// @Dilaraydmr
-import './js/upcoming.js';
-
