@@ -9,8 +9,9 @@
         integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>My Library | Cinemania</title>
-  <script type="module" crossorigin src="/Cinemania/assets/main-BwJoln_Y.js"></script>
-  <link rel="stylesheet" crossorigin href="/Cinemania/assets/main-CdTxR9dq.css">
+  <script type="module" crossorigin src="/Cinemania/myLibrary.js"></script>
+  <link rel="modulepreload" crossorigin href="/Cinemania/assets/members-modal-ePwIciLd.js">
+  <link rel="stylesheet" crossorigin href="/Cinemania/assets/members-modal-CU7xp9bv.css">
 </head>
 
 
@@ -18,6 +19,12 @@
 <body>
     <!-- Loader Component -->
     <div class="loader-container" id="loader-container">
+        <div class="loader">
+            <div class="film-strip film-strip-top"></div>
+            <div class="film-reel"></div>
+            <div class="film-strip film-strip-bottom"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
 
         <span class="loader"></span>
     </div>
@@ -74,14 +81,14 @@
             images/mylibrary/libraryhero@2x.png 2x,
             images/mylibrary/libraryhero@3x 3x" alt="movie-theater" /> -->
             <picture id="library-hero-image">
-                <img src="/Cinemania/assets/libraryhero@3x-Dna89boI.png" alt="movie-theater"
-                    class="hero-content-background-image" />
+                <!-- <img src="./images/mylibrary/libraryhero@3x.png" alt="movie-theater"
+                    class="hero-content-background-image" /> -->
                 <!-- Mobil için görsel -->
-                <source media="(max-width: 767px)" srcset="/Cinemania/assets/libraryhero-BSCbb_vq.png">
+                <!-- <source media="(max-width: 767px)" srcset="./images/mylibrary/libraryhero.png"> -->
                 <!-- Tablet için görsel -->
-                <source media="(min-width:768px) and (max-width:1157px)" srcset="/Cinemania/assets/libraryhero@2x-D9LFmDOc.png">
+                <!-- <source media="(min-width:768px) and (max-width:1157px)" srcset="./images/mylibrary/libraryhero@2x.png"> -->
                 <!-- Masaüstü için görsel -->
-                <source media="(min-width: 1025px)" srcset="/Cinemania/assets/libraryhero@3x-Dna89boI.png">
+                <!-- <source media="(min-width: 1025px)" srcset="images/mylibrary/libraryhero@3x.png"> -->
             </picture>
         </div>
     </section>
@@ -159,11 +166,64 @@
   </div>
 </footer>
 
+    <link rel="stylesheet" href="./practice_board.css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+<script src="/practice_board.js" defer></script>
+<section class="infoPopup">
+  <span class="closeBtn">&times;</span>
+  <div class="infoModal">
+    <picture>
+      <source
+        media="(max-width: 768px)"
+        srcset="/src/images/johnwick-mobile.png"
+      />
+      <source
+        media="(max-width: 1024px)"
+        srcset="/src/images/johnwick-tablet.png"
+      />
+      <img
+        class="moviePoster"
+        src="/src/images/johnwick-pc.png"
+        alt="Movie Poster"
+      />
+    </picture>
+    <div class="infoModalContent">
+      <h2 class="movieTitle">John Wick: Chapter 4</h2>
+      <div class="movieInfo">
+        <p class="vote">
+          Vote / Votes<span class="voteSpanLeft">7.3</span>&#47;<span
+            class="voteSpanRight"
+            >1260</span
+          >
+        </p>
+        <p class="popularity">
+          Popularity<span class="popularitySpan">100.2</span>
+        </p>
+        <p class="genre">
+          Genre <span class="genreSpan">Action Thriller Crime</span>
+        </p>
+      </div>
+      <div class="about">
+        <p>ABOUT</p>
+        <p>
+          John Wick (Keanu Reeves) takes on his most lethal adversaries yet in
+          the upcoming fourth instalment of the series. With the price on his
+          head ever increasing, John Wick uncovers a path to defeating The High
+          Table. But before he can earn his freedom, Wick must face off against
+          a new enemy with powerful alliances across the globe and forces that
+          turn old friends into foes.
+        </p>
+      </div>
+      <button class="addLibrary">Add to my library</button>
+    </div>
+  </div>
+</section>
+
     <div class="team team__backdrop is-hidden">
   <div class="team__wrapper container">
     <button class="team__modal-close-btn" type="button">
       <svg class="team__modal-close-icon" width="20" height="20">
-        <use href="../img/symbols.svg#icon-close"></use>
+        <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-close"></use>
       </svg>
     </button>
     <h2 class="team__title">Our cool team</h2>
@@ -174,7 +234,7 @@
             <img
               class="team__img"
               loading="lazy"
-              src="../images/02-Yeşim Bozkurt.jpg"
+              src="/Cinemania/assets/02-Ye%C5%9Fim%20Bozkurt-BlrpUqK1.jpg"
               alt="02-Yeşim Bozkurt"
               width="240"
             />
@@ -190,7 +250,7 @@
             href="https://www.linkedin.com/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -200,7 +260,7 @@
             href="https://github.com/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -210,7 +270,7 @@
           <img
             class="team__img"
             loading="lazy"
-            src="../images/01-Kaan Erenmemisoglu.jpeg"
+            src="/Cinemania/assets/01-Kaan%20Erenmemisoglu-BJ0viYgE.jpeg"
             alt="Ruslana Onyshchuk"
           />
         </div>
@@ -224,7 +284,7 @@
             href="https://www.linkedin.com/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -234,7 +294,7 @@
             href="https://github.com/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -244,7 +304,7 @@
           <img
             class="team__img"
             loading="lazy"
-            src="../images/03-Dilara Aydemir.jpg"
+            src="/Cinemania/assets/03-Dilara%20Aydemir-BqxYk-L4.jpg"
             alt="Dilara Aydemir"
           />
         </div>
@@ -258,7 +318,7 @@
             href="https://www.linkedin.com/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -268,7 +328,7 @@
             href="https://github.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -278,7 +338,7 @@
           <img
             class="team__img"
             loading="lazy"
-            src="../images/04-Sümeyye Terzi.jpg"
+            src="/Cinemania/assets/04-S%C3%BCmeyye%20Terzi-Dv_YRISU.jpg"
             alt="Sümeyye Terzi"
           />
         </div>
@@ -292,7 +352,7 @@
             href="http://linkedin.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -302,7 +362,7 @@
             href="https://github.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -312,7 +372,7 @@
           <img
             class="team__img"
             loading="lazy"
-            src="../images/05-Negin Kerimli.jpeg"
+            src="/Cinemania/assets/05-Negin%20Kerimli-DM0p7FjB.jpeg"
             alt="Negin Kerimli"
           />
         </div>
@@ -326,7 +386,7 @@
             href="https://www.linkedin.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -336,7 +396,7 @@
             href="https://github.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -346,7 +406,7 @@
           <img
             class="team__img"
             loading="lazy"
-            src="../images/06-Erdem Demircioglu.jpeg"
+            src="/Cinemania/assets/06-Erdem%20Demircioglu-COLnpCwf.jpeg"
             alt="Erdem Demircioglu"
           />
         </div>
@@ -360,7 +420,7 @@
             href="https://www.linkedin.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -370,7 +430,7 @@
             href="https://github.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -380,7 +440,7 @@
           <img
             class="team__img"
             loading="lazy"
-            src="../images/07-Alper Kale.jpeg"
+            src="/Cinemania/assets/07-Alper%20Kale-BgBGQq4V.jpeg"
             alt="Alper Kale"
           />
         </div>
@@ -394,7 +454,7 @@
             href="https://www.linkedin.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -404,7 +464,7 @@
             href="https://github.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -414,7 +474,7 @@
           <img
             class="team__img"
             loading="lazy"
-            src="../images/08-Mürsel Şen.jpeg"
+            src="/Cinemania/assets/08-M%C3%BCrsel%20%C5%9Een-Cp_sQqpU.jpeg"
             alt="Mürsel Şen"
           />
         </div>
@@ -428,7 +488,7 @@
             href="https://www.linkedin.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -438,7 +498,7 @@
             href="https://github.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -448,5 +508,6 @@
 </div>
 
 </body>
+<!-- edited by @yesimbozkurt -->
 
 </html>

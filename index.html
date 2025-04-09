@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/Cinemania/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
-      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <title>Home | Cinemania</title>
-    <script type="module" crossorigin src="/Cinemania/assets/main-BwJoln_Y.js"></script>
-    <link rel="stylesheet" crossorigin href="/Cinemania/assets/main-CdTxR9dq.css">
-  </head>
 
-<body">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/Cinemania/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+    integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Home | Cinemania</title>
+  <script type="module" crossorigin src="/Cinemania/index.js"></script>
+  <link rel="modulepreload" crossorigin href="/Cinemania/assets/members-modal-ePwIciLd.js">
+  <link rel="modulepreload" crossorigin href="/Cinemania/assets/hero-Cz4UtpxF.js">
+  <link rel="stylesheet" crossorigin href="/Cinemania/assets/members-modal-CU7xp9bv.css">
+</head>
+
+<body>
   <!-- Loader Component -->
- <div class="loader-container" id="loader-container">
+  <div class="loader-container" id="loader-container">
 
-      <div class="loader">
-        <div class="film-strip film-strip-top"></div>
-        <div class="film-reel"></div>
-        <div class="film-strip film-strip-bottom"></div>
-        <div class="loader-text">Loading...</div>
-      </div>
+    <div class="loader">
+      <div class="film-strip film-strip-top"></div>
+      <div class="film-reel"></div>
+      <div class="film-strip film-strip-bottom"></div>
+      <div class="loader-text">Loading...</div>
     </div>
+  </div>
 
-    <header class="header ">
+  <header class="header ">
 
   <nav class="nav">
     <a href="index.html" class="nav__logo">
@@ -56,7 +55,7 @@
   </nav>
 
 </header>
-    <section class="hero">
+  <section class="hero">
   <div class="hero__content">
     <h1 class="hero__content-title" id="hero__content-title">
       Let’s Make Your Own Cinema
@@ -108,7 +107,7 @@
 </section>
 
 
-    <section class="weekly-trends container">
+  <section class="weekly-trends">
   <link rel="stylesheet" href="../css/weekly-trends.css" />
 
   <div class="wtrends">
@@ -142,10 +141,12 @@
   </ul>
 </section>
 
-    <section class="upcoming-container container">
+  <section class="upcoming-container container">
   <div class="upcoming-header">UPCOMING THIS MONTH</div>
   <div class="content-upcoming">
-    <img src="../images/upcoming.png" alt="The Lost City" />
+    <div class="img-div-upcoming" id="img-div-upcoming"></div>
+
+
     <div class="details">
       <h1 class="title">THE LOST CITY</h1>
       <p class="info">
@@ -161,7 +162,7 @@
       <p class="info">Genre <span class="span">Comedy, action</span></p>
       <div class="upabout">
         <h2 class="upcoming-about">ABOUT</h2>
-        <p>
+        <p class="upcoming-about-text">
           Reclusive author Loretta Sage writes about exotic places in her
           popular adventure novels that feature a handsome cover model named
           Alan. While on tour promoting her new book with Alan, Loretta gets
@@ -175,8 +176,7 @@
     </div>
   </div>
 </section>
-
-    <footer class="footer">
+  <footer class="footer">
   <div class="footer-container container">
     <p class="footer-text">
       <span class="footer-copyright"> &copy;</span> 2023 | All Rights Reserved |
@@ -192,8 +192,8 @@
   </div>
 </footer>
 
-    <!-- Error Modules -->
-    <section class="error-modal" id="errorModal">
+  <!-- Error Modules -->
+  <section class="error-modal" id="errorModal">
   <div class="modal-container">
     <div class="modal">
       <span class="closeBtn" id="errorModalClose">&times;</span>
@@ -206,14 +206,28 @@
   </div>
 </section>
 
-    <!-- Movie Info Popup -->
-    <link rel="stylesheet" href="./practice_board.css" />
+  <!-- Movie Info Popup -->
+  <link rel="stylesheet" href="./practice_board.css" />
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
 <script src="/practice_board.js" defer></script>
 <section class="infoPopup">
   <span class="closeBtn">&times;</span>
   <div class="infoModal">
-    <img class="moviePoster" src="/johnwick-pc.png" alt="Movie Details" />
+    <picture>
+      <source
+        media="(max-width: 768px)"
+        srcset="/src/images/johnwick-mobile.png"
+      />
+      <source
+        media="(max-width: 1024px)"
+        srcset="/src/images/johnwick-tablet.png"
+      />
+      <img
+        class="moviePoster"
+        src="/src/images/johnwick-pc.png"
+        alt="Movie Poster"
+      />
+    </picture>
     <div class="infoModalContent">
       <h2 class="movieTitle">John Wick: Chapter 4</h2>
       <div class="movieInfo">
@@ -246,11 +260,11 @@
   </div>
 </section>
 
-    <div class="team team__backdrop is-hidden">
+  <div class="team team__backdrop is-hidden">
   <div class="team__wrapper container">
     <button class="team__modal-close-btn" type="button">
       <svg class="team__modal-close-icon" width="20" height="20">
-        <use href="../img/symbols.svg#icon-close"></use>
+        <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-close"></use>
       </svg>
     </button>
     <h2 class="team__title">Our cool team</h2>
@@ -261,7 +275,7 @@
             <img
               class="team__img"
               loading="lazy"
-              src="../images/02-Yeşim Bozkurt.jpg"
+              src="/Cinemania/assets/02-Ye%C5%9Fim%20Bozkurt-BlrpUqK1.jpg"
               alt="02-Yeşim Bozkurt"
               width="240"
             />
@@ -277,7 +291,7 @@
             href="https://www.linkedin.com/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -287,7 +301,7 @@
             href="https://github.com/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -297,7 +311,7 @@
           <img
             class="team__img"
             loading="lazy"
-            src="../images/01-Kaan Erenmemisoglu.jpeg"
+            src="/Cinemania/assets/01-Kaan%20Erenmemisoglu-BJ0viYgE.jpeg"
             alt="Ruslana Onyshchuk"
           />
         </div>
@@ -311,7 +325,7 @@
             href="https://www.linkedin.com/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -321,7 +335,7 @@
             href="https://github.com/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -331,7 +345,7 @@
           <img
             class="team__img"
             loading="lazy"
-            src="../images/03-Dilara Aydemir.jpg"
+            src="/Cinemania/assets/03-Dilara%20Aydemir-BqxYk-L4.jpg"
             alt="Dilara Aydemir"
           />
         </div>
@@ -345,7 +359,7 @@
             href="https://www.linkedin.com/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -355,7 +369,7 @@
             href="https://github.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -365,7 +379,7 @@
           <img
             class="team__img"
             loading="lazy"
-            src="../images/04-Sümeyye Terzi.jpg"
+            src="/Cinemania/assets/04-S%C3%BCmeyye%20Terzi-Dv_YRISU.jpg"
             alt="Sümeyye Terzi"
           />
         </div>
@@ -379,7 +393,7 @@
             href="http://linkedin.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -389,7 +403,7 @@
             href="https://github.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -399,7 +413,7 @@
           <img
             class="team__img"
             loading="lazy"
-            src="../images/05-Negin Kerimli.jpeg"
+            src="/Cinemania/assets/05-Negin%20Kerimli-DM0p7FjB.jpeg"
             alt="Negin Kerimli"
           />
         </div>
@@ -413,7 +427,7 @@
             href="https://www.linkedin.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -423,7 +437,7 @@
             href="https://github.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -433,7 +447,7 @@
           <img
             class="team__img"
             loading="lazy"
-            src="../images/06-Erdem Demircioglu.jpeg"
+            src="/Cinemania/assets/06-Erdem%20Demircioglu-COLnpCwf.jpeg"
             alt="Erdem Demircioglu"
           />
         </div>
@@ -447,7 +461,7 @@
             href="https://www.linkedin.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -457,7 +471,7 @@
             href="https://github.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -467,7 +481,7 @@
           <img
             class="team__img"
             loading="lazy"
-            src="../images/07-Alper Kale.jpeg"
+            src="/Cinemania/assets/07-Alper%20Kale-BgBGQq4V.jpeg"
             alt="Alper Kale"
           />
         </div>
@@ -481,7 +495,7 @@
             href="https://www.linkedin.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -491,7 +505,7 @@
             href="https://github.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -501,7 +515,7 @@
           <img
             class="team__img"
             loading="lazy"
-            src="../images/08-Mürsel Şen.jpeg"
+            src="/Cinemania/assets/08-M%C3%BCrsel%20%C5%9Een-Cp_sQqpU.jpeg"
             alt="Mürsel Şen"
           />
         </div>
@@ -515,7 +529,7 @@
             href="https://www.linkedin.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
@@ -525,7 +539,7 @@
             href="https://github.com"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="../img/symbols.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -534,5 +548,6 @@
   </div>
 </div>
 
-  </body>
+</body>
+
 </html>
