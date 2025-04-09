@@ -1,13 +1,10 @@
 const infoPopup = document.querySelector('.infoPopup');
-const openBtn = document.querySelector('.openBtn');
 const closeBtn = document.querySelector('.closeBtn');
 const addLibraryBtn = document.querySelector('.addLibrary');
 
 infoPopup.style.display = 'none';
 
-openBtn.addEventListener('click', () => {
-  infoPopup.style.display = 'flex';
-});
+
 
 closeBtn.addEventListener('click', () => {
   infoPopup.style.display = 'none';

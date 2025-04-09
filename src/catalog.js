@@ -8,6 +8,7 @@ import './js/scroll-up.js';
 import './js/movies.js';
 // @sumeyyeterzi
 import './js/infoPopup.js';
+import './js/errorModal.js';
 // @erdem6161
 import './js/footer.js';
 import './js/members-modal.js';
