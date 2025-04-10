@@ -106,7 +106,9 @@ function renderLibrary(movies) {
         li.style.position = 'relative';
         li.style.cursor = 'pointer';
         li.addEventListener('click', e => {
+
             document.querySelector('.infoPopup').style.display = 'flex';
+            document.querySelector('.infoPopup').style.position = "fixed";
         })
         li.innerHTML = `
                         <div class="movies__list-item-info">
