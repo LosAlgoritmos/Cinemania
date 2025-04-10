@@ -13,6 +13,22 @@ window.addEventListener('click', e => {
 });
 
 // @murselsen
+export const isLocalMovieById = (movieId) => {
+ const localLibraryStorage = JSON.parse(localStorage.getItem('myLibrary')) || [];
+  const findMovie = localLibraryStorage.find(movie => movie.id === Number(movieId))
+  console.log("Find Movie:",findMovie);
+  if(findMovie){
+    C.style.display = 'none';
+    document.querySelector('#iMovieLocalRemoveBtn').style.display = 'block';
+  } else {
+    document.querySelector('#iMovieLocalAddBtn').style.display = 'block';
+    document.querySelector('#iMovieLocalRemoveBtn').style.display = 'none';
+  }
+};
+
+
+
+// @murselsen
 export const renderMovieInfoPopup = (movie) => {
   const iPopup = document.querySelector('.infoPopup');
   iPopup.style.display = 'flex';
@@ -24,7 +40,7 @@ export const renderMovieInfoPopup = (movie) => {
   // iMovieVotes
   iPopup.querySelector('#iMovieVotes').textContent = movie.vote_count;
   // iMoviePopularity
-  iPopup.querySelector('#iMoviePopularity').textContent = movie.popularity.toFixed(1);
+  iPopup.querySelector('#iMoviePopularity').textContent = movie.popularity;
   // iMovieGenres
   const genreMovie = {
     28: 'Action',
@@ -53,4 +69,17 @@ export const renderMovieInfoPopup = (movie) => {
   // iMoviePoster 
   const posterBaseUrl = 'https://image.tmdb.org/t/p/w500';
   iPopup.querySelector('#iMoviePoster').src = posterBaseUrl + movie.poster_path;
+
+  // isLocalMovieById
+  isLocalMovieById(movie.id);
+  // iMovieLocalAddBtn
+  document.querySelector('#iMovieLocalAddBtn').setAttribute('data-movie', JSON.stringify(movie));
+  // iMovieLocalRemoveBtn
+  document.querySelector('#iMovieLocalRemoveBtn').setAttribute('data-movie-id', movie.id);
+
+
+  // Local Strorage Movie Control Exists or not
+
 };
+
+
