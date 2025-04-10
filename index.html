@@ -4,16 +4,17 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/Cinemania/favicon.svg" />
+  <link rel="shortcut icon" href="/Cinemania/assets/popcorn-BMw_EGNG.svg" type="image/x-icon" />
+  <!-- <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
     integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Home | Cinemania</title>
   <script type="module" crossorigin src="/Cinemania/index.js"></script>
-  <link rel="modulepreload" crossorigin href="/Cinemania/assets/members-modal-ePwIciLd.js">
-  <link rel="modulepreload" crossorigin href="/Cinemania/assets/hero-Cz4UtpxF.js">
-  <link rel="stylesheet" crossorigin href="/Cinemania/assets/members-modal-CU7xp9bv.css">
+  <link rel="modulepreload" crossorigin href="/Cinemania/assets/members-modal-B7GHqlHS.js">
+  <link rel="modulepreload" crossorigin href="/Cinemania/assets/hero-DC6qeKfx.js">
+  <link rel="stylesheet" crossorigin href="/Cinemania/assets/members-modal-CXGsQ4l6.css">
 </head>
 
 <body>
@@ -141,28 +142,26 @@
   </ul>
 </section>
 
-  <section class="upcoming-container container">
+  <section class="upcoming-container">
   <div class="upcoming-header">UPCOMING THIS MONTH</div>
   <div class="content-upcoming">
     <div class="img-div-upcoming" id="img-div-upcoming"></div>
-
-
     <div class="details">
-      <h1 class="title">THE LOST CITY</h1>
+      <h1 class="title" id="upcoming-title">THE LOST CITY</h1>
       <p class="info">
-        Release date <span class="details-date span">03.03.2023</span>
+        Release date <span class="details-date span" id="upcoming-date">03.03.2023</span>
       </p>
       <p class="info">
-        Vote / Votes <span class="info-span span">7.3 </span> /
-        <span class="span-info span">1260 </span>
+        Vote / Votes <span class="info-span span" id="upcoming-vote">7.3 </span> /
+        <span class="span-info span" id="upcoming-votes">1260</span>
       </p>
       <p class="info">
-        <b>Popularity</b> <span class="info-s span">99.9</span>
+        <b>Popularity</b> <span class="info-s span" id="upcoming-popularity">99.9</span>
       </p>
-      <p class="info">Genre <span class="span">Comedy, action</span></p>
+      <p class="info">Genre <span class="span" id="upcoming-genres">Comedy, action</span></p>
       <div class="upabout">
         <h2 class="upcoming-about">ABOUT</h2>
-        <p class="upcoming-about-text">
+        <p class="upcoming-about-text" id="upcoming-overview">
           Reclusive author Loretta Sage writes about exotic places in her
           popular adventure novels that feature a handsome cover model named
           Alan. While on tour promoting her new book with Alan, Loretta gets
@@ -172,14 +171,15 @@
           books, Alan sets off to rescue her.
         </p>
       </div>
-      <button class="btn btn-orange-black">Add to my library</button>
+      <button class="btn btn-orange-black" data-movie="" id="upcoming-add-library">Add to my library</button>
+      <button class="btn btn-black-white" data-movie-id="" id="upcoming-remove-library">Remove to my library</button>
     </div>
   </div>
 </section>
   <footer class="footer">
   <div class="footer-container container">
     <p class="footer-text">
-      <span class="footer-copyright"> &copy;</span> 2023 | All Rights Reserved |
+      <span class="footer-copyright"> &copy;</span> 2025 | All Rights Reserved |
     </p>
     <p class="footer-text">
       Developed with
@@ -192,7 +192,6 @@
   </div>
 </footer>
 
-  <!-- Error Modules -->
   <section class="error-modal" id="errorModal">
   <div class="modal-container">
     <div class="modal">
@@ -206,60 +205,44 @@
   </div>
 </section>
 
-  <!-- Movie Info Popup -->
-  <link rel="stylesheet" href="./practice_board.css" />
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-<script src="/practice_board.js" defer></script>
-<section class="infoPopup">
+  <section class="infoPopup">
   <span class="closeBtn">&times;</span>
   <div class="infoModal">
     <picture>
-      <source
-        media="(max-width: 768px)"
-        srcset="/src/images/johnwick-mobile.png"
-      />
-      <source
-        media="(max-width: 1024px)"
-        srcset="/src/images/johnwick-tablet.png"
-      />
-      <img
-        class="moviePoster"
-        src="/src/images/johnwick-pc.png"
-        alt="Movie Poster"
-      />
+      <source media="(max-width: 768px)" srcset="/Cinemania/assets/johnwick-mobile-ILSFlyTY.png" id="iMoviePosterMobile" />
+      <source media="(max-width: 1024px)" srcset="/Cinemania/assets/johnwick-tablet-BxhhC-Pw.png" id="iMoviePosterTablet" />
+      <img class="moviePoster" id="iMoviePoster" src="/Cinemania/assets/johnwick-pc-DETOgar0.png" alt="Movie Poster" />
     </picture>
     <div class="infoModalContent">
-      <h2 class="movieTitle">John Wick: Chapter 4</h2>
+      <h2 class="movieTitle" id="iMovieTitle">John Wick: Chapter 4</h2>
       <div class="movieInfo">
         <p class="vote">
-          Vote / Votes<span class="voteSpanLeft">7.3</span>&#47;<span
-            class="voteSpanRight"
-            >1260</span
-          >
+          Vote / Votes<span class="voteSpanLeft" id="iMovieVote">7.3</span>&#47;<span class="voteSpanRight"
+            id="iMovieVotes">1260</span>
         </p>
         <p class="popularity">
-          Popularity<span class="popularitySpan">100.2</span>
+          Popularity<span class="popularitySpan" id="iMoviePopularity">100.2</span>
         </p>
         <p class="genre">
-          Genre <span class="genreSpan">Action Thriller Crime</span>
+          Genre <span class="genreSpan" id="iMovieGenres">Action, Thriller, Crime</span>
         </p>
       </div>
       <div class="about">
         <p>ABOUT</p>
-        <p>
+        <p id="iMovieOverview">
           John Wick (Keanu Reeves) takes on his most lethal adversaries yet in
-          the upcoming fourth instalment of the series. With the price on his
-          head ever increasing, John Wick uncovers a path to defeating The High
-          Table. But before he can earn his freedom, Wick must face off against
+          the upco he can earn his freedom, Wick must face off against
           a new enemy with powerful alliances across the globe and forces that
-          turn old friends into foes.
+          turn old friends intming fourth instalment of the series. With the price on his
+          head ever increasing, John Wick uncovers a path to defeating The High
+          Table. But beforeo foes.
         </p>
       </div>
-      <button class="addLibrary">Add to my library</button>
+      <button class="btn btn-orange-black" data-movie="" id="iMovieLocalAddBtn">Add to my library</button>
+      <button class="btn btn-black-white" data-movie-id="" id="iMovieLocalRemoveBtn">Remove to my library</button>
     </div>
   </div>
 </section>
-
   <div class="team team__backdrop is-hidden">
   <div class="team__wrapper container">
     <button class="team__modal-close-btn" type="button">
