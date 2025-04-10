@@ -1,18 +1,5 @@
 // edited by @yesimbozkurt
 
-//  const options = {
-//     method: 'GET',
-//     headers: {
-//         accept: 'application/json',
-//         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MzZkMTZjOWU1MTMyNTlkYThmY2Y2MzAwZjFmZWI3OCIsIm5iZiI6MTc0MzcwNjgxNi42NTEsInN1YiI6IjY3ZWVkYWMwYjNlMDM1Mjg2Y2Q5MGQ5YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZhiQgrAi8xURVIwPyhgnrhq88KOZAEHcX1G8OwLmwQM'
-//     }
-// };
-
-// fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
-//     .then(res => res.json())
-//     .then(res => console.log(res))
-//     .catch(err => console.error(err));
-
 import { showLoader, hideLoader, fetchWithLoader } from './loader.js';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -24,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // mylibrary.html sayfasındaki elementler
     const genres = document.getElementById('filters');
-    const movieList = document.getElementById('movie-grid');
+    const movieList = document.querySelector('#movie-grid');
     const loadMoreBtn = document.querySelector('.load-more-btn');
 
     const numberOfMovies = 9; // Her seferinde gösterilecek film sayısı
@@ -98,19 +85,17 @@ document.addEventListener('DOMContentLoaded', function () {
             renderLibrary(myLibrary.slice(0, pageSize)); // Listeyi güncelle
         }
     });
-}
-);
+});
 
 function renderLibrary(movies) {
-    const movieList = document.getElementById('movie-grid');
+    const movieList = document.querySelector('#library-content');
     movieList.innerHTML = ''; // Önceki filmleri temizle
 
     movies.forEach((movie, index) => {
-        console.log(movie);
         const li = document.createElement('li');
         li.className = 'movies__list-item';
         li.style.background = 'linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))';
-        li.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${movie.poster_path})`;
+        li.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${movie.poster_path})`;
         li.style.backgroundSize = 'cover';
         li.style.backgroundRepeat = 'no-repeat';
         li.style.width = '395px';

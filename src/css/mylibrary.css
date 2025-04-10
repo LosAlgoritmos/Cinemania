@@ -152,13 +152,12 @@
     width: 100%;
     /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
     gap: 24px;
-
     list-style-type: none;
     padding: 24px;
     margin: 0 auto;
     max-width: 1200px;
     justify-items: center;
-    list-style: none;
+
 }
 
 .library-content li {
