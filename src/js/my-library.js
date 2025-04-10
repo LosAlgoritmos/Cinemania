@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Load more butonuna tıklama olayı ekle
     loadMoreBtn.addEventListener('click', function () {
         currentPage++;
-        const start = (currentPage - 1) * pageSize;
-        const end = start + pageSize;
+        const start = (currentPage - 1) * numberOfMovies;
+        const end = start + numberOfMovies;
         const moviesToShow = myLibrary.slice(start, end);
         renderLibrary(moviesToShow);
 
