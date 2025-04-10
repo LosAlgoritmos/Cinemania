@@ -23,3 +23,12 @@ addLibraryBtn.addEventListener('click', () => {
     addLibraryBtn.textContent = 'Add to my library';
   }
 });
+
+
+
+export const renderMovieInfoPopup = (movie) => {
+  
+};
+
+
+
