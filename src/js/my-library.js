@@ -1,5 +1,6 @@
 // edited by @yesimbozkurt
-import { showLoader, hideLoader, fetchWithLoader } from './loader.js';
+ import { renderMovieInfoPopup } from './infoPopup.js';
+ import { showLoader, hideLoader, fetchWithLoader } from './loader.js';
 
 document.addEventListener('DOMContentLoaded', function () {
     showLoader();
@@ -103,9 +104,7 @@ function renderLibrary(movies, append = false) {
         li.style.position = 'relative';
         li.style.cursor = 'pointer';
         li.addEventListener('click', e => {
-
-            document.querySelector('.infoPopup').style.display = 'flex';
-
+            renderMovieInfoPopup(movie);
         })
         li.innerHTML = `
                         <div class="movies__list-item-info">

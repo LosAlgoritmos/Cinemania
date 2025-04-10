@@ -105,7 +105,7 @@
 
 .filters #genre {
     padding-inline: 15px;
-    border: 1px solid var(--white);
+    border: 1px solid var(--text);
     border-radius: 4px;
     width: 260px;
     height: 100%;

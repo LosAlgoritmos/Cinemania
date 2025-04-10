@@ -1,4 +1,5 @@
 import { showLoader, hideLoader, fetchWithLoader } from './loader.js';
+import { renderMovieInfoPopup } from './infoPopup.js';
 const moviesList = document.querySelector('.movies__list-items');
 const paginationContainer = document.querySelector('.pagination-container');
 
@@ -36,6 +37,9 @@ searchbtn.addEventListener('click', () => {
     alert.style.opacity = '1';
   }, 0);
 
+});
+
+
   searchInput.addEventListener('input', e => {
     searchQuery = e.target.value.trim();
 
@@ -53,6 +57,7 @@ searchbtn.addEventListener('click', () => {
       getMovies(currentPage);
     }, 500);
   });
+
 
   // Temizleme butonuna tıklama olayı ekle
   clearSearchBtn.addEventListener('click', () => {
@@ -133,6 +138,9 @@ searchbtn.addEventListener('click', () => {
           </div>
         </div>
       `;
+      li.addEventListener('click', () => {
+        renderMovieInfoPopup(movie);
+      });
 
         moviesList.appendChild(li);
       });

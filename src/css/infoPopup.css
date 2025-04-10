@@ -17,7 +17,7 @@
   display: flex;
 }
 .infoModal {
-  background-color: #111;
+  background-color: var(--bg);
   border-radius: 12px;
   overflow: hidden;
   width: 90%;
@@ -38,7 +38,7 @@
 
 .infoModalContent {
   padding: 20px;
-  color: #eee;
+  color: var(--text);
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -48,7 +48,7 @@
 .movieTitle {
   font-size: 24px;
   margin-bottom: 10px;
-  color: #ffffff;
+  color: var(--text);
   margin-top: 0;
   margin-bottom: 28px;
 }
@@ -61,7 +61,7 @@
 
 .movieInfo p {
   margin: 8px 0;
-  color: #ccc;
+  color: var(--text);
   display: flex;
 }
 
@@ -69,15 +69,15 @@
 .voteSpanRight,
 .popularitySpan,
 .genreSpan {
-  color: #fff;
+  color: var(--text);
   margin-left: 8px;
   line-height: 20px;
 }
 
 .voteSpanLeft,
 .voteSpanRight {
-  background-color: #ffffff;
-  color: #111;
+  background-color: var(--text);
+  color: var(--bg);
   width: max-content;
   padding: 1px 4px;
   border-radius: 6px;
@@ -104,7 +104,7 @@
 
 .about p:first-child {
   margin-bottom: 8px;
-  color: #ffffff;
+  color: var(--text);
   margin-top: 0;
 }
 

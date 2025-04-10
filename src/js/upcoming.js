@@ -23,7 +23,7 @@ getUpcoming().then(res => {
     const randomIndex = Math.floor(Math.random() * res.results.length);
     // Get random movie
     const randomMovie = res.results[randomIndex];
-    console.clear();
+    // console.clear();
     // Image URL : https://image.tmdb.org/t/p/original/ ${film.backdrop_path}
   
 
