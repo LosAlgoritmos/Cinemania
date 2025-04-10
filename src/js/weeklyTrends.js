@@ -1,3 +1,4 @@
+//#region 
 // import { showLoader, hideLoader, fetchWithLoader } from './loader.js';
 
 // const trendCards = document.querySelector('.trend-cards'); // UL elementini doğru aldığımıza emin ol!
@@ -64,6 +65,8 @@
 // }
 
 // getWeeklyTrends();
+
+//#endregion
 
 import { showLoader, hideLoader } from './loader.js';
 

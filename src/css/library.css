@@ -29,7 +29,7 @@
 }
 
 .empty-library p {
-    color: white;
+    color: var(--text);
     font-weight: 400;
     font-size: 32px;
     line-height: 36px;

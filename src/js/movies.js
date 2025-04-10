@@ -10,6 +10,7 @@ let searchTimeout;
 
 const searchInput = document.querySelector('.movies__search');
 const searchbtn = document.querySelector('#catalog-search-btn');
+const clearSearchBtn = document.querySelector('.clear-search');
 
 searchbtn.addEventListener('click', () => {
   const alert = document.createElement('div');
@@ -35,22 +36,35 @@ searchbtn.addEventListener('click', () => {
     alert.style.opacity = '1';
   }, 0);
 
-  setTimeout(() => {
-    alert.style.opacity = '0';
-    setTimeout(() => alert.remove(), 300);
-  }, 1000);
-});
 
-searchInput.addEventListener('input', e => {
+searchInput.addEventListener('input', (e) => {
   searchQuery = e.target.value.trim();
-
+  
+  // Temizleme butonunun görünürlüğünü kontrol et
+  if (searchQuery) {
+    clearSearchBtn.classList.add('visible');
+  } else {
+    clearSearchBtn.classList.remove('visible');
+  }
+ 
   clearTimeout(searchTimeout);
-
+  
   searchTimeout = setTimeout(() => {
     currentPage = 1;
     getMovies(currentPage);
   }, 500);
 });
+
+
+// Temizleme butonuna tıklama olayı ekle
+clearSearchBtn.addEventListener('click', () => {
+  searchInput.value = '';
+  searchQuery = '';
+  clearSearchBtn.classList.remove('visible');
+  currentPage = 1;
+  getMovies(currentPage);
+});
+
 
 async function getMovies(page = 1) {
   showLoader();
@@ -236,3 +250,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   getMovies();
 });
+
+
+
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0OGFlMTQ1ZTQyYzc4MDQ5YjI3Y2MwY2NhZWU1NGE3NSIsIm5iZiI6MTc0MzYzNzA0MC4yMzksInN1YiI6IjY3ZWRjYTMwMDM1NDBjZjhlNTYyODgwNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.tuTxlFoUnsTSw7K5siU94XHqec4Jgt-IVZeRxvzIv2Y'
+  }
+};
+
+fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
+  .then(res => res.json())
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
+

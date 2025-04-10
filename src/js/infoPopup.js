@@ -4,7 +4,6 @@ const addLibraryBtn = document.querySelector('.addLibrary');
 const paginationContainer = document.querySelector('.pagination-container');
 
 infoPopup.style.display = 'none';
-
 closeBtn.addEventListener('click', () => {
   infoPopup.style.display = 'none';
 });

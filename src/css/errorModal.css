@@ -62,7 +62,7 @@
 }
 
 .error-modal .modal-container .modal .modal-errorImg {
-  background-image: url('../images/cinema-pc.png');
+  background-image: url('/images/cinema-pc.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -81,7 +81,7 @@
   }
 
   .error-modal .modal-container .modal .modal-errorImg {
-    background-image: url('../images/cinema-tablet.png');
+    background-image: url('/images/cinema-tablet.png');
     width: 296px;
     height: 260px;
   }
@@ -109,7 +109,7 @@
     padding: 20px 0px 0px 20px;
   }
   .error-modal .modal-container .modal .modal-errorImg {
-    background-image: url('../images/cinema-mobile.png');
+    background-image: url('/images/cinema-mobile.png');
     width: 159px;
     height: 153px;
   }
