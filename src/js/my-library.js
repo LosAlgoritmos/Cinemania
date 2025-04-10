@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // mylibrary.html sayfasındaki elementler
     const genres = document.getElementById('filters');
-    const movieList = document.querySelector('#movie-grid');
+    const movieList = document.querySelector('.library-content');
     const loadMoreBtn = document.querySelector('.load-more-btn');
 
     const numberOfMovies = 9; // Her seferinde gösterilecek film sayısı
@@ -70,12 +70,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const start = (currentPage - 1) * numberOfMovies;
         const end = start + numberOfMovies;
         const moviesToShow = myLibrary.slice(start, end);
-        renderLibrary(moviesToShow);
+        renderLibrary(moviesToShow, true);
 
         // Eğer daha fazla film yoksa butonu gizle
         if (end >= myLibrary.length) {
             loadMoreBtn.style.display = 'none';
         }
+
     });
     // Film silme butonuna tıklama olayı ekle
     movieList.addEventListener('click', function (event) {
@@ -88,9 +89,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-function renderLibrary(movies) {
+function renderLibrary(movies, append = false) {
+    // Eğer append true ise, mevcut filmleri koru ve yeni filmleri ekle
 
     const movieList = document.querySelector(".library-content")
+
+
+    if (!append) {
+        movieList.innerHTML = ''; // Sadece append = false ise temizle
+    }
 
     movieList.innerHTML = ''; // Önceki filmleri temizle
 
@@ -109,9 +116,9 @@ function renderLibrary(movies) {
         li.style.position = 'relative';
         li.style.cursor = 'pointer';
         li.addEventListener('click', e => {
-         
+
             document.querySelector('.infoPopup').style.display = 'flex';
-           
+
         })
         li.innerHTML = `
                         <div class="movies__list-item-info">
