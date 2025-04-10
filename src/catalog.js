@@ -4,11 +4,10 @@ import './js/hero.js';
 // @AlperKale
 import { showLoader, hideLoader } from './js/loader.js';
 import './js/scroll-up.js';
+// @sumeyyeterzi
+import './js/errorModal.js';
 // @RoyalNegative
 import './js/movies.js';
-// @sumeyyeterzi
-import './js/infoPopup.js';
-import './js/errorModal.js';
 // @erdem6161
 import './js/footer.js';
 import './js/members-modal.js';
