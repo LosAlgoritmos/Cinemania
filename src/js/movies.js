@@ -269,4 +269,4 @@ searchbtn.addEventListener('click', () => {
     .then(res => res.json())
     .then(res => console.log(res))
     .catch(err => console.error(err));
-});
+ 
