@@ -55,7 +55,6 @@
 }
 
 .library-hero .hero-content .hero-content-title {
-
     font-weight: 700;
     font-size: 64px;
     line-height: 100%;
@@ -63,7 +62,6 @@
     vertical-align: middle;
     width: 670px;
     margin-bottom: 16px;
-
 }
 
 .library-hero .hero-content .hero-content-info {
@@ -161,12 +159,11 @@
     width: 100%;
     /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
     gap: 24px;
-    border: 1px solid var(--orange);
     list-style-type: none;
     margin: 0 auto;
     max-width: 1280px;
     justify-items: center;
-    list-style: none;
+
 }
 
 .library-content li {

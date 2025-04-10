@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // mylibrary.html sayfasındaki elementler
     const genres = document.getElementById('filters');
-    const movieList = document.getElementById('movie-grid');
+    const movieList = document.querySelector('#movie-grid');
     const loadMoreBtn = document.querySelector('.load-more-btn');
 
     const numberOfMovies = 9; // Her seferinde gösterilecek film sayısı
@@ -86,19 +86,19 @@ document.addEventListener('DOMContentLoaded', function () {
             renderLibrary(myLibrary.slice(0, pageSize)); // Listeyi güncelle
         }
     });
-}
-);
+});
 
 function renderLibrary(movies) {
+
     const movieList = document.querySelector(".library-content")
+
     movieList.innerHTML = ''; // Önceki filmleri temizle
 
     movies.forEach((movie, index) => {
-        console.log(movie);
         const li = document.createElement('li');
         li.className = 'movies__list-item';
         li.style.background = 'linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))';
-        li.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${movie.poster_path})`;
+        li.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${movie.poster_path})`;
         li.style.backgroundSize = 'cover';
         li.style.backgroundRepeat = 'no-repeat';
         li.style.width = '395px';
@@ -112,7 +112,6 @@ function renderLibrary(movies) {
          
             document.querySelector('.infoPopup').style.display = 'flex';
            
-
         })
         li.innerHTML = `
                         <div class="movies__list-item-info">

@@ -2,48 +2,37 @@
   <span class="closeBtn">&times;</span>
   <div class="infoModal">
     <picture>
-      <source
-        media="(max-width: 768px)"
-        srcset="/images/johnwick-mobile.png"
-      />
-      <source
-        media="(max-width: 1024px)"
-        srcset="/images/johnwick-tablet.png"
-      />
-      <img
-        class="moviePoster"
-        src="/images/johnwick-pc.png"
-        alt="Movie Poster"
-      />
+      <source media="(max-width: 768px)" srcset="/images/johnwick-mobile.png" />
+      <source media="(max-width: 1024px)" srcset="/images/johnwick-tablet.png" />
+      <img class="moviePoster" src="/images/johnwick-pc.png" alt="Movie Poster" />
     </picture>
     <div class="infoModalContent">
-      <h2 class="movieTitle">John Wick: Chapter 4</h2>
+      <h2 class="movieTitle" id="iMovieTitle">John Wick: Chapter 4</h2>
       <div class="movieInfo">
         <p class="vote">
-          Vote / Votes<span class="voteSpanLeft">7.3</span>&#47;<span
-            class="voteSpanRight"
-            >1260</span
-          >
+          Vote / Votes<span class="voteSpanLeft" id="iMovieVote">7.3</span>&#47;<span class="voteSpanRight"
+            id="iMovieVotes">1260</span>
         </p>
         <p class="popularity">
-          Popularity<span class="popularitySpan">100.2</span>
+          Popularity<span class="popularitySpan" id="iMoviePopularity">100.2</span>
         </p>
         <p class="genre">
-          Genre <span class="genreSpan">Action Thriller Crime</span>
+          Genre <span class="genreSpan" id="iMovieGenres">Action, Thriller, Crime</span>
         </p>
       </div>
       <div class="about">
         <p>ABOUT</p>
-        <p>
+        <p id="iMovieOverview">
           John Wick (Keanu Reeves) takes on his most lethal adversaries yet in
-          the upcoming fourth instalment of the series. With the price on his
-          head ever increasing, John Wick uncovers a path to defeating The High
-          Table. But before he can earn his freedom, Wick must face off against
+          the upco he can earn his freedom, Wick must face off against
           a new enemy with powerful alliances across the globe and forces that
-          turn old friends into foes.
+          turn old friends intming fourth instalment of the series. With the price on his
+          head ever increasing, John Wick uncovers a path to defeating The High
+          Table. But beforeo foes.
         </p>
       </div>
-      <button class="addLibrary">Add to my library</button>
+      <button class="btn btn-orange-black" data-movie="" id="iMovieLocalAddBtn">Add to my library</button>
+      <button class="btn btn-black-white" data-movie-id="" id="iMovieLocalRemoveBtn">Remove to my library</button>
     </div>
   </div>
 </section>
