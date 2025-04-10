@@ -1,6 +1,4 @@
 // edited by @yesimbozkurt
-
-
 import { showLoader, hideLoader, fetchWithLoader } from './loader.js';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -14,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const genres = document.getElementById('filters');
     const movieList = document.querySelector('.library-content');
     const loadMoreBtn = document.querySelector('.load-more-btn');
+    const genre = document.querySelector('#genre');
 
     const numberOfMovies = 9; // Her seferinde gösterilecek film sayısı
     let currentPage = 1; // Başlangıç sayfası
@@ -49,43 +48,33 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         loadMoreBtn.style.display = 'none';
     }
+
     // Dropdown menüsünü oluştur
-    const uniqueGenres = [...new Set(myLibrary.flatMap(movie => movie.genres))];
-    uniqueGenres.forEach(genre => {
-        const option = document.createElement('option');
-        option.value = genre;
-        option.textContent = genre;
-        genres.appendChild(option);
-    });
-    // Dropdown menüsüne tıklama olayı ekle
-    genres.addEventListener('change', function () {
-        const selectedGenre = this.value;
-        const filteredMovies = myLibrary.filter(movie => movie.genres.includes(selectedGenre));
-        renderLibrary(filteredMovies);
-    });
+    genre.addEventListener('change', e => {
+        const genreId = e.target.value;
+        const filteredMovies = genreId === 'all'
+            ? myLibrary.slice(0, currentPage * numberOfMovies)
+            : myLibrary.filter(movie => movie.genre_ids.includes(parseInt(genreId)));
+        if (filteredMovies.length === 0) {
+            movieList.innerHTML = ''; // Eğer filtrelenmiş film yoksa, listeyi temizle
+            loadMoreBtn.style.display = 'none';
+        }
+        else {
+            loadMoreBtn.style.display = 'block';
+            renderLibrary(filteredMovies);
+        }
+    })
 
     // Load more butonuna tıklama olayı ekle
     loadMoreBtn.addEventListener('click', function () {
         currentPage++;
-        const start = (currentPage - 1) * numberOfMovies;
-        const end = start + numberOfMovies;
-        const moviesToShow = myLibrary.slice(start, end);
-        renderLibrary(moviesToShow, true);
+        const newMovies = myLibrary.slice(0, currentPage * numberOfMovies);
+        renderLibrary(newMovies);
 
-        // Eğer daha fazla film yoksa butonu gizle
-        if (end >= myLibrary.length) {
+        if (newMovies.length >= myLibrary.length) {
             loadMoreBtn.style.display = 'none';
         }
 
-    });
-    // Film silme butonuna tıklama olayı ekle
-    movieList.addEventListener('click', function (event) {
-        if (event.target.classList.contains('delete-btn')) {
-            const index = event.target.dataset.index;
-            myLibrary.splice(index, 1); // Seçilen filmi sil
-            localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
-            renderLibrary(myLibrary.slice(0, pageSize)); // Listeyi güncelle
-        }
     });
 });
 
@@ -94,11 +83,9 @@ function renderLibrary(movies, append = false) {
 
     const movieList = document.querySelector(".library-content")
 
-
     if (!append) {
         movieList.innerHTML = ''; // Sadece append = false ise temizle
     }
-
     movieList.innerHTML = ''; // Önceki filmleri temizle
 
     movies.forEach((movie, index) => {
@@ -140,32 +127,32 @@ function renderLibrary(movies, append = false) {
 }
 
 // Film türlerini isimlendiren fonksiyon
-// function getGenreNames(genreIds) {
-//     const genreMap = {
-//         28: 'Action',
-//         12: 'Adventure',
-//         16: 'Animation',
-//         35: 'Comedy',
-//         80: 'Crime',
-//         99: 'Documentary',
-//         18: 'Drama',
-//         10751: 'Family',
-//         14: 'Fantasy',
-//         36: 'History',
-//         27: 'Horror',
-//         10402: 'Music',
-//         9648: 'Mystery',
-//         10749: 'Romance',
-//         878: 'Science Fiction',
-//         10770: 'TV Movie',
-//         53: 'Thriller',
-//         10752: 'War',
-//         37: 'Western'
-//     };
-//     if (!genreIds || !Array.isArray(genreIds)) return '';
-//     const mappedGenres = genreIds.map(id => genreMap[id] || 'Unknown');
-//     return mappedGenres.slice(0, 2).join(', '); // Maksimum 2 genre döndür
-// }
+function getGenreNames(genreIds) {
+    const genreMap = {
+        28: 'Action',
+        12: 'Adventure',
+        16: 'Animation',
+        35: 'Comedy',
+        80: 'Crime',
+        99: 'Documentary',
+        18: 'Drama',
+        10751: 'Family',
+        14: 'Fantasy',
+        36: 'History',
+        27: 'Horror',
+        10402: 'Music',
+        9648: 'Mystery',
+        10749: 'Romance',
+        878: 'Science Fiction',
+        10770: 'TV Movie',
+        53: 'Thriller',
+        10752: 'War',
+        37: 'Western'
+    };
+    if (!genreIds || !Array.isArray(genreIds)) return '';
+    const mappedGenres = genreIds.map(id => genreMap[id] || 'Unknown');
+    return mappedGenres.slice(0, 2).join(', '); // Maksimum 2 genre döndür
+}
 
 window.addEventListener('load', () => {
     // Loader'ı gizle
