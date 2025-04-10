@@ -1,4 +1,5 @@
 import { showLoader, hideLoader, fetchWithLoader } from './loader.js';
+import { renderMovieInfoPopup } from './infoPopup.js';
 const moviesList = document.querySelector('.movies__list-items');
 const paginationContainer = document.querySelector('.pagination-container');
 
@@ -35,7 +36,7 @@ searchbtn.addEventListener('click', () => {
   setTimeout(() => {
     alert.style.opacity = '1';
   }, 0);
-
+});
 
 searchInput.addEventListener('input', (e) => {
   searchQuery = e.target.value.trim();
@@ -136,6 +137,9 @@ async function getMovies(page = 1) {
           </div>
         </div>
       `;
+      li.addEventListener('click', () => {
+        renderMovieInfoPopup(movie);
+      });
 
       moviesList.appendChild(li);
     });
