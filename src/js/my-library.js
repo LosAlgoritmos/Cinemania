@@ -50,9 +50,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Film varsa, varsayılan ekranı gizle ve dropdown/load more'u göster
         emptyLibrary.style.display = 'none';
         searchMovieBtn.style.display = 'none'; // "Go to Catalog" butonunu gizle
-        genres.style.display = 'block';
-        movieList.style.display = 'block';
-        loadMoreBtn.style.display = 'block';
+        genres.style.display = 'flex';
+        movieList.style.display = 'flex';
+        loadMoreBtn.style.display = 'flex';
     }
 
     renderLibrary(myLibrary.slice(0, numberOfMovies)); // İlk sayfayı göster
