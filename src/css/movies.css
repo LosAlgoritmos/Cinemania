@@ -18,14 +18,21 @@ body {
 }
 
 .search-container {
-    width: 100%;
+    width: min-content;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     align-items: center;
     gap: 16px;
-    width: 100%;
     padding: 0 16px;
+    position: relative;
+    text-align: center;
+}
+
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .movies__search {
@@ -37,6 +44,7 @@ body {
     color: var(--text);
     border: 1px solid var(--grey);
     padding-left: 16px;
+    padding-right: 40px;
     font-size: 1rem;
     transition: all 0.3s ease;
 }
@@ -315,4 +323,28 @@ section #year option {
 .no-results p {
     font-size: 2rem;
     color: var(--text);
+}
+
+.clear-search {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--grey);
+    cursor: pointer;
+    padding: 4px;
+    display: none;
+    transition: color 0.3s ease;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.clear-search:hover {
+    color: var(--orange);
+}
+
+.clear-search.visible {
+    display: block;
 }

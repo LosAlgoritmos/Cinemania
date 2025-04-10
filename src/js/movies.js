@@ -12,6 +12,7 @@ let searchTimeout;
 
 const searchInput = document.querySelector('.movies__search');
 const searchbtn = document.querySelector('#catalog-search-btn');
+const clearSearchBtn = document.querySelector('.clear-search');
 
 searchbtn.addEventListener('click', () => {
     const alert = document.createElement('div');
@@ -43,18 +44,31 @@ searchbtn.addEventListener('click', () => {
 });
 
 
-
 searchInput.addEventListener('input', (e) => {
   searchQuery = e.target.value.trim();
   
+  // Temizleme butonunun görünürlüğünü kontrol et
+  if (searchQuery) {
+    clearSearchBtn.classList.add('visible');
+  } else {
+    clearSearchBtn.classList.remove('visible');
+  }
  
   clearTimeout(searchTimeout);
-  
   
   searchTimeout = setTimeout(() => {
     currentPage = 1; 
     getMovies(currentPage);
   }, 500); 
+});
+
+// Temizleme butonuna tıklama olayı ekle
+clearSearchBtn.addEventListener('click', () => {
+  searchInput.value = '';
+  searchQuery = '';
+  clearSearchBtn.classList.remove('visible');
+  currentPage = 1;
+  getMovies(currentPage);
 });
 
 

@@ -14,9 +14,7 @@
 }
 
 [data-theme='dark'] {
-
   --bg: #111111;
-
   --text: #fff;
   --button-bg: #000;
   --nav-menu-text: var(--light-grey);
