@@ -15,23 +15,23 @@ window.addEventListener('click', e => {
 });
 
 function toggleLibraryButton(button) {
-  if (button.textContent === 'Add to my library') {
-    button.textContent = 'Remove from my library';
+  if (button.textContent === ('Add to my library')) {
+    button.textContent = ('Remove from my library');
   } else {
-    button.textContent = 'Add to my library';
+    button.textContent = ('Add to my library');
   }
 
-});
-
-
-
-export const renderMovieInfoPopup = (movie) => {
-  
 };
 
 
 
-}
+export const renderMovieInfoPopup = (movie) => {
+
+};
+
+
+
+
 
 const options = {
   method: 'GET',
