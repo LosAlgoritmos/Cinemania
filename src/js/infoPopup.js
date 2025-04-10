@@ -1,7 +1,5 @@
 const infoPopup = document.querySelector('.infoPopup');
 const closeBtn = document.querySelector('.closeBtn');
-const addLibraryBtn = document.querySelector('.addLibrary');
-const paginationContainer = document.querySelector('.pagination-container');
 
 infoPopup.style.display = 'none';
 closeBtn.addEventListener('click', () => {
@@ -14,94 +12,45 @@ window.addEventListener('click', e => {
   }
 });
 
-function toggleLibraryButton(button) {
-  if (button.textContent === ('Add to my library')) {
-    button.textContent = ('Remove from my library');
-  } else {
-    button.textContent = ('Add to my library');
-  }
-
-};
-
-
-
+// @murselsen
 export const renderMovieInfoPopup = (movie) => {
-
+  const iPopup = document.querySelector('.infoPopup');
+  iPopup.style.display = 'flex';
+  console.log("InfoPopup - Movie data:", movie);
+  // iMovieTitle
+  iPopup.querySelector("#iMovieTitle").textContent = movie.original_title || movie.original_name;
+  // iMovieVote
+  iPopup.querySelector('#iMovieVote').textContent = movie.vote_average;
+  // iMovieVotes
+  iPopup.querySelector('#iMovieVotes').textContent = movie.vote_count;
+  // iMoviePopularity
+  iPopup.querySelector('#iMoviePopularity').textContent = movie.popularity.toFixed(1);
+  // iMovieGenres
+  const genreMovie = {
+    28: 'Action',
+    12: 'Adventure',
+    16: 'Animation',
+    35: 'Comedy',
+    80: 'Crime',
+    99: 'Documentary',
+    18: 'Drama',
+    10751: 'Family',
+    14: 'Fantasy',
+    36: 'History',
+    27: 'Horror',
+    10402: 'Music',
+    9648: 'Mystery',
+    10749: 'Romance',
+    878: 'Science Fiction',
+    10770: 'TV Movie',
+    53: 'Thriller',
+    10752: 'War',
+    37: 'Western'
+  };
+  iPopup.querySelector('#iMovieGenres').textContent = movie.genre_ids.map(genreId => genreMovie[genreId]).join(', ');
+  // iMovieOverview
+  iPopup.querySelector('#iMovieOverview').textContent = movie.overview;
+  // iMoviePoster 
+  const posterBaseUrl = 'https://image.tmdb.org/t/p/w500';
+  iPopup.querySelector('#iMoviePoster').src = posterBaseUrl + movie.poster_path;
 };
-
-
-
-
-
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YmFiMGI5ZGE3MTMwNzk1OGQ3NzRkMWY2MGVkNjQwNiIsIm5iZiI6MTc0MzcwNDA1MC4xMTAwMDAxLCJzdWIiOiI2N2VlY2ZmMmVkZThkODJmM2JhY2UyMTUiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.MsNAvT282kqW1uTLeqhXSOcrkeJp-amWyjv3dEkdzE8',
-  },
-};
-
-async function fetchMovieDetails(movieId) {
-  try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
-      options
-    );
-    if (!response.ok) {
-      throw new Error('Film bulunamadı!');
-    }
-    const data = await response.json();
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.error('Hata:', error);
-    return null;
-  }
-}
-
-function setupFilmCards() {
-  const filmCards = document.querySelectorAll('.filmCard');
-
-  filmCards.forEach(filmCard => {
-    filmCard.addEventListener('click', async () => {
-      const movieId = filmCard.dataset.id;
-      const movieDetails = await fetchMovieDetails(movieId);
-
-      if (movieDetails) {
-        document.getElementById('movieTitle').textContent = movieDetails.title;
-        document.getElementById('aboutText').textContent =
-          movieDetails.overview;
-        document.getElementById('vote').textContent =
-          movieDetails.vote_average.toFixed(1);
-        document.getElementById('votes').textContent = movieDetails.vote_count;
-        document.getElementById('popularity').textContent =
-          movieDetails.popularity.toFixed(1);
-        document.getElementById('genre').textContent = movieDetails.genres
-          .map(g => g.name)
-          .join(', ');
-
-        const posterBaseUrl = 'https://image.tmdb.org/t/p/w500';
-        document.getElementById('posterPc').src =
-          posterBaseUrl + movieDetails.poster_path;
-        document.getElementById('posterTablet').srcset =
-          posterBaseUrl + movieDetails.poster_path;
-        document.getElementById('posterMobile').srcset =
-          posterBaseUrl + movieDetails.poster_path;
-
-        infoPopup.style.display = 'flex';
-
-        const currentAddLibraryBtn = document.querySelector('.addLibrary');
-        currentAddLibraryBtn.addEventListener('click', () => {
-          toggleLibraryButton(currentAddLibraryBtn);
-        });
-      } else {
-        console.error('Film detayları alınamadı');
-      }
-    });
-  });
-}
-
-// setupFilmCards();
-
-
