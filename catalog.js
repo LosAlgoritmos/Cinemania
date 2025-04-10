@@ -1,4 +1,4 @@
-import{s as y,r as T,h as I}from"./assets/members-modal-B7GHqlHS.js";import"./assets/hero-DC6qeKfx.js";const m=document.querySelector(".movies__list-items"),u=document.querySelector(".pagination-container");let t=1,c=0,p="",v;const f=document.querySelector(".movies__search"),b=document.querySelector("#catalog-search-btn"),h=document.querySelector(".clear-search");b.addEventListener("click",()=>{const e=document.createElement("div");e.textContent="BOSU BOSUNA O TUSA BASMA ARTIK ZATEN INPUT YERINE YAZINCA ARIYOR!",e.style.cssText=`
+import{s as y,r as T,h as I}from"./assets/members-modal-CG6umtly.js";import"./assets/hero-OeItsHXC.js";const m=document.querySelector(".movies__list-items"),u=document.querySelector(".pagination-container");let t=1,c=0,p="",v;const f=document.querySelector(".movies__search"),b=document.querySelector("#catalog-search-btn"),h=document.querySelector(".clear-search");b.addEventListener("click",()=>{const e=document.createElement("div");e.textContent="BOSU BOSUNA O TUSA BASMA ARTIK ZATEN INPUT YERINE YAZINCA ARIYOR!",e.style.cssText=`
         position: fixed;
         top: 20px;
         left: 50%;
