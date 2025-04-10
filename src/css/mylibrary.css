@@ -93,22 +93,29 @@
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    margin-top: 24px;
+     
     width: 260px;
     height: 48px;
-    border: 1px solid var(--white);
-    border-radius: 4px;
     color: var(--white);
-    padding-inline: 15px;
-    margin-left: 32px;
+     
+    width: 100%;
+    max-width: 1280px;
+    margin: 60px auto 36px auto;
 }
 
 .filters #genre {
-    width: 100%;
+    padding-inline: 15px;
+    border: 1px solid var(--white);
+    border-radius: 4px;
+    width: 260px;
     height: 100%;
     background: transparent;
-    border: none;
-    color: #B7B7B7;
+    color: var(--text);
+
+}
+
+.filters #genre:after{
+    padding-right: 10px;
 }
 
 .filters #genre:focus {
@@ -153,9 +160,8 @@
     /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
     gap: 24px;
     list-style-type: none;
-    padding: 24px;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1280px;
     justify-items: center;
 
 }

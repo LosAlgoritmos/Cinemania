@@ -1,5 +1,6 @@
 // edited by @yesimbozkurt
 
+
 import { showLoader, hideLoader, fetchWithLoader } from './loader.js';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -88,7 +89,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function renderLibrary(movies) {
-    const movieList = document.querySelector('#library-content');
+
+    const movieList = document.querySelector(".library-content")
+
     movieList.innerHTML = ''; // Önceki filmleri temizle
 
     movies.forEach((movie, index) => {
@@ -106,9 +109,9 @@ function renderLibrary(movies) {
         li.style.position = 'relative';
         li.style.cursor = 'pointer';
         li.addEventListener('click', e => {
-
+         
             document.querySelector('.infoPopup').style.display = 'flex';
-            document.querySelector('.infoPopup').style.position = "fixed";
+           
         })
         li.innerHTML = `
                         <div class="movies__list-item-info">
@@ -130,32 +133,32 @@ function renderLibrary(movies) {
 }
 
 // Film türlerini isimlendiren fonksiyon
-function getGenreNames(genreIds) {
-    const genreMap = {
-        28: 'Action',
-        12: 'Adventure',
-        16: 'Animation',
-        35: 'Comedy',
-        80: 'Crime',
-        99: 'Documentary',
-        18: 'Drama',
-        10751: 'Family',
-        14: 'Fantasy',
-        36: 'History',
-        27: 'Horror',
-        10402: 'Music',
-        9648: 'Mystery',
-        10749: 'Romance',
-        878: 'Science Fiction',
-        10770: 'TV Movie',
-        53: 'Thriller',
-        10752: 'War',
-        37: 'Western'
-    };
-    if (!genreIds || !Array.isArray(genreIds)) return '';
-    const mappedGenres = genreIds.map(id => genreMap[id] || 'Unknown');
-    return mappedGenres.slice(0, 2).join(', '); // Maksimum 2 genre döndür
-}
+// function getGenreNames(genreIds) {
+//     const genreMap = {
+//         28: 'Action',
+//         12: 'Adventure',
+//         16: 'Animation',
+//         35: 'Comedy',
+//         80: 'Crime',
+//         99: 'Documentary',
+//         18: 'Drama',
+//         10751: 'Family',
+//         14: 'Fantasy',
+//         36: 'History',
+//         27: 'Horror',
+//         10402: 'Music',
+//         9648: 'Mystery',
+//         10749: 'Romance',
+//         878: 'Science Fiction',
+//         10770: 'TV Movie',
+//         53: 'Thriller',
+//         10752: 'War',
+//         37: 'Western'
+//     };
+//     if (!genreIds || !Array.isArray(genreIds)) return '';
+//     const mappedGenres = genreIds.map(id => genreMap[id] || 'Unknown');
+//     return mappedGenres.slice(0, 2).join(', '); // Maksimum 2 genre döndür
+// }
 
 window.addEventListener('load', () => {
     // Loader'ı gizle

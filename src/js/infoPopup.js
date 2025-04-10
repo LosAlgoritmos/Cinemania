@@ -20,6 +20,17 @@ function toggleLibraryButton(button) {
   } else {
     button.textContent = 'Add to my library';
   }
+
+});
+
+
+
+export const renderMovieInfoPopup = (movie) => {
+  
+};
+
+
+
 }
 
 const options = {
@@ -92,4 +103,5 @@ function setupFilmCards() {
 }
 
 // setupFilmCards();
+
 

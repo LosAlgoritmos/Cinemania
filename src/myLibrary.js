@@ -3,10 +3,10 @@ import './js/navbar.js';
 // @AlperKale
 import { showLoader, hideLoader } from './js/loader.js';
 import './js/scroll-up.js';
-// @yesimbozkurt
-import './js/my-library.js';
 // @sumeyyeterzi
 import './js/infoPopup.js';
+// @yesimbozkurt
+import './js/my-library.js';
 // @erdem6161
 import './js/footer.js';
 import './js/members-modal.js';
