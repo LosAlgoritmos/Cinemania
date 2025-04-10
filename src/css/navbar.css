@@ -72,6 +72,13 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.nav .nav__theme .nav__theme-toggle.dark{
+  background-image : url(/img/navbar/dark-switch.png)
+}
+.nav .nav__theme .nav__theme-toggle.light{
+  background-image : url(/img/navbar/light-switch.png)
+}
  
 
 @media (max-width: 767px) {
