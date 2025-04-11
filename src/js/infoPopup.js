@@ -44,15 +44,15 @@ export const renderMoiveLocalActionBtn = (movieId) => {
 // @murselsen
 export const addMovieToLocalStorage = (movie_data) => {
   const localMyLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [];
-  
-  if(!isLocalMovieById(movie_data.id)){
+
+  if (!isLocalMovieById(movie_data.id)) {
     localMyLibrary.push(movie_data);
     localStorage.setItem('myLibrary', JSON.stringify(localMyLibrary));
-  }else{
+  } else {
     localStorage.setItem('myLibrary', JSON.stringify(localMyLibrary));
 
   }
-  
+
 
   // renderMoiveLocalActionBtn
   renderMoiveLocalActionBtn(movie_data.id);
@@ -62,16 +62,20 @@ export const addMovieToLocalStorage = (movie_data) => {
 
 export const removeMovieToLocalStorage = (movie_data) => {
   const localArray = JSON.parse(localStorage.getItem('myLibrary') || []);
-  const updatedArray = localArray.filter(m => m.id !== movie_data.id);
-  localStorage.setItem('myLibrary', JSON.stringify(updatedArray));
 
+  if (isLocalMovieById(movie_data.id)) {
+    const updatedArray = localArray.filter(m => m.id !== movie_data.id);
+    localStorage.setItem('myLibrary', JSON.stringify(updatedArray));
+  } else {
+    localStorage.setItem('myLibrary', JSON.stringify(localArray));
+  }
   // renderMoiveLocalActionBtn
   renderMoiveLocalActionBtn(movie_data.id);
 };
 
 // @murselsen
 export const renderMovieInfoPopup = (movie) => {
-  
+
   const iPopup = document.querySelector('.infoPopup');
   iPopup.style.display = 'flex';
   // iMovieTitle
@@ -109,8 +113,8 @@ export const renderMovieInfoPopup = (movie) => {
     10752: 'War',
     37: 'Western'
   };
-  let geners =movie.genre_ids.flatMap(genreId => genreMovie[genreId]).join(', ');
-  
+  let geners = movie.genre_ids.flatMap(genreId => genreMovie[genreId]).join(', ');
+
   iPopup.querySelector('#iMovieGenres').textContent = movie.genre_ids.map(genreId => genreMovie[genreId]).join(', ');
   // iMovieOverview
   iPopup.querySelector('#iMovieOverview').textContent = movie.overview;
@@ -131,7 +135,7 @@ export const renderMovieInfoPopup = (movie) => {
     removeMovieToLocalStorage(movie);
   });
 
-   
+
 };
 
 
