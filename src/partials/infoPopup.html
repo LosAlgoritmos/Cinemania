@@ -1,9 +1,38 @@
-<section class="info-popup">
-  <div id="infoModal" class="modal">
-    <div class="modal-content">
-      <span class="closeBtn">&times;</span>
-      <h2 id="modalTitle"></h2>
-      <p id="modalDescription"></p>
+<section class="infoPopup">
+  <span class="closeBtn">&times;</span>
+  <div class="infoModal">
+    <picture>
+      <source media="(max-width: 768px)" srcset="/images/johnwick-mobile.png" id="iMoviePosterMobile" />
+      <source media="(max-width: 1024px)" srcset="/images/johnwick-tablet.png" id="iMoviePosterTablet" />
+      <img class="moviePoster" id="iMoviePoster" src="/images/johnwick-pc.png" alt="Movie Poster" />
+    </picture>
+    <div class="infoModalContent">
+      <h2 class="movieTitle" id="iMovieTitle">John Wick: Chapter 4</h2>
+      <div class="movieInfo">
+        <p class="vote">
+          Vote / Votes<span class="voteSpanLeft" id="iMovieVote">7.3</span>&#47;<span class="voteSpanRight"
+            id="iMovieVotes">1260</span>
+        </p>
+        <p class="popularity">
+          Popularity<span class="popularitySpan" id="iMoviePopularity">100.2</span>
+        </p>
+        <p class="genre">
+          Genre <span class="genreSpan" id="iMovieGenres">Action, Thriller, Crime</span>
+        </p>
+      </div>
+      <div class="about">
+        <p>ABOUT</p>
+        <p id="iMovieOverview">
+          John Wick (Keanu Reeves) takes on his most lethal adversaries yet in
+          the upco he can earn his freedom, Wick must face off against
+          a new enemy with powerful alliances across the globe and forces that
+          turn old friends intming fourth instalment of the series. With the price on his
+          head ever increasing, John Wick uncovers a path to defeating The High
+          Table. But beforeo foes.
+        </p>
+      </div>
+      <button class="btn btn-orange-black" data-movie="" id="iMovieLocalAddBtn">Add to my library</button>
+      <button class="btn btn-black-white" data-movie-id="" id="iMovieLocalRemoveBtn">Remove to my library</button>
     </div>
   </div>
 </section>
