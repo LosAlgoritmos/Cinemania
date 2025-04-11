@@ -53,8 +53,8 @@ async function getWeeklyTrends() {
         <div class="movies__list-item-rating">
           ${Array.from({ length: 5 }, (_, index) =>
             index < Math.round(moviee.vote_average || 0)
-              ? '<img src="./images/star.png" alt="star">'
-              : '<img src="./images/star-outline.png" alt="empty star">'
+              ? '<img src="images/star.png" alt="star">'
+              : '<img src="images/star-outline.png" alt="empty star">'
           ).join('')}
         </div>
       `;
