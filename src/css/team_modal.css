@@ -45,9 +45,6 @@
   );
 }
 
-
-
-
 .team__backdrop {
   position: fixed;
   top: 0;
@@ -60,7 +57,6 @@
   background-color: rgba(0, 0, 0, 0.6);
   visibility: visible;
   opacity: 1;
-
 }
 
 .light .team__backdrop {
@@ -80,7 +76,6 @@
   transform: translate(-75%, -90%) scale(3);
 }
 
-
 .team__wrapper {
   position: relative;
   z-index: 999;
@@ -88,7 +83,7 @@
   padding: 25px 15px;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
-  box-shadow: 1px 1px 25px 4px rgba(255, 108, 8, 0.3)
+  box-shadow: 1px 1px 25px 4px rgba(255, 108, 8, 0.3);
 }
 
 .light .team__wrapper {
@@ -137,11 +132,10 @@
     scrollbar-width: none;
     /* Firefox */
   }
-
 }
 
 .light .team__wrapper {
-  box-shadow: 1px 1px 25px 4px rgba(0, 0, 0, 0.3)
+  box-shadow: 1px 1px 25px 4px rgba(0, 0, 0, 0.3);
 }
 
 .team__modal-close-btn {
@@ -199,8 +193,10 @@
 
 .team__list {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  margin: 70px;
+  align-items: center;
   gap: 40px;
 }
 
@@ -212,7 +208,7 @@
   border-radius: 10px;
   padding-bottom: 5px;
   overflow: hidden;
-  transform: scale(1.0);
+  transform: scale(1);
   transition: box-shadow var(--transition), transform var(--transition);
 }
 
@@ -269,7 +265,6 @@
   justify-content: center;
   align-items: center;
   transition: var(--transition);
-
 }
 
 .team__link-github {
@@ -283,7 +278,6 @@
   justify-content: center;
   align-items: center;
   transition: var(--transition);
-
 }
 
 .team__link-github:hover,

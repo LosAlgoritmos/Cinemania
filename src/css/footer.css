@@ -100,6 +100,7 @@
     padding-bottom: 40px;
   }
   .footer-container {
+    margin:auto ;
     display: block;
     text-align: center;
   }
@@ -113,5 +114,6 @@
   .footer {
     padding-top: 100px;
     padding-bottom: 80px;
+    
   }
 }
