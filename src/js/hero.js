@@ -35,13 +35,7 @@ const getDayTrends = async () => {
 const getMovieVideos = async movieId => {
   return new Promise((resolve, reject) => {
     try {
-      // # watch-trailer
-      // # more-details
-      const getStartedButton = document.querySelector('#hero-get-started');
-      const watchTrailerButton = document.querySelector('#hero-watch-trailer');
-      const moreDetailsButton = document.querySelector('#more-details');
-      watchTrailerButton.style.display = 'none';
-      moreDetailsButton.style.display = 'none';
+
       showLoader();
       // url: 'https://api.themoviedb.org/3/movie/movie_id/videos
       const options = {
@@ -58,37 +52,14 @@ const getMovieVideos = async movieId => {
       )
         .then(res => res.json())
         .then(videoData => {
-          if (!videoData || !videoData.results) {
-            moreDetailsButton.style.display = 'none';
-            getStartedButton.addEventListener('click', () => {
-              document.querySelector('.error-modal').style.display = 'flex';
-            });
-            return;
-          }
-          getStartedButton.style.display = 'none';
-          watchTrailerButton.style.display = 'block';
-          moreDetailsButton.style.display = 'block';
-          moreDetailsButton.addEventListener('click', () => {
-            renderMovieInfoPopup(videoData)
-          })
-          watchTrailerButton.textContent = 'Watch Trailer';
-          const officialTrailer = videoData.results.find(
-            video => video.site === 'YouTube' && video.type === 'Trailer'
-          );
-          resolve(officialTrailer);
-          if (videoData.results.length > 0) {
-            videoData.results.forEach(videoItem => {
-              if (videoItem.type === 'Trailer') {
-                watchTrailerButton.textContent = 'Watch Trailer';
-                watchTrailerButton.addEventListener('click', () => {
-                  const trailerUrl = `https://www.youtube.com/watch?v=${videoItem.key}`;
-                  window.open(trailerUrl, '_blank');
-                });
-              }
-            });
-          }
+
+          resolve(videoData);
+
         })
-        .catch(err => console.error(err));
+        .catch(err => {
+          console.error(err);
+          reject(err);
+        });
     } catch (error) {
       console.error('Error in getMovieVideos:', error);
     } finally {
@@ -111,7 +82,10 @@ const heroRender = async () => {
     const heroStars = document.querySelector('#hero__content-stars');
     const heroInfoText = document.querySelector('#hero__content-info-text');
     const heroButtonArea = document.querySelector('#hero-content-button-area');
+    const heroGetStartedButton = document.querySelector('#hero-get-started');
+    const heroWatchTrailerButton = document.querySelector('#hero-watch-trailer');
     const heroMoreDetails = document.querySelector('#more-details');
+
     const heroPoster = document.querySelector(
       '#hero__content-background-image'
     );
@@ -124,6 +98,10 @@ const heroRender = async () => {
     getDayTrends()
       .then(async res => {
         const randomMovie = res.results[randomNumber];
+        if (randomMovie) {
+          heroMoreDetails.style.display = 'block';
+          heroGetStartedButton.style.display = 'none';
+        }
         // vote_average
         const voteAverage = Math.round(randomMovie.vote_average / 2);
         heroPoster.src = `https://image.tmdb.org/t/p/original/${randomMovie.backdrop_path}`;
@@ -136,7 +114,24 @@ const heroRender = async () => {
         heroMoreDetails.addEventListener('click', () => {
           renderMovieInfoPopup(randomMovie);
         });
-        getMovieVideos(randomMovie.id);
+        heroWatchTrailerButton.addEventListener('click', () => {
+          getMovieVideos(randomMovie.id).then(videoData => {
+            if (videoData.results.length === 0) {
+              document.querySelector('#errorModal').style.display = 'flex';
+              return;
+            } else {
+              let vData = videoData.results.find(
+                video => video.site === 'YouTube' && video.type === 'Trailer'
+              );
+
+              window.open(`https://www.youtube.com/watch?v=${vData.key}`, '_blank');
+            }
+          })
+            .catch(err => {
+              console.error('Error fetching video data:', err);
+            });
+        });
+        // getMovieVideos(randomMovie.id);
       })
       .catch(err => {
         console.error('Error fetching daily trends:', err);
