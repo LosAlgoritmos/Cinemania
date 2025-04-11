@@ -4,17 +4,17 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="shortcut icon" href="/Cinemania/assets/popcorn-BzgQrV2X.svg" type="image/x-icon" />
+  <link rel="shortcut icon" href="/Cinemania/popcorn.svg" type="image/x-icon" />
   <!-- <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
     integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Home | Cinemania</title>
   <script type="module" crossorigin src="/Cinemania/index.js"></script>
-  <link rel="modulepreload" crossorigin href="/Cinemania/assets/members-modal-Dc_G8QNG.js">
-  <link rel="modulepreload" crossorigin href="/Cinemania/assets/hero-CHS9ye11.js">
-  <link rel="stylesheet" crossorigin href="/Cinemania/assets/members-modal-B14UUzf8.css">
+  <link rel="modulepreload" crossorigin href="/Cinemania/assets/members-modal-_NF8niJK.js">
+  <link rel="modulepreload" crossorigin href="/Cinemania/assets/hero-y7TF44e0.js">
+  <link rel="stylesheet" crossorigin href="/Cinemania/assets/members-modal-BNHhJqqd.css">
 </head>
 
 <body>
@@ -128,17 +128,26 @@
     <div class="img-div-upcoming" id="img-div-upcoming"></div>
     <div class="details">
       <h1 class="title" id="upcoming-title">THE LOST CITY</h1>
-      <p class="info">
-        Release date <span class="details-date span" id="upcoming-date">03.03.2023</span>
-      </p>
-      <p class="info">
-        Vote / Votes <span class="info-span span" id="upcoming-vote">7.3 </span> /
-        <span class="span-info span" id="upcoming-votes">1260</span>
-      </p>
-      <p class="info">
-        <b>Popularity</b> <span class="info-s span" id="upcoming-popularity">99.9</span>
-      </p>
-      <p class="info">Genre <span class="span" id="upcoming-genres">Comedy, action</span></p>
+      <div class="upcoming-content">
+        <div>
+          <p class="info">
+            Release date <span class="details-date span" id="upcoming-date">03.03.2023</span>
+          </p>
+          <p class="info">
+            Vote / Votes <span class="info-span span" id="upcoming-vote">7.3 </span> /
+            <span class="span-info span" id="upcoming-votes">1260</span>
+          </p>
+        </div>
+        <div>
+          <p class="info">
+            <b>Popularity</b> <span class="info-s span" id="upcoming-popularity">99.9</span>
+          </p>
+          <p class="info">Genre <span class="span" id="upcoming-genres">Comedy, action</span></p>
+        </div>
+      </div>
+
+
+
       <div class="upabout">
         <h2 class="upcoming-about">ABOUT</h2>
         <p class="upcoming-about-text" id="upcoming-overview">
@@ -157,7 +166,7 @@
   </div>
 </section>
   <footer class="footer">
-  <div class="footer-container container">
+  <div class="footer-container">
     <p class="footer-text">
       <span class="footer-copyright"> &copy;</span> 2025 | All Rights Reserved |
     </p>
@@ -224,59 +233,24 @@
   </div>
 </section>
   <div class="team team__backdrop is-hidden">
-  <div class="team__wrapper container">
+  <div class="team__wrapper ">
     <button class="team__modal-close-btn" type="button">
       <svg class="team__modal-close-icon" width="20" height="20">
-        <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-close"></use>
+        <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-close"></use>
       </svg>
     </button>
     <h2 class="team__title">Our cool team</h2>
     <ul class="team__list">
       <li class="team__item">
         <div class="team__wrap">
-          <div class="team-img-wrap">
-            <img
-              class="team__img"
-              loading="lazy"
-              src="/Cinemania/assets/02-Ye%C5%9Fim%20Bozkurt-BlrpUqK1.jpg"
-              alt="02-Yeşim Bozkurt"
-              width="240"
-            />
-          </div>
-        </div>
-        <div class="team__box">
-          <h2 class="team__member">Yeşim Bozkurt</h2>
-          <p class="team__role">Team Lead | Developer</p>
-          <a
-            class="team__link-linkedin team__link-linkedin--active"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            href="https://www.linkedin.com/"
-          >
-            <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-linkedin"></use>
-            </svg>
-          </a>
-          <a
-            class="team__link-github team__link-github--active"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            href="https://github.com/"
-          >
-            <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-github"></use>
-            </svg>
-          </a>
-        </div>
-      </li>
-      <li class="team__item">
-        <div class="team__wrap">
+
           <img
             class="team__img"
             loading="lazy"
-            src="/Cinemania/assets/01-Kaan%20Erenmemisoglu-BJ0viYgE.jpeg"
+            src="../images/01-Kaan Erenmemisoglu.jpeg"
             alt="Ruslana Onyshchuk"
           />
+
         </div>
         <div class="team__box">
           <p class="team__member">Kaan Erenmemisoglu</p>
@@ -285,20 +259,59 @@
             class="team__link-linkedin team__link-linkedin--active"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/kaan-erenmemisoglu/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
             class="team__link-github team__link-github--active"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            href="https://github.com/"
+            href="https://github.com/RoyalNegative"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team__item">
+        <div class="team__wrap">
+
+          <div class="team-img-wrap">
+            <img
+              class="team__img"
+              loading="lazy"
+              src="../images/02-Yeşim Bozkurt.jpg"
+              alt="02-Yeşim Bozkurt"
+              width="240"
+            />
+          </div>
+
+        </div>
+        <div class="team__box">
+          <h2 class="team__member">Yeşim Bozkurt</h2>
+          <p class="team__role">Team Lead | Developer</p>
+          <a
+            class="team__link-linkedin team__link-linkedin--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="www.linkedin.com/in/yeşim-bozkurt"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+          <a
+            class="team__link-github team__link-github--active"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://github.com/yesimbozkurt"
+          >
+            <svg class="team__icon" width="25" height="25">
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -319,20 +332,20 @@
             class="team__link-linkedin team__link-linkedin--active"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            href="https://www.linkedin.com/"
+            href="merhaba tabiki https://www.linkedin.com/in/dilaraydmr/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
             class="team__link-github team__link-github--active"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            href="https://github.com"
+            href="https://github.com/Dilaraydmr"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -353,20 +366,20 @@
             class="team__link-linkedin team__link-linkedin--active"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            href="http://linkedin.com"
+            href="https://www.linkedin.com/in/s%C3%BCmeyye-terzi-762568270/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
             class="team__link-github team__link-github--active"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            href="https://github.com"
+            href="https://github.com/kyotosanayi"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -387,20 +400,20 @@
             class="team__link-linkedin team__link-linkedin--active"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/in/negin-kerimli-004b72320/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
             class="team__link-github team__link-github--active"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            href="https://github.com"
+            href="https://github.com/Neginkrml"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -421,20 +434,20 @@
             class="team__link-linkedin team__link-linkedin--active"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/in/erdem-demircioglu-76b80533/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
             class="team__link-github team__link-github--active"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            href="https://github.com"
+            href="https://github.com/erdem6161"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -455,20 +468,20 @@
             class="team__link-linkedin team__link-linkedin--active"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/in/alper-kale-developer?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
             class="team__link-github team__link-github--active"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            href="https://github.com"
+            href="https://github.com/AlperKale"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
@@ -489,28 +502,29 @@
             class="team__link-linkedin team__link-linkedin--active"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/in/murselsen/"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-linkedin"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-linkedin"></use>
             </svg>
           </a>
           <a
             class="team__link-github team__link-github--active"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            href="https://github.com"
+            href="https://github.com/murselsen"
           >
             <svg class="team__icon" width="25" height="25">
-              <use href="/Cinemania/assets/symbols-Dc4cGSjy.svg#icon-github"></use>
+              <use href="/Cinemania/assets/symbols-DTlSUfKB.svg#icon-github"></use>
             </svg>
           </a>
         </div>
       </li>
+      
     </ul>
   </div>
 </div>
-
+
 </body>
 
 </html>
