@@ -16,7 +16,6 @@ window.addEventListener('click', e => {
 export const isLocalMovieById = (movieId) => {
  const localLibraryStorage = JSON.parse(localStorage.getItem('myLibrary')) || [];
   const findMovie = localLibraryStorage.find(movie => movie.id === Number(movieId))
-  console.log("Find Movie:",findMovie);
   if(findMovie){
     document.querySelector('#iMovieLocalAddBtn').style.display = 'none';
     document.querySelector('#iMovieLocalRemoveBtn').style.display = 'block';
@@ -32,7 +31,6 @@ export const isLocalMovieById = (movieId) => {
 export const renderMovieInfoPopup = (movie) => {
   const iPopup = document.querySelector('.infoPopup');
   iPopup.style.display = 'flex';
-  console.log("InfoPopup - Movie data:", movie);
   // iMovieTitle
   iPopup.querySelector("#iMovieTitle").textContent = movie.original_title || movie.original_name;
   // iMovieVote
@@ -73,10 +71,23 @@ export const renderMovieInfoPopup = (movie) => {
   // isLocalMovieById
   isLocalMovieById(movie.id);
   // iMovieLocalAddBtn
-  document.querySelector('#iMovieLocalAddBtn').setAttribute('data-movie', JSON.stringify(movie));
-  // iMovieLocalRemoveBtn
-  document.querySelector('#iMovieLocalRemoveBtn').setAttribute('data-movie-id', movie.id);
+  document.querySelector('#iMovieLocalAddBtn').addEventListener('click', (e) => {
+    const localMyLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [];
+    localMyLibrary.push(movie);
+    localStorage.setItem('myLibrary', JSON.stringify(localMyLibrary));
 
+    // isLocalMovieById
+    isLocalMovieById(movie.id);
+  });
+  // iMovieLocalRemoveBtn
+  document.querySelector('#iMovieLocalRemoveBtn').addEventListener('click', (e) => {
+      const localArray = JSON.parse(localStorage.getItem('myLibrary') || []);
+      const updatedArray = localArray.filter(m => m.id !== movie.id);
+      localStorage.setItem('myLibrary', JSON.stringify(updatedArray));
+      
+
+      isLocalMovieById(movie.id);
+  });
 
   // Local Strorage Movie Control Exists or not
 
