@@ -58,9 +58,7 @@ getUpcoming().then(res => {
     document.querySelector('#upcoming-genres').textContent = randomMovie.genre_ids.map(genre => upComingGenreMap[genre]).join(', ');
     document.querySelector('#upcoming-overview').textContent = randomMovie.overview;
     document.querySelector('#upcoming-add-library').setAttribute('data-movie', JSON.stringify(randomMovie));
-    console.log("Movie:", randomMovie);
     document.querySelector('#upcoming-remove-library').setAttribute('data-movie-id', randomMovie.id);
-
     document.querySelector('#upcoming-add-library').addEventListener('click', e => {
         const stringifyMovie = e.target.getAttribute('data-movie');
         const localLibraryStorage = JSON.parse(localStorage.getItem('myLibrary')) || [];
@@ -78,7 +76,6 @@ getUpcoming().then(res => {
         const findMovie = localLibraryStorage.find(movie => movie.id === Number(movieId))
         const filtersMovieList = localLibraryStorage.filter(movie => movie.id !== Number(movieId))
         console.log("Movie:", filtersMovieList);
-
     })
 
 })
