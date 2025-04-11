@@ -118,7 +118,16 @@ searchbtn.addEventListener('click', () => {
         li.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${movie.poster_path})`;
 
         // Note: No inline dimensions - CSS handles these now
-
+        const stars = [
+          `<span class="star star-outline"></span>`,
+          `<span class="star star-outline"></span>`,
+          `<span class="star star-outline"></span>`,
+          `<span class="star star-outline"></span>`,
+          `<span class="star star-outline"></span>`,
+        ];
+        for (let i = 0; i <= movie.vote_average / 2; i++) {
+          stars[i] = `<span class="star star"></span>`;
+        }
         li.innerHTML = `
         <div class="movies__list-item-info">
           <div class="movies__list-item-info-container">
@@ -130,11 +139,7 @@ searchbtn.addEventListener('click', () => {
             }</p>
           </div>
           <div class="movies__list-item-rating">
-            ${Array.from({ length: 5 }, (_, index) =>
-              index < Math.round(movie.vote_average / 2)
-                ? '<img src="./images/star.png" alt="star">'
-                : '<img src="./images/star-outline.png" alt="empty star">'
-            ).join('')}
+            ${stars.join('')}
           </div>
         </div>
       `;

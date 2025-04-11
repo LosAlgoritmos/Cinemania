@@ -44,18 +44,23 @@ async function getWeeklyTrends() {
       const cardss = document.createElement('li');
       cardss.className = 'cards';
       cardss.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${moviee.poster_path})`;
-
+      const stars = [
+        `<span class="star star-outline"></span>`,
+        `<span class="star star-outline"></span>`,
+        `<span class="star star-outline"></span>`,
+        `<span class="star star-outline"></span>`,
+        `<span class="star star-outline"></span>`,
+      ];
+      for (let i = 0; i <= moviee.vote_average / 2; i++) {
+        stars[i] = `<span class="star star"></span>`;
+      }
       cardss.innerHTML = `
         <div class="about">
           <h3 class="filmm-name">${moviee.title || moviee.name}</h3>
           <p class="filmm-content">${moviee.release_date}</p>
         </div>
         <div class="movies__list-item-rating">
-          ${Array.from({ length: 5 }, (_, index) =>
-            index < Math.round(moviee.vote_average || 0)
-              ? '<img src="images/star.png" alt="star">'
-              : '<img src="images/star-outline.png" alt="empty star">'
-          ).join('')}
+          ${stars.join('')}
         </div>
       `;
       cardss.addEventListener('click', () => {
