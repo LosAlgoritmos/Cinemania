@@ -20,7 +20,7 @@ themeToggle.classList.add(theme)
 document.querySelector('html').setAttribute('data-theme', theme);
 
 themeToggle.addEventListener('click', event => {
-  console.log(event)
+  
   let checkThemeResult = checkTheme();
   let newTheme = checkThemeResult === 'dark' ? 'light' : 'dark';
   localStorage.setItem('theme', newTheme);
@@ -40,7 +40,7 @@ document.querySelectorAll('.nav__menu-link').forEach(link => {
 
 const navMenuToggle = document.querySelector('#nav__menu-toggle');
 navMenuToggle.addEventListener("click", e => {
-  console.log(e)
+  
 
   const nav = document.querySelector(".nav");
   const nav__menu = document.querySelector(".nav__menu");
