@@ -1,16 +1,13 @@
 // @murselsen
 import './js/navbar.js';
-// @sumeyyeterzi
-import './js/errorModal.js';
-// @murselsen
 import './js/hero.js';
-// @Neginkrml
-import './js/weeklyTrends.js';
-// @Dilaraydmr
-import './js/upcoming.js';
 // @AlperKale
 import { showLoader, hideLoader } from './js/loader.js';
 import './js/scroll-up.js';
+// @sumeyyeterzi
+import './js/errorModal.js';
+// @RoyalNegative
+import './js/movies.js';
 // @erdem6161
 import './js/footer.js';
 import './js/members-modal.js';

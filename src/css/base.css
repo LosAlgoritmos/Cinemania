@@ -30,4 +30,5 @@
 
 html {
   background-color: var(--bg);
+  transition: background-color 450ms linear;
 }

@@ -282,5 +282,6 @@
 
 .team__link-github:hover,
 .team__link-linkedin:hover {
+
   fill: var(--orange);
 }

@@ -1,5 +1,7 @@
-import { showLoader, hideLoader, fetchWithLoader } from './loader.js';
-const trendCards = document.querySelector('.trend-cards'); // UL elementini doğru aldığımıza emin ol!
+//#region 
+import { showLoader, hideLoader } from './loader.js';
+
+const trendCards = document.querySelector('.trend-cards');
 
 async function getWeeklyTrends() {
   try {
@@ -18,10 +20,9 @@ async function getWeeklyTrends() {
       'https://api.themoviedb.org/3/trending/all/day?language=en-US',
       options
     );
-
     const data = await response.json();
 
-    // 👇 Dizi karıştırma fonksiyonunu burada tanımlıyoruz
+    // 🎲 Karıştırma fonksiyonu
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -30,10 +31,15 @@ async function getWeeklyTrends() {
       return array;
     }
 
-    // 👇 Verileri karıştır ve ilk 3'ü al
-    const shuffledResults = shuffleArray(data.results).slice(0, 3);
+    // 📱🖥️ Ekran boyutuna göre film sayısı belirle
+    const screenWidth = window.innerWidth;
+    const movieCount = screenWidth <= 576 ? 1 : 3;
 
-    // 👇 Kartları oluştur ve ekrana yaz
+    // 🎬 Filmleri karıştır ve ekrana yaz
+    const shuffledResults = shuffleArray(data.results).slice(0, movieCount);
+
+    trendCards.innerHTML = ''; // Önceki kartları temizle
+
     shuffledResults.forEach(moviee => {
       const cardss = document.createElement('li');
       cardss.className = 'cards';
@@ -62,14 +68,19 @@ async function getWeeklyTrends() {
   }
 }
 
+// 📥 Sayfa yüklendiğinde çalıştır
 getWeeklyTrends();
 
-const response = await fetch(
-  'https://api.themoviedb.org/3/trending/all/week?language=en-US',
-  options
-);
-const data = await response.json();
-console.log('Gelen veri:', data);
+// 📏 Ekran boyutu değişince yeniden yükle
+let lastScreenWidth = window.innerWidth;
 
-
-
+window.addEventListener('resize', () => {
+  // sadece önemli değişiklik varsa yeniden çek
+  if (
+    (lastScreenWidth <= 576 && window.innerWidth > 576) ||
+    (lastScreenWidth > 576 && window.innerWidth <= 576)
+  ) {
+    lastScreenWidth = window.innerWidth;
+    getWeeklyTrends();
+  }
+});

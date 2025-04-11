@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
-      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./css/styles.css" />
-    <title>Catalog | Cinemania</title>
-  </head>
 
-  <body>
-    <!-- Loader Component -->
-    <div class="loader-container" id="loader-container">
-      <div class="loader">
-        <div class="film-strip film-strip-top"></div>
-        <div class="film-reel"></div>
-        <div class="film-strip film-strip-bottom"></div>
-        <div class="loader-text">Loading...</div>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="shortcut icon" href="/popcorn.svg" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+    integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <title>
+    Catalog | Cinemania
+  </title>
+</head>
+
+<body>
+  <!-- Loader Component -->
+  <div class="loader-container" id="loader-container">
+    <div class="loader">
+      <div class="film-strip film-strip-top"></div>
+      <div class="film-reel"></div>
+      <div class="film-strip film-strip-bottom"></div>
+      <div class="loader-text">Loading...</div>
     </div>
+  </div>
 
-    <load src="./partials/header.html" />
-    <load src="./partials/hero.html" />
-    <load src="./partials/movies.html" />
-    <load src="./partials/footer.html" />
+  <load src="./partials/header.html" />
+  <load src="./partials/hero.html" />
+  <load src="./partials/movies.html" />
+  <load src="./partials/footer.html" />
+  <load src="./partials/members-modal.html" />
+  <load src="./partials/infoPopup.html" />
+  <load src="./partials/errorModal.html" />
+  <script type="module" src="./catalog.js"></script>
+</body>
 
-    <script type="module" src="./main.js"></script>
-    <script src="script.js"></script>
-  </body>
 </html>
