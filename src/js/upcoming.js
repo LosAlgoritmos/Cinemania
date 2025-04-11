@@ -25,12 +25,12 @@ getUpcoming().then(res => {
     const randomMovie = res.results[randomIndex];
     // console.clear();
     // Image URL : https://image.tmdb.org/t/p/original/ ${film.backdrop_path}
-  
+
 
     document.querySelector("#img-div-upcoming").style.backgroundImage = `url(https://image.tmdb.org/t/p/original${randomMovie.poster_path})`;
     document.querySelector("#upcoming-title").textContent = randomMovie.original_title;
     document.querySelector("#upcoming-date").textContent = randomMovie.release_date;
-    document.querySelector("#upcoming-vote").textContent = randomMovie.vote_average;
+    document.querySelector("#upcoming-vote").textContent = randomMovie.vote_average.toFixed(1);
     document.querySelector("#upcoming-votes").textContent = randomMovie.vote_count;
     document.querySelector('#upcoming-popularity').textContent = randomMovie.popularity;
 
@@ -57,9 +57,9 @@ getUpcoming().then(res => {
     };
     document.querySelector('#upcoming-genres').textContent = randomMovie.genre_ids.map(genre => upComingGenreMap[genre]).join(', ');
     document.querySelector('#upcoming-overview').textContent = randomMovie.overview;
-    document.querySelector('#upcoming-add-library').setAttribute('data-movie',JSON.stringify(randomMovie));
-    console.log("Movie:",randomMovie);
-    document.querySelector('#upcoming-remove-library').setAttribute('data-movie-id',randomMovie.id);
+    document.querySelector('#upcoming-add-library').setAttribute('data-movie', JSON.stringify(randomMovie));
+    console.log("Movie:", randomMovie);
+    document.querySelector('#upcoming-remove-library').setAttribute('data-movie-id', randomMovie.id);
 
     document.querySelector('#upcoming-add-library').addEventListener('click', e => {
         const stringifyMovie = e.target.getAttribute('data-movie');
@@ -73,11 +73,11 @@ getUpcoming().then(res => {
         // document.querySelector('#upcoming-add-library').style.display = 'block';
         // e.target.style.display = 'none';
         const movieId = e.target.getAttribute('data-movie-id');
-        console.log("Movie ID:",movieId);
+        console.log("Movie ID:", movieId);
         const localLibraryStorage = JSON.parse(localStorage.getItem('myLibrary')) || [];
         const findMovie = localLibraryStorage.find(movie => movie.id === Number(movieId))
         const filtersMovieList = localLibraryStorage.filter(movie => movie.id !== Number(movieId))
-        console.log("Movie:",filtersMovieList);
+        console.log("Movie:", filtersMovieList);
 
     })
 
