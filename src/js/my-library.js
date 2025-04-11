@@ -125,7 +125,7 @@ function renderLibrary(movies, append = false) {
                             <p class="movies__list-item-description">${movie.release_date}</p>
                             </div>
                             <div class="movies__list-item-rating">
-                             ${stars.join('')}
+                            ${stars.join('')}
                             </div>
                         </div>
                     `;
