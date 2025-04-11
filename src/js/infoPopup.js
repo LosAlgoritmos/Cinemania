@@ -11,6 +11,11 @@ window.addEventListener('click', e => {
     infoPopup.style.display = 'none';
   }
 });
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    infoPopup.style.display = "none";
+  }
+});
 
 // @murselsen
 export const isLocalMovieById = (movieId) => {
@@ -67,7 +72,9 @@ export const renderMovieInfoPopup = (movie) => {
   // iMoviePoster 
   const posterBaseUrl = 'https://image.tmdb.org/t/p/w500';
   iPopup.querySelector('#iMoviePoster').src = posterBaseUrl + movie.poster_path;
-
+  // document.querySelector("#iMoviePosterMobile").getAttribute("srcset")
+  iPopup.querySelector("#iMoviePosterMobile").setAttribute("srcset", posterBaseUrl + movie.poster_path);
+  iPopup.querySelector("#iMoviePosterTablet").setAttribute("srcset", posterBaseUrl + movie.poster_path);
   // isLocalMovieById
   isLocalMovieById(movie.id);
   // iMovieLocalAddBtn
@@ -78,6 +85,7 @@ export const renderMovieInfoPopup = (movie) => {
 
     // isLocalMovieById
     isLocalMovieById(movie.id);
+    console.log('Movie added to local storage:', movie);
   });
   // iMovieLocalRemoveBtn
   document.querySelector('#iMovieLocalRemoveBtn').addEventListener('click', (e) => {

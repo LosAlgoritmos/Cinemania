@@ -1,6 +1,6 @@
 //#region 
 import { showLoader, hideLoader } from './loader.js';
-
+import { renderMovieInfoPopup } from './infoPopup.js';
 const trendCards = document.querySelector('.trend-cards');
 
 async function getWeeklyTrends() {
@@ -58,7 +58,9 @@ async function getWeeklyTrends() {
           ).join('')}
         </div>
       `;
-
+      cardss.addEventListener('click', () => {
+        renderMovieInfoPopup(moviee)
+      });
       trendCards.appendChild(cardss);
     });
   } catch (error) {
