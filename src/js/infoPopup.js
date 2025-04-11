@@ -18,7 +18,7 @@ export const isLocalMovieById = (movieId) => {
   const findMovie = localLibraryStorage.find(movie => movie.id === Number(movieId))
   console.log("Find Movie:",findMovie);
   if(findMovie){
-    C.style.display = 'none';
+    document.querySelector('#iMovieLocalAddBtn').style.display = 'none';
     document.querySelector('#iMovieLocalRemoveBtn').style.display = 'block';
   } else {
     document.querySelector('#iMovieLocalAddBtn').style.display = 'block';
