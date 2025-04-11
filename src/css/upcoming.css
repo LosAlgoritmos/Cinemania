@@ -5,14 +5,15 @@
   border-radius: 10px;
   max-width: 1280px;
   margin: 0 auto;
-
+  margin-top: 60px;
 }
 
 
 .upcoming-header {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 15px;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 100%;
+  margin-bottom: 28px;
 }
 
 .content-upcoming {
@@ -24,7 +25,7 @@
 }
 
 .content-upcoming .img-div-upcoming {
-  width:100%;
+  width: 100%;
   max-width: 805px;
 
   height: 458px;
@@ -147,6 +148,12 @@
   .upcoming-container {
     margin-bottom: 12px;
     padding-inline: 20px;
+    margin-top: 32px;
+  }
+
+  .upcoming-header {
+    font-size: 18px;
+    margin-bottom: 24px;
   }
 
   .content-upcoming {
@@ -154,7 +161,7 @@
     /* align-items: center; */
     height: 100%;
     width: 100%;
-     color: var(--text)
+    color: var(--text)
   }
 
   .content-upcoming .img-div-upcoming {
@@ -166,7 +173,7 @@
     background-repeat: no-repeat;
     margin: 0 auto;
   }
-   
+
 
   .details {
     padding: 0 1rem;
@@ -186,28 +193,48 @@
     font-weight: 400;
   }
 
+  #upcoming-title {
+    font-size: 22px;
+    font-weight: 500;
+  }
+
 }
 
 /***TABLET İÇİN****/
 @media (min-width: 768px) and (max-width: 1023px) {
   .upcoming-container {
-    padding: 20px;
-  
+    padding: 32px;
+    margin-top: 44px;
+
   }
 
   .upcoming-header {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    font-size: 24px;
   }
+
+  #upcoming-vote {
+    height: 19px;
+  }
+
+  #upcoming-votes {
+    height: 19px;
+
+  }
+
+  #upcoming-title {
+    font-size: 28px;
+    font-weight: 500;
+  }
+
 
   .content-upcoming {
     height: 100%;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-}
- 
+  }
+
 
   /* .content-upcoming .img-div-upcoming {
     width: 704px;
@@ -233,16 +260,26 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-  } 
+  }
+
+  .upcoming-content {
+    display: flex;
+    flex-direction: row;
+    /* gap: 118px; */
+    justify-content: space-between;
+  }
+
   .title {
     font-size: 24px;
     font-weight: bold;
     margin: 10px 0;
   }
+
   .span {
     color: orange;
     font-weight: 600;
   }
+
   .info-span {
     background-color: #fff;
     color: #000;
@@ -250,14 +287,17 @@
     border-radius: 4px;
     margin: 0 4px;
   }
+
   .upabout {
     margin-top: 15px;
   }
+
   .upcoming-about {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
   }
+
   .upcoming-about-text {
     font-size: 14px;
     line-height: 1.6;
@@ -266,6 +306,7 @@
     line-height: 20px;
     letter-spacing: 0%;
   }
+
   .btn .btn-orange-black {
     margin-top: 12px;
     padding: 10px 20px;
@@ -274,5 +315,3 @@
     border-radius: 20px;
   }
 }
-
- 
