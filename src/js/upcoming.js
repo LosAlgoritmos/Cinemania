@@ -1,3 +1,6 @@
+import {isLocalMovieById,
+    addMovieToLocalStorage,removeMovieToLocalStorage
+} from './infoPopup.js';
 const getUpcoming = async () => {
     return new Promise((resolve, reject) => {
         const options = {
@@ -57,25 +60,28 @@ getUpcoming().then(res => {
     };
     document.querySelector('#upcoming-genres').textContent = randomMovie.genre_ids.map(genre => upComingGenreMap[genre]).join(', ');
     document.querySelector('#upcoming-overview').textContent = randomMovie.overview;
-    document.querySelector('#upcoming-add-library').setAttribute('data-movie', JSON.stringify(randomMovie));
-    document.querySelector('#upcoming-remove-library').setAttribute('data-movie-id', randomMovie.id);
+
+    if(!isLocalMovieById(randomMovie.id)) {
+        document.querySelector('#upcoming-add-library').style.display = 'block';
+        document.querySelector('#upcoming-remove-library').style.display = 'none';
+    } else {
+        document.querySelector('#upcoming-add-library').style.display = 'none';
+        document.querySelector('#upcoming-remove-library').style.display = 'block';
+    }
+     
     document.querySelector('#upcoming-add-library').addEventListener('click', e => {
-        const stringifyMovie = e.target.getAttribute('data-movie');
-        const localLibraryStorage = JSON.parse(localStorage.getItem('myLibrary')) || [];
-        localLibraryStorage.push(JSON.parse(stringifyMovie));
-        localStorage.setItem('myLibrary', JSON.stringify(localLibraryStorage));
+        
         e.target.style.display = 'none';
+
+        addMovieToLocalStorage(randomMovie);
+
         document.querySelector('#upcoming-remove-library').style.display = 'block';
     });
     document.querySelector('#upcoming-remove-library').addEventListener("click", e => {
-        // document.querySelector('#upcoming-add-library').style.display = 'block';
-        // e.target.style.display = 'none';
-        const movieId = e.target.getAttribute('data-movie-id');
-        console.log("Movie ID:", movieId);
-        const localLibraryStorage = JSON.parse(localStorage.getItem('myLibrary')) || [];
-        const findMovie = localLibraryStorage.find(movie => movie.id === Number(movieId))
-        const filtersMovieList = localLibraryStorage.filter(movie => movie.id !== Number(movieId))
-        console.log("Movie:", filtersMovieList);
+   
+        document.querySelector('#upcoming-remove-library').style.display = 'none';
+        removeMovieToLocalStorage(randomMovie);
+        document.querySelector('#upcoming-add-library').style.display = 'block';
     })
 
 })

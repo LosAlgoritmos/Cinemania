@@ -25,7 +25,6 @@ export const isLocalMovieById = (movieId) => {
   if (findMovie) {
     return true;
   } else {
-
     return false;
   }
 };
@@ -77,7 +76,7 @@ export const renderMovieInfoPopup = (movie) => {
   const iPopup = document.querySelector('.infoPopup');
   iPopup.style.display = 'flex';
   // iMovieTitle
-  iPopup.querySelector("#iMovieTitle").textContent = movie.original_title || movie.original_name;
+  iPopup.querySelector("#iMovieTitle").textContent = movie.original_title || movie.title;
   // iMovieVote
   iPopup.querySelector('#iMovieVote').textContent = movie.vote_average;
   // iMovieVotes
