@@ -73,6 +73,7 @@ export const removeMovieToLocalStorage = (movie_data) => {
 
 // @murselsen
 export const renderMovieInfoPopup = (movie) => {
+  console.log("Info Popup Movie", movie);
   const iPopup = document.querySelector('.infoPopup');
   iPopup.style.display = 'flex';
   // iMovieTitle
