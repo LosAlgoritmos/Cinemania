@@ -18,10 +18,23 @@ document.addEventListener("keydown", (e) => {
 });
 
 // @murselsen
+
 export const isLocalMovieById = (movieId) => {
- const localLibraryStorage = JSON.parse(localStorage.getItem('myLibrary')) || [];
-  const findMovie = localLibraryStorage.find(movie => movie.id === Number(movieId))
-  if(findMovie){
+  const localLibraryStorage = JSON.parse(localStorage.getItem('myLibrary')) || [];
+  const findMovie = localLibraryStorage.find(movie => movie.id === Number(movieId));
+  if (findMovie) {
+    return true;
+  } else {
+
+    return false;
+  }
+};
+
+// @murselsen
+export const renderMoiveLocalActionBtn = (movieId) => {
+
+  const findMovie = isLocalMovieById(movieId);
+  if (findMovie) {
     document.querySelector('#iMovieLocalAddBtn').style.display = 'none';
     document.querySelector('#iMovieLocalRemoveBtn').style.display = 'block';
   } else {
@@ -30,7 +43,33 @@ export const isLocalMovieById = (movieId) => {
   }
 };
 
+// @murselsen
+export const addMovieToLocalStorage = (movie_data) => {
+  const localMyLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [];
+  
+  if(!isLocalMovieById(movie_data.id)){
+    localMyLibrary.push(movie_data);
+    localStorage.setItem('myLibrary', JSON.stringify(localMyLibrary));
+  }else{
+    localStorage.setItem('myLibrary', JSON.stringify(localMyLibrary));
 
+  }
+  console.log("localMyLibrary", localMyLibrary);
+
+  // renderMoiveLocalActionBtn
+  renderMoiveLocalActionBtn(movie_data.id);
+};
+
+// @murselsen
+
+export const removeMovieToLocalStorage = (movie_data) => {
+  const localArray = JSON.parse(localStorage.getItem('myLibrary') || []);
+  const updatedArray = localArray.filter(m => m.id !== movie_data.id);
+  localStorage.setItem('myLibrary', JSON.stringify(updatedArray));
+
+  // renderMoiveLocalActionBtn
+  renderMoiveLocalActionBtn(movie_data.id);
+};
 
 // @murselsen
 export const renderMovieInfoPopup = (movie) => {
@@ -76,29 +115,17 @@ export const renderMovieInfoPopup = (movie) => {
   iPopup.querySelector("#iMoviePosterMobile").setAttribute("srcset", posterBaseUrl + movie.poster_path);
   iPopup.querySelector("#iMoviePosterTablet").setAttribute("srcset", posterBaseUrl + movie.poster_path);
   // isLocalMovieById
-  isLocalMovieById(movie.id);
+  renderMoiveLocalActionBtn(movie.id);
   // iMovieLocalAddBtn
   document.querySelector('#iMovieLocalAddBtn').addEventListener('click', (e) => {
-    const localMyLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [];
-    localMyLibrary.push(movie);
-    localStorage.setItem('myLibrary', JSON.stringify(localMyLibrary));
-
-    // isLocalMovieById
-    isLocalMovieById(movie.id);
-    console.log('Movie added to local storage:', movie);
+    addMovieToLocalStorage(movie);
   });
   // iMovieLocalRemoveBtn
   document.querySelector('#iMovieLocalRemoveBtn').addEventListener('click', (e) => {
-      const localArray = JSON.parse(localStorage.getItem('myLibrary') || []);
-      const updatedArray = localArray.filter(m => m.id !== movie.id);
-      localStorage.setItem('myLibrary', JSON.stringify(updatedArray));
-      
-
-      isLocalMovieById(movie.id);
+    removeMovieToLocalStorage(movie);
   });
 
-  // Local Strorage Movie Control Exists or not
-
+   
 };
 
 
