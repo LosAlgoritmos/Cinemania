@@ -106,6 +106,18 @@ function renderLibrary(movies, append = false) {
         li.addEventListener('click', e => {
             renderMovieInfoPopup(movie);
         })
+
+        const stars = [
+            `<span class="star star-outline"></span>`,
+            `<span class="star star-outline"></span>`,
+            `<span class="star star-outline"></span>`,
+            `<span class="star star-outline"></span>`,
+            `<span class="star star-outline"></span>`,
+          ];
+          for (let i = 0; i <= Math.round(movie.vote_average / 2); i++) {
+            stars[i] = `<span class="star star"></span>`;
+          }
+
         li.innerHTML = `
                         <div class="movies__list-item-info">
                             <div class="movies__list-item-info-container">
@@ -113,11 +125,7 @@ function renderLibrary(movies, append = false) {
                             <p class="movies__list-item-description">${movie.release_date}</p>
                             </div>
                             <div class="movies__list-item-rating">
-                             ${Array.from({ length: 5 }, (_, index) =>
-            index < Math.round(movie.vote_average)
-                ? '<img src="./images/star.png" alt="star">'
-                : '<img src="./images/star-outline.png" alt="empty star">'
-        ).join('')}
+                             ${stars.join('')}
                             </div>
                         </div>
                     `;

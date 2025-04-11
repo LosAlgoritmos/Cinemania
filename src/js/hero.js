@@ -127,7 +127,7 @@ const heroRender = async () => {
         // vote_average
         const voteAverage = Math.round(randomMovie.vote_average / 2);
         heroPoster.src = `https://image.tmdb.org/t/p/original/${randomMovie.backdrop_path}`;
-        heroTitle.textContent = randomMovie.original_name || randomMovie.original_title;
+        heroTitle.textContent = randomMovie.original_name || randomMovie.original_title || randomMovie.title;
         heroInfoText.textContent = randomMovie.overview;
         for (let i = 0; i <= voteAverage; i++) {
           stars[i] = `<span class="star star"></span>`;
