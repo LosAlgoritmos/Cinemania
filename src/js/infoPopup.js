@@ -18,7 +18,6 @@ document.addEventListener("keydown", (e) => {
 });
 
 // @murselsen
-
 export const isLocalMovieById = (movieId) => {
   const localLibraryStorage = JSON.parse(localStorage.getItem('myLibrary')) || [];
   const findMovie = localLibraryStorage.find(movie => movie.id === Number(movieId));
@@ -53,7 +52,7 @@ export const addMovieToLocalStorage = (movie_data) => {
     localStorage.setItem('myLibrary', JSON.stringify(localMyLibrary));
 
   }
-  console.log("localMyLibrary", localMyLibrary);
+  
 
   // renderMoiveLocalActionBtn
   renderMoiveLocalActionBtn(movie_data.id);
@@ -72,11 +71,16 @@ export const removeMovieToLocalStorage = (movie_data) => {
 
 // @murselsen
 export const renderMovieInfoPopup = (movie) => {
-  console.log("Info Popup Movie", movie);
+  
   const iPopup = document.querySelector('.infoPopup');
   iPopup.style.display = 'flex';
   // iMovieTitle
-  iPopup.querySelector("#iMovieTitle").textContent = movie.original_title || movie.title;
+  if (movie.original_title) {
+    iPopup.querySelector("#iMovieTitle").textContent = movie.original_title;
+  }
+  if (movie.original_name) {
+    iPopup.querySelector("#iMovieTitle").textContent = movie.original_name;
+  }
   // iMovieVote
   iPopup.querySelector('#iMovieVote').textContent = movie.vote_average;
   // iMovieVotes
@@ -105,6 +109,8 @@ export const renderMovieInfoPopup = (movie) => {
     10752: 'War',
     37: 'Western'
   };
+  let geners =movie.genre_ids.flatMap(genreId => genreMovie[genreId]).join(', ');
+  
   iPopup.querySelector('#iMovieGenres').textContent = movie.genre_ids.map(genreId => genreMovie[genreId]).join(', ');
   // iMovieOverview
   iPopup.querySelector('#iMovieOverview').textContent = movie.overview;
