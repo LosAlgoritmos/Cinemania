@@ -9,6 +9,7 @@ closeBtn.addEventListener('click', () => {
 window.addEventListener('click', e => {
   if (e.target === infoPopup) {
     infoPopup.style.display = 'none';
+    location.reload();
   }
 });
 document.addEventListener("keydown", (e) => {
