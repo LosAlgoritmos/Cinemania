@@ -65,11 +65,6 @@ npm run build
 npm run deploy
 ```
 
-## 👥 Katkıda Bulunanlar
-- [Kullanıcı Adı] - Proje Yöneticisi
-- [Kullanıcı Adı] - Frontend Geliştirici
-- [Kullanıcı Adı] - UI/UX Tasarımcı
-
 ## 📄 Lisans
 Bu proje ISC lisansı altında lisanslanmıştır.
 
